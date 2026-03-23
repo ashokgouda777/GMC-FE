@@ -27,7 +27,7 @@
                         <th>Name</th>
                         <th>Mobile Number</th>
                         <th>Email</th>
-
+                        <th *ngIf="activeSection === 'PRC'">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,10 +43,17 @@
                         </td>
                         <td>{{ user.mobileNumber }}</td>
                         <td>{{ user.emailID }}</td>
-
+                        <td *ngIf="activeSection === 'PRC'">
+                            <button
+                                class="btn-approve"
+                                [disabled]="approvingId === (user.practitionerID || user.id || user.practitionerId)"
+                                (click)="onApprove(user)">
+                                {{ approvingId === (user.practitionerID || user.id || user.practitionerId) ? 'Applying...' : '✔ Permanent' }}
+                            </button>
+                        </td>
                     </tr>
                     <tr *ngIf="filteredUsers.length === 0">
-                        <td colspan="6" style="text-align: center; padding: 20px; color: #666;">No practitioners found.
+                        <td [attr.colspan]="activeSection === 'PRC' ? 7 : 6" style="text-align: center; padding: 20px; color: #666;">No practitioners found.
                         </td>
                     </tr>
                 </tbody>

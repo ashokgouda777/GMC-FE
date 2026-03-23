@@ -108,6 +108,7 @@ export class UsersManagementComponent implements OnInit {
 
     isEditing = false;
     currentPractitionerId: any = null;
+    approvingId: any = null;
 
     ngOnInit() {
         // Handle sidebar navigation via query params
@@ -229,6 +230,26 @@ export class UsersManagementComponent implements OnInit {
             // Implement delete if needed, for now just log
             console.log('Delete requested for', user);
         }
+    }
+
+    onApprove(user: any) {
+        const id = user.practitionerID || user.id || user.practitionerId;
+        if (!id) { alert('Practitioner ID not found.'); return; }
+        if (!confirm(`Make practitioner "${user.name}" permanent?`)) return;
+
+        this.approvingId = id;
+        this.adminService.approvePractitioner(id).subscribe({
+            next: () => {
+                alert(`${user.name} is now permanent!`);
+                this.approvingId = null;
+                this.loadPractitioners();
+            },
+            error: (err) => {
+                console.error('Operation failed:', err);
+                alert('Failed to make permanent. Please try again.');
+                this.approvingId = null;
+            }
+        });
     }
 
     onSubmit() {
