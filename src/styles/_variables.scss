@@ -1,0 +1,44 @@
+// Modern Palette (Ocean Blue Theme)
+$primary-color: var(--primary-color, #0077B6); // Ocean Blue
+$sidebar-active-color: var(--sidebar-active-color, #0077B6); // Sidebar Active Item
+$primary-light: #48CAE4; // Light Blue
+$primary-dark: #023E8A; // Dark Blue
+$secondary-color: var(--secondary-color, #0096C7); // Cyan Azure
+$success-color: #05CD99;
+$warning-color: #FFB547;
+$error-color: #D32F2F;
+
+// Backgrounds
+$bg-color: var(--bg-color, #F4F7FE); // Light Grey/Blue Background (Modern Standard)
+$white: #FFFFFF;
+$glass-bg: rgba(255, 255, 255, 0.7);
+
+// Table Dynamic Variables
+$table-body-bg: var(--table-body-bg, #FFFFFF);
+$table-body-text: var(--table-body-text, #2B3674);
+$table-btn-color: var(--table-btn-color, #0077B6);
+
+// Text
+$text-color: var(--text-color, #2B3674); // Dark Navy (Better than pure black)
+$text-secondary: #A3AED0; // Soft Grey
+
+// Layout dimensions
+$sidebar-width: 290px;
+$header-height: 80px;
+
+// Shadows
+$shadow-sm: 0px 18px 40px rgba(112, 144, 176, 0.12);
+$shadow-md: 0px 20px 40px rgba(112, 144, 176, 0.15);
+$shadow-lg: 0px 40px 58px rgba(112, 144, 176, 0.20);
+$glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+$border-color: #E0E5F2;
+
+// Spacing
+$spacing-xs: 8px;
+$spacing-sm: 16px;
+$spacing-md: 24px;
+$spacing-lg: 32px;
+$spacing-xl: 48px;
+
+// Typography
+$font-family: 'Poppins', sans-serif;

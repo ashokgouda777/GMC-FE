@@ -1,0 +1,9172 @@
+﻿[33mΓ¥»[39m Building...
+[32mΓ£ö[39m Building...
+Application bundle generation failed. [2.985 seconds] - 2026-02-27T09:54:04.929Z
+
+node.exe : 
+[1m[33m[33mΓû▓ [43;33m[
+[43;30mWARNING[43;33m][0
+m [1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+At C:\Users\admin\AppData\R
+oaming\npm\ng.ps1:24 char:5
++     & "node$exe"  "$based
+ir/node_modules/@angular/cl
+i/bin/ng.js" $arg ...
++     ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: ([1  
+  m[33m[33mΓ...gular-s   
+ ass][0m:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+
+    src/app/features/admin/
+components/admin-sidebar/ad
+min-sidebar.component.scss:
+1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/admin-dashboard/admin
+-dashboard.component.scss:1
+:12:
+[37m      1 Γöé     
+@import 
+[32m[37m'variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/admin-dashboard/admin
+-dashboard.component.scss:2
+:12:
+[37m      2 Γöé     
+@import [32m[37m'mixins';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/admin-login/admin-log
+in.component.ts:2:12:
+[37m      2 Γöé     
+@import [32m[37m'../../..
+/../../styles/variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/admin-login/admin-log
+in.component.ts:3:12:
+[37m      3 Γöé     
+@import [32m[37m'../../..
+/../../styles/mixins';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/admin-profile/admin-p
+rofile.component.ts:2:12:
+[37m      2 Γöé     
+@import [32m[37m'../../..
+/../../styles/variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/admin-profile/admin-p
+rofile.component.ts:3:12:
+[37m      3 Γöé     
+@import [32m[37m'../../..
+/../../styles/mixins';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/configuration/configu
+ration.component.ts:2:12:
+[37m      2 Γöé     
+@import 
+[32m[37m'sidebar-layout';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-access-control.componen
+t.ts:2:12:
+[37m      2 Γöé     
+@import 
+[32m[37m'variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-management.component.sc
+ss:1:12:
+[37m      1 Γöé     
+@import 
+[32m[37m'variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/configuration/pages/w
+ebsite-config.component.ts:
+2:12:
+[37m      2 Γöé     
+@import 
+[32m[37m'sidebar-layout';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.scss:1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.scss:2:8:
+[37m      2 Γöé @import 
+[32m[37m'sidebar-layout';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.scss:1004:85:
+[37m      1004 Γöé 
+...nt(135deg, 
+var(--primary-color) 0%, 
+[32m[37mdarken(#0277bd, 
+10%) 100%);
+           Γò╡             
+                           
+[32m^[0m
+
+
+  Global built-in 
+functions are deprecated 
+and will be removed in 
+Dart Sass 3.0.0.
+  Use color.adjust instead.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.scss:1004:85:
+[37m      1004 Γöé 
+...nt(135deg, 
+var(--primary-color) 0%, 
+[32m[37mdarken(#0277bd, 
+10%) 100%);
+           Γò╡             
+                           
+[32m^[0m
+
+
+  darken() is deprecated. 
+Suggestions:
+  
+  color.scale($color, 
+$lightness: 
+-26.7015706806%)
+  color.adjust($color, 
+$lightness: -10%)
+  
+  More info: [4mhttps://sa
+ss-lang.com/d/color-functio
+ns[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/user-control/user-con
+trol.component.ts:2:16:
+[37m      2 Γöé         
+@import 
+[32m[37m'sidebar-layout';
+        Γò╡                
+ [32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.scss
+:1:12:
+[37m      1 Γöé     
+@import 
+[32m[37m'variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.scss
+:2:12:
+[37m      2 Γöé     
+@import [32m[37m'mixins';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.scss
+:3:12:
+[37m      3 Γöé     
+@import 
+[32m[37m'sidebar-layout';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/landin
+g/components/landing-footer
+/landing-footer.component.t
+s:2:12:
+[37m      2 Γöé     
+@import [32m[37m'../../..
+/../../styles/variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/landin
+g/components/landing-nav/la
+nding-nav.component.ts:2:12
+:
+[37m      2 Γöé     
+@import [32m[37m'../../..
+/../../styles/variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/landin
+g/components/landing-nav/la
+nding-nav.component.ts:3:12
+:
+[37m      3 Γöé     
+@import [32m[37m'../../..
+/../../styles/mixins';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/landin
+g/pages/landing-page/landin
+g-page.component.ts:2:12:
+[37m      2 Γöé     
+@import [32m[37m'../../..
+/../../styles/variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/landin
+g/pages/landing-page/landin
+g-page.component.ts:3:12:
+[37m      3 Γöé     
+@import [32m[37m'../../..
+/../../styles/mixins';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/user/p
+ages/user-dashboard/user-da
+shboard.component.ts:2:12:
+[37m      2 Γöé     
+@import [32m[37m'../../..
+/../../styles/variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/user/p
+ages/user-dashboard/user-da
+shboard.component.ts:3:12:
+[37m      3 Γöé     
+@import [32m[37m'../../..
+/../../styles/mixins';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/user/p
+ages/user-login/user-login.
+component.ts:2:12:
+[37m      2 Γöé     
+@import [32m[37m'../../..
+/../../styles/variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/user/p
+ages/user-login/user-login.
+component.ts:3:12:
+[37m      3 Γöé     
+@import [32m[37m'../../..
+/../../styles/mixins';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/auth-la
+yout/auth-layout.component.
+ts:2:12:
+[37m      2 Γöé     
+@import [32m[37m'../../..
+/styles/variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/auth-la
+yout/auth-layout.component.
+ts:3:12:
+[37m      3 Γöé     
+@import [32m[37m'../../..
+/styles/mixins';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/footer/
+footer.component.ts:2:12:
+[37m      2 Γöé     
+@import [32m[37m'../../..
+/styles/variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/footer/
+footer.component.ts:3:12:
+[37m      3 Γöé     
+@import [32m[37m'../../..
+/styles/mixins';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/header/
+header.component.ts:2:12:
+[37m      2 Γöé     
+@import [32m[37m'../../..
+/styles/variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/header/
+header.component.ts:3:12:
+[37m      3 Γöé     
+@import [32m[37m'../../..
+/styles/mixins';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/main-la
+yout/main-layout.component.
+ts:2:12:
+[37m      2 Γöé     
+@import [32m[37m'../../..
+/styles/variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/sidebar
+/sidebar.component.ts:2:12:
+[37m      2 Γöé     
+@import [32m[37m'../../..
+/styles/variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/sidebar
+/sidebar.component.ts:3:12:
+[37m      3 Γöé     
+@import [32m[37m'../../..
+/styles/mixins';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/shared/componen
+ts/shared-footer/shared-foo
+ter.component.ts:2:12:
+[37m      2 Γöé     
+@import [32m[37m'../../..
+/../styles/variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/shared/componen
+ts/shared-footer/shared-foo
+ter.component.ts:3:12:
+[37m      3 Γöé     
+@import [32m[37m'../../..
+/../styles/mixins';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/shared/componen
+ts/shared-header/shared-hea
+der.component.ts:2:12:
+[37m      2 Γöé     
+@import [32m[37m'../../..
+/../styles/variables';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/shared/componen
+ts/shared-header/shared-hea
+der.component.ts:3:12:
+[37m      3 Γöé     
+@import [32m[37m'../../..
+/../styles/mixins';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/shared/componen
+ts/shared-sidebar/shared-si
+debar.component.ts:2:12:
+[37m      2 Γöé     
+@import 
+[32m[37m'sidebar-layout';
+        Γò╡             
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles/_mixins.scss
+:1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles/_mixins.scss
+:1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles/_mixins.scss
+:1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles/_mixins.scss
+:1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles/_mixins.scss
+:1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles/_mixins.scss
+:1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles/_mixins.scss
+:1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles/_mixins.scss
+:1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles/_mixins.scss
+:1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles/_mixins.scss
+:1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles/_mixins.scss
+:1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles/_mixins.scss
+:1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles.scss:1:8:
+[37m      1 Γöé @import [
+32m[37m'styles/variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+  The plugin 
+"angular-sass" was 
+triggered by this import
+
+    angular:styles/global:s
+tyles:1:8:
+[37m      1 Γöé @import [
+32m'src/styles.scss'[37m;
+        Γò╡         
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles.scss:2:8:
+[37m      2 Γöé @import 
+[32m[37m'styles/mixins';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+  The plugin 
+"angular-sass" was 
+triggered by this import
+
+    angular:styles/global:s
+tyles:1:8:
+[37m      1 Γöé @import [
+32m'src/styles.scss'[37m;
+        Γò╡         
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[33mΓû▓ [43;33m[[43;30mW
+ARNING[43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles/_mixins.scss
+:1:8:
+[37m      1 Γöé @import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules are 
+deprecated and will be 
+removed in Dart Sass 3.0.0.
+  
+  More info and automated 
+migrator: [4mhttps://sass-
+lang.com/d/import[0m
+
+  The plugin 
+"angular-sass" was 
+triggered by this import
+
+    angular:styles/global:s
+tyles:1:8:
+[37m      1 Γöé @import [
+32m'src/styles.scss'[37m;
+        Γò╡         
+[32m~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[
+41;97mERROR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    
+src/app/app.config.ts:1:70:
+[37m      1 Γöé 
+...nConfig, provideBrowserG
+lobalErrorListeners } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                           
+            
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    
+src/app/app.config.ts:2:30:
+[37m      2 Γöé import { 
+provideRouter } from [32m'
+@angular/router'[37m;
+        Γò╡                
+               
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module 
+'@angular/common/http'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    
+src/app/app.config.ts:3:52:
+[37m      3 Γöé ... 
+provideHttpClient, 
+withInterceptors } from [3
+2m'@angular/common/http'[3
+7m;
+        Γò╡                
+                           
+     [32m~~~~~~~~~~~~~~~~~
+~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    
+src/app/app.routes.ts:1:23:
+[37m      1 Γöé import { 
+Routes } from [32m'@angula
+r/router'[37m;
+        Γò╡                
+        
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/app.ts:1:50:
+[37m      1 Γöé import { 
+Component, signal, inject, 
+OnInit } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                           
+        
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/app.ts:2:29:
+[37m      2 Γöé import { 
+RouterOutlet } from [32m'@
+angular/router'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/app.ts:5:0:
+[37m      5 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/app.ts:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mRouterOutlet[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/app.ts:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mRouterOutlet[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/guards/aut
+h.guard.ts:1:23:
+[37m      1 Γöé import { 
+inject } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+        
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/guards/aut
+h.guard.ts:2:38:
+[37m      2 Γöé import { 
+CanActivateFn, Router } 
+from [32m'@angular/router'
+[37m;
+        Γò╡                
+                       
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'route' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/guards/aut
+h.guard.ts:6:12:
+[37m      6 Γöé     
+return ([32mroute[37m, 
+state) => {
+        Γò╡             
+[32m~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'state' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/guards/aut
+h.guard.ts:6:19:
+[37m      6 Γöé     
+return (route, 
+[32mstate[37m) => {
+        Γò╡                
+    [32m~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module 
+'@angular/common/http'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/intercepto
+rs/auth.interceptor.ts:1:34
+:
+[37m      1 Γöé import { 
+HttpInterceptorFn } from [
+32m'@angular/common/http'[
+37m;
+        Γò╡                
+                   [32m~~~
+~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/intercepto
+rs/auth.interceptor.ts:2:23
+:
+[37m      2 Γöé import { 
+inject } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+        
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'req' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/intercepto
+rs/auth.interceptor.ts:5:51
+:
+[37m      5 Γöé export 
+const authInterceptor: 
+HttpInterceptorFn = 
+([32mreq[37m, next) => {
+        Γò╡                
+                           
+         [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'next' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/intercepto
+rs/auth.interceptor.ts:5:56
+:
+[37m      5 Γöé export 
+const authInterceptor: 
+HttpInterceptorFn = (req, 
+[32mnext[37m) => {
+        Γò╡                
+                           
+              [32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/resolvers/
+admin-config.resolver.ts:1:
+23:
+[37m      1 Γöé import { 
+inject } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+        
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/resolvers/
+admin-config.resolver.ts:2:
+26:
+[37m      2 Γöé import { 
+ResolveFn } from [32m'@ang
+ular/router'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/services/a
+pi.service.ts:1:35:
+[37m      1 Γöé import { 
+Injectable, inject } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                    
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module 
+'@angular/common/http'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/services/a
+pi.service.ts:2:52:
+[37m      2 Γöé ... 
+HttpClient, HttpHeaders, 
+HttpParams } from [32m'@an
+gular/common/http'[37m;
+        Γò╡                
+                           
+     [32m~~~~~~~~~~~~~~~~~
+~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module 'rxjs'. Did you 
+mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/services/a
+pi.service.ts:3:27:
+[37m      3 Γöé import { 
+Observable } from 
+[32m'rxjs'[37m;
+        Γò╡                
+            [32m~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/services/a
+pi.service.ts:6:0:
+[37m      6 Γöé 
+[32m@Injectable({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/services/a
+uth.service.ts:1:43:
+[37m      1 Γöé import { 
+Injectable, inject, signal 
+} from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                           
+ [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/services/a
+uth.service.ts:2:23:
+[37m      2 Γöé import { 
+Router } from [32m'@angula
+r/router'[37m;
+        Γò╡                
+        
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module 
+'@angular/common/http'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/services/a
+uth.service.ts:4:27:
+[37m      4 Γöé import { 
+HttpClient } from [32m'@an
+gular/common/http'[37m;
+        Γò╡                
+            [32m~~~~~~~~~~
+~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module 'rxjs'. Did you 
+mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/services/a
+uth.service.ts:5:41:
+[37m      5 Γöé import { 
+Observable, of, tap, map } 
+from [32m'rxjs'[37m;
+        Γò╡                
+                          
+[32m~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/services/a
+uth.service.ts:30:0:
+[37m      30 Γöé 
+[32m@Injectable({[37m
+         Γò╡ 
+[32m~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'response' implicitly has 
+an 'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/services/a
+uth.service.ts:50:16:
+[37m      50 Γöé          
+   map([32mresponse[37m 
+=> {
+         Γò╡               
+  [32m~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'user' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/services/a
+uth.service.ts:82:16:
+[37m      82 Γöé          
+   tap([32muser[37m => {
+         Γò╡               
+  [32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/services/t
+heme.service.ts:1:35:
+[37m      1 Γöé import { 
+Injectable, inject } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                    
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module 'rxjs'. Did you 
+mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/services/t
+heme.service.ts:4:36:
+[37m      4 Γöé import { 
+of, tap, Observable } from 
+[32m'rxjs'[37m;
+        Γò╡                
+                     
+[32m~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/core/services/t
+heme.service.ts:6:0:
+[37m      6 Γöé 
+[32m@Injectable({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+admin.routes.ts:1:23:
+[37m      1 Γöé import { 
+Routes } from [32m'@angula
+r/router'[37m;
+        Γò╡                
+        
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/admin-layout/adm
+in-layout.component.ts:1:26
+:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/admin-layout/adm
+in-layout.component.ts:2:29
+:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/admin-layout/adm
+in-layout.component.ts:3:29
+:
+[37m      3 Γöé import { 
+RouterModule } from [32m'@
+angular/router'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/admin-layout/adm
+in-layout.component.ts:6:0:
+[37m      6 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/admin-layout/adm
+in-layout.component.ts:9:14
+:
+[37m      9 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+RouterModule, 
+AdminSidebarComponent],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+components/admin-layout/adm
+in-layout.component.ts:9:14
+:
+[37m      9 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+RouterModule, 
+AdminSidebarComponent],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/admin-layout/adm
+in-layout.component.ts:9:28
+:
+[37m      9 Γöé     
+imports: [CommonModule, 
+[32mRouterModule[37m, 
+AdminSidebarComponent],
+        Γò╡                
+             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+components/admin-layout/adm
+in-layout.component.ts:9:28
+:
+[37m      9 Γöé     
+imports: [CommonModule, 
+[32mRouterModule[37m, 
+AdminSidebarComponent],
+        Γò╡                
+             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/admin-sidebar/ad
+min-sidebar.component.ts:1:
+34:
+[37m      1 Γöé import { 
+Component, inject } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                   
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/admin-sidebar/ad
+min-sidebar.component.ts:2:
+29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/admin-sidebar/ad
+min-sidebar.component.ts:3:
+53:
+[37m      3 Γöé ...rt { 
+RouterModule, Router, 
+ActivatedRoute } from [32m
+'@angular/router'[37m;
+        Γò╡                
+                           
+          
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/admin-sidebar/ad
+min-sidebar.component.ts:5:
+0:
+[37m      5 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/admin-sidebar/ad
+min-sidebar.component.ts:8:
+14:
+[37m      8 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+RouterModule],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+components/admin-sidebar/ad
+min-sidebar.component.ts:8:
+14:
+[37m      8 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+RouterModule],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/admin-sidebar/ad
+min-sidebar.component.ts:8:
+28:
+[37m      8 Γöé     
+imports: [CommonModule, 
+[32mRouterModule[37m],
+        Γò╡                
+             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+components/admin-sidebar/ad
+min-sidebar.component.ts:8:
+28:
+[37m      8 Γöé     
+imports: [CommonModule, 
+[32mRouterModule[37m],
+        Γò╡                
+             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/practitioner-sid
+ebar/practitioner-sidebar.c
+omponent.ts:1:42:
+[37m      1 Γöé import { 
+Component, inject, OnInit 
+} from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/practitioner-sid
+ebar/practitioner-sidebar.c
+omponent.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/practitioner-sid
+ebar/practitioner-sidebar.c
+omponent.ts:3:68:
+[37m      3 Γöé ...le, 
+Router, ActivatedRoute, 
+NavigationEnd } from [32m'
+@angular/router'[37m;
+        Γò╡                
+                           
+          
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module 'rxjs/operators'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/practitioner-sid
+ebar/practitioner-sidebar.c
+omponent.ts:6:23:
+[37m      6 Γöé import { 
+filter } from 
+[32m'rxjs/operators'[37m;
+        Γò╡                
+        
+[32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/practitioner-sid
+ebar/practitioner-sidebar.c
+omponent.ts:8:0:
+[37m      8 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/practitioner-sid
+ebar/practitioner-sidebar.c
+omponent.ts:11:14:
+[37m      11 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+RouterModule, 
+SharedSidebarComponent],
+         Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+components/practitioner-sid
+ebar/practitioner-sidebar.c
+omponent.ts:11:14:
+[37m      11 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+RouterModule, 
+SharedSidebarComponent],
+         Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/practitioner-sid
+ebar/practitioner-sidebar.c
+omponent.ts:11:28:
+[37m      11 Γöé     
+imports: [CommonModule, 
+[32mRouterModule[37m, 
+SharedSidebarComponent],
+         Γò╡               
+              
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+components/practitioner-sid
+ebar/practitioner-sidebar.c
+omponent.ts:11:28:
+[37m      11 Γöé     
+imports: [CommonModule, 
+[32mRouterModule[37m, 
+SharedSidebarComponent],
+         Γò╡               
+              
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'event' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+components/practitioner-sid
+ebar/practitioner-sidebar.c
+omponent.ts:47:19:
+[37m      47 Γöé          
+   filter([32mevent[37m 
+=> event instanceof 
+NavigationEnd)
+         Γò╡               
+     [32m~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/accounting/accounting
+.component.ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/accounting/accounting
+.component.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/accounting/accounting
+.component.ts:4:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/accounting/accounting
+.component.ts:7:14:
+[37m      7 Γöé     
+imports: 
+[[32mCommonModule[37m],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/accounting/accounting
+.component.ts:7:14:
+[37m      7 Γöé     
+imports: 
+[[32mCommonModule[37m],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-dashboard/admin
+-dashboard.component.ts:1:2
+6:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-dashboard/admin
+-dashboard.component.ts:2:2
+7:
+[37m      2 Γöé import { 
+RouterLink } from [32m'@an
+gular/router'[37m;
+        Γò╡                
+            
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-dashboard/admin
+-dashboard.component.ts:4:2
+9:
+[37m      4 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-dashboard/admin
+-dashboard.component.ts:5:3
+1:
+[37m      5 Γöé import { 
+inject, OnInit } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-dashboard/admin
+-dashboard.component.ts:8:0
+:
+[37m      8 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-dashboard/admin
+-dashboard.component.ts:11:
+12:
+[37m      11 Γöé   
+imports: 
+[[32mRouterLink[37m, 
+CommonModule],
+         Γò╡             
+[32m~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/admin-dashboard/admin
+-dashboard.component.ts:11:
+12:
+[37m      11 Γöé   
+imports: 
+[[32mRouterLink[37m, 
+CommonModule],
+         Γò╡             
+[32m~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-dashboard/admin
+-dashboard.component.ts:11:
+24:
+[37m      11 Γöé   
+imports: [RouterLink, 
+[32mCommonModule[37m],
+         Γò╡               
+          
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/admin-dashboard/admin
+-dashboard.component.ts:11:
+24:
+[37m      11 Γöé   
+imports: [RouterLink, 
+[32mCommonModule[37m],
+         Γò╡               
+          
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'data' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-dashboard/admin
+-dashboard.component.ts:21:
+52:
+[37m      21 Γöé     this.
+adminService.getDashboardSt
+ats().subscribe([32mdata[
+37m => {
+         Γò╡               
+                           
+           [32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-login/admin-log
+in.component.ts:1:42:
+[37m      1 Γöé import { 
+Component, inject, signal 
+} from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/forms'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-login/admin-log
+in.component.ts:2:61:
+[37m      2 Γöé 
+...rmBuilder, 
+ReactiveFormsModule, 
+Validators } from 
+[32m'@angular/forms'[37m;
+        Γò╡                
+                           
+           
+[32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-login/admin-log
+in.component.ts:3:23:
+[37m      3 Γöé import { 
+Router } from [32m'@angula
+r/router'[37m;
+        Γò╡                
+        
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-login/admin-log
+in.component.ts:5:29:
+[37m      5 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module 'rxjs/operators'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-login/admin-log
+in.component.ts:6:25:
+[37m      6 Γöé import { 
+finalize } from 
+[32m'rxjs/operators'[37m;
+        Γò╡                
+          
+[32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-login/admin-log
+in.component.ts:8:0:
+[37m      8 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-login/admin-log
+in.component.ts:11:12:
+[37m      11 Γöé   
+imports: [[32mReactiveForm
+sModule[37m, 
+CommonModule],
+         Γò╡             [
+32m~~~~~~~~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/admin-login/admin-log
+in.component.ts:11:12:
+[37m      11 Γöé   
+imports: [[32mReactiveForm
+sModule[37m, 
+CommonModule],
+         Γò╡             [
+32m~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-login/admin-log
+in.component.ts:11:33:
+[37m      11 Γöé   
+imports: 
+[ReactiveFormsModule, 
+[32mCommonModule[37m],
+         Γò╡               
+                   
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/admin-login/admin-log
+in.component.ts:11:33:
+[37m      11 Γöé   
+imports: 
+[ReactiveFormsModule, 
+[32mCommonModule[37m],
+         Γò╡               
+                   
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'user' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-login/admin-log
+in.component.ts:137:15:
+[37m      137 Γöé         
+next: ([32muser[37m) => {
+          Γò╡              
+  [32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-login/admin-log
+in.component.ts:145:16:
+[37m      145 Γöé         
+error: ([32merr[37m) => {
+          Γò╡              
+   [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-profile/admin-p
+rofile.component.ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-profile/admin-p
+rofile.component.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-profile/admin-p
+rofile.component.ts:4:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/admin-profile/admin-p
+rofile.component.ts:7:14:
+[37m      7 Γöé     
+imports: 
+[[32mCommonModule[37m],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/admin-profile/admin-p
+rofile.component.ts:7:14:
+[37m      7 Γöé     
+imports: 
+[[32mCommonModule[37m],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/configu
+ration.component.ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/configu
+ration.component.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/configu
+ration.component.ts:3:29:
+[37m      3 Γöé import { 
+RouterOutlet } from [32m'@
+angular/router'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/configu
+ration.component.ts:6:0:
+[37m      6 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/configu
+ration.component.ts:9:12:
+[37m      9 Γöé   
+imports: 
+[[32mCommonModule[37m, 
+RouterOutlet, 
+SharedSidebarComponent],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/configu
+ration.component.ts:9:12:
+[37m      9 Γöé   
+imports: 
+[[32mCommonModule[37m, 
+RouterOutlet, 
+SharedSidebarComponent],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/configu
+ration.component.ts:9:26:
+[37m      9 Γöé   
+imports: [CommonModule, 
+[32mRouterOutlet[37m, 
+SharedSidebarComponent],
+        Γò╡                
+           
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/configu
+ration.component.ts:9:26:
+[37m      9 Γöé   
+imports: [CommonModule, 
+[32mRouterOutlet[37m, 
+SharedSidebarComponent],
+        Γò╡                
+           
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/b
+roadcast-sms.component.ts:1
+:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/b
+roadcast-sms.component.ts:2
+:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/b
+roadcast-sms.component.ts:4
+:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/b
+roadcast-sms.component.ts:7
+:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/b
+roadcast-sms.component.ts:7
+:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/c
+olleges-list.component.ts:1
+:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/c
+olleges-list.component.ts:2
+:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/c
+olleges-list.component.ts:4
+:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/c
+olleges-list.component.ts:7
+:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/c
+olleges-list.component.ts:7
+:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/c
+ountry-master.component.ts:
+1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/c
+ountry-master.component.ts:
+2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/c
+ountry-master.component.ts:
+4:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/c
+ountry-master.component.ts:
+7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/c
+ountry-master.component.ts:
+7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/c
+ourse-list.component.ts:1:2
+6:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/c
+ourse-list.component.ts:2:2
+9:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/c
+ourse-list.component.ts:4:0
+:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/c
+ourse-list.component.ts:7:1
+2:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/c
+ourse-list.component.ts:7:1
+2:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/d
+istrict-list.component.ts:1
+:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/d
+istrict-list.component.ts:2
+:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/d
+istrict-list.component.ts:4
+:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/d
+istrict-list.component.ts:7
+:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/d
+istrict-list.component.ts:7
+:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/n
+ationality-master.component
+.ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/n
+ationality-master.component
+.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/n
+ationality-master.component
+.ts:4:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/n
+ationality-master.component
+.ts:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/n
+ationality-master.component
+.ts:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/n
+otification-config.componen
+t.ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/n
+otification-config.componen
+t.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/n
+otification-config.componen
+t.ts:4:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/n
+otification-config.componen
+t.ts:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/n
+otification-config.componen
+t.ts:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/r
+egistration-type.component.
+ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/r
+egistration-type.component.
+ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/r
+egistration-type.component.
+ts:4:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/r
+egistration-type.component.
+ts:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/r
+egistration-type.component.
+ts:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/s
+ignature.component.ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/s
+ignature.component.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/s
+ignature.component.ts:4:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/s
+ignature.component.ts:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/s
+ignature.component.ts:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/s
+tate-list.component.ts:1:26
+:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/s
+tate-list.component.ts:2:29
+:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/s
+tate-list.component.ts:4:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/s
+tate-list.component.ts:7:12
+:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/s
+tate-list.component.ts:7:12
+:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/s
+ubject-master.component.ts:
+1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/s
+ubject-master.component.ts:
+2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/s
+ubject-master.component.ts:
+4:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/s
+ubject-master.component.ts:
+7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/s
+ubject-master.component.ts:
+7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+niversity-list.component.ts
+:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+niversity-list.component.ts
+:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+niversity-list.component.ts
+:4:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+niversity-list.component.ts
+:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/u
+niversity-list.component.ts
+:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-access-control.componen
+t.ts:1:42:
+[37m      1 Γöé import { 
+Component, OnInit, inject 
+} from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-access-control.componen
+t.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/forms'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-access-control.componen
+t.ts:3:28:
+[37m      3 Γöé import { 
+FormsModule } from 
+[32m'@angular/forms'[37m;
+        Γò╡                
+             
+[32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-access-control.componen
+t.ts:6:0:
+[37m      6 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-access-control.componen
+t.ts:9:12:
+[37m      9 Γöé   
+imports: 
+[[32mCommonModule[37m, 
+FormsModule],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-access-control.componen
+t.ts:9:12:
+[37m      9 Γöé   
+imports: 
+[[32mCommonModule[37m, 
+FormsModule],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-access-control.componen
+t.ts:9:26:
+[37m      9 Γöé   
+imports: [CommonModule, 
+[32mFormsModule[37m],
+        Γò╡                
+           
+[32m~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-access-control.componen
+t.ts:9:26:
+[37m      9 Γöé   
+imports: [CommonModule, 
+[32mFormsModule[37m],
+        Γò╡                
+           
+[32m~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-access-control.componen
+t.ts:206:14:
+[37m      206 Γöé       
+error: ([32merr[37m) => {
+          Γò╡              
+ [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-management.component.ts
+:1:61:
+[37m      1 Γöé 
+...omponent, OnInit, 
+inject, ChangeDetectorRef 
+} from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                           
+            
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-management.component.ts
+:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/forms'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-management.component.ts
+:3:72:
+[37m      3 Γöé 
+...FormGroup, 
+ReactiveFormsModule, 
+Validators } from 
+[32m'@angular/forms'[37m;
+        Γò╡                
+                           
+           
+[32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-management.component.ts
+:6:0:
+[37m      6 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-management.component.ts
+:9:12:
+[37m      9 Γöé   
+imports: 
+[[32mCommonModule[37m, 
+ReactiveFormsModule],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-management.component.ts
+:9:12:
+[37m      9 Γöé   
+imports: 
+[[32mCommonModule[37m, 
+ReactiveFormsModule],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-management.component.ts
+:9:26:
+[37m      9 Γöé   
+imports: [CommonModule, [3
+2mReactiveFormsModule[37m]
+,
+        Γò╡                
+           [32m~~~~~~~~~~~
+~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-management.component.ts
+:9:26:
+[37m      9 Γöé   
+imports: [CommonModule, [3
+2mReactiveFormsModule[37m]
+,
+        Γò╡                
+           [32m~~~~~~~~~~~
+~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-management.component.ts
+:48:14:
+[37m      48 Γöé       
+error: ([32merr[37m) => {
+         Γò╡               
+[32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-management.component.ts
+:74:14:
+[37m      74 Γöé       
+error: ([32merr[37m) => {
+         Γò╡               
+[32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'res' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-management.component.ts
+:159:15:
+[37m      159 Γöé         
+next: ([32mres[37m) => {
+          Γò╡              
+  [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/u
+ser-management.component.ts
+:164:16:
+[37m      164 Γöé         
+error: ([32merr[37m) => {
+          Γò╡              
+   [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/w
+ebsite-config.component.ts:
+1:42:
+[37m      1 Γöé import { 
+Component, inject, OnInit 
+} from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/w
+ebsite-config.component.ts:
+2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/forms'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/w
+ebsite-config.component.ts:
+3:72:
+[37m      3 Γöé 
+...FormGroup, 
+ReactiveFormsModule, 
+Validators } from 
+[32m'@angular/forms'[37m;
+        Γò╡                
+                           
+           
+[32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/w
+ebsite-config.component.ts:
+32:0:
+[37m      32 Γöé 
+[32m@Component({[37m
+         Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/w
+ebsite-config.component.ts:
+35:12:
+[37m      35 Γöé   
+imports: 
+[[32mCommonModule[37m, 
+ReactiveFormsModule, 
+SharedSidebarCompon...
+         Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/w
+ebsite-config.component.ts:
+35:12:
+[37m      35 Γöé   
+imports: 
+[[32mCommonModule[37m, 
+ReactiveFormsModule, 
+SharedSidebarCompon...
+         Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/w
+ebsite-config.component.ts:
+35:26:
+[37m      35 Γöé 
+...ports: [CommonModule, [
+32mReactiveFormsModule[37m
+, SharedSidebarCompone...
+         Γò╡               
+           [32m~~~~~~~~~~~
+~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/configuration/pages/w
+ebsite-config.component.ts:
+35:26:
+[37m      35 Γöé 
+...ports: [CommonModule, [
+32mReactiveFormsModule[37m
+, SharedSidebarCompone...
+         Γò╡               
+           [32m~~~~~~~~~~~
+~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'data' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/w
+ebsite-config.component.ts:
+600:13:
+[37m      600 Γöé       
+next: ([32mdata[37m) => {
+          Γò╡              
+[32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/w
+ebsite-config.component.ts:
+608:14:
+[37m      608 Γöé       
+error: ([32merr[37m) => 
+console.error('Failed to 
+load site settings...
+          Γò╡              
+ [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'res' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/w
+ebsite-config.component.ts:
+643:13:
+[37m      643 Γöé       
+next: ([32mres[37m) => {
+          Γò╡              
+[32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/configuration/pages/w
+ebsite-config.component.ts:
+649:14:
+[37m      649 Γöé       
+error: ([32merr[37m) => {
+          Γò╡              
+ [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+fingerprint.service.ts:1:27
+:
+[37m      1 Γöé import { 
+Injectable } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+            
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module 
+'@digitalpersona/devices'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+fingerprint.service.ts:2:65
+:
+[37m      2 Γöé ...er, 
+SampleFormat, 
+SamplesAcquired } from [32
+m'@digitalpersona/devices'
+[37m;
+        Γò╡                
+                           
+  [32m~~~~~~~~~~~~~~~~~~~~
+~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module 'rxjs'. Did you 
+mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+fingerprint.service.ts:3:24
+:
+[37m      3 Γöé import { 
+Subject } from 
+[32m'rxjs'[37m;
+        Γò╡                
+         [32m~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+fingerprint.service.ts:5:0:
+[37m      5 Γöé 
+[32m@Injectable({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'event' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+fingerprint.service.ts:37:4
+1:
+[37m      37 Γöé         t
+his.reader.on("ErrorOccurre
+d", ([32mevent[37m) => {
+         Γò╡               
+                           
+[32m~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:1:95:
+[37m      1 Γöé ...y, 
+ChangeDetectorRef, 
+ViewChild, ElementRef } 
+from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                           
+            
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/forms'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:3:72:
+[37m      3 Γöé 
+...FormGroup, 
+ReactiveFormsModule, 
+Validators } from 
+[32m'@angular/forms'[37m;
+        Γò╡                
+                           
+           
+[32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:4:45:
+[37m      4 Γöé import { 
+ActivatedRoute, 
+RouterModule } from [32m'@
+angular/router'[37m;
+        Γò╡                
+                           
+   
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:9:0:
+[37m      9 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:12:14:
+[37m      12 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+RouterModule, 
+ReactiveFormsModule, Pra...
+         Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:12:14:
+[37m      12 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+RouterModule, 
+ReactiveFormsModule, Pra...
+         Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:12:28:
+[37m      12 Γöé     
+imports: [CommonModule, 
+[32mRouterModule[37m, 
+ReactiveFormsModule, Pra...
+         Γò╡               
+              
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:12:28:
+[37m      12 Γöé     
+imports: [CommonModule, 
+[32mRouterModule[37m, 
+ReactiveFormsModule, Pra...
+         Γò╡               
+              
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:12:42:
+[37m      12 Γöé 
+...Module, RouterModule, [
+32mReactiveFormsModule[37m
+, PractitionerSidebarC...
+         Γò╡               
+           [32m~~~~~~~~~~~
+~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:12:42:
+[37m      12 Γöé 
+...Module, RouterModule, [
+32mReactiveFormsModule[37m
+, PractitionerSidebarC...
+         Γò╡               
+           [32m~~~~~~~~~~~
+~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'checked' implicitly has 
+an 'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:114:81:
+[37m      114 Γöé ...m.get
+('isAlreadyRegistered')?.va
+lueChanges.subscribe([32mc
+hecked[37m => {
+          Γò╡              
+                           
+                
+[32m~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'checked' implicitly has 
+an 'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:131:76:
+[37m      131 Γöé ...erFor
+m.get('isProSameAsRes')?.va
+lueChanges.subscribe([32mc
+hecked[37m => {
+          Γò╡              
+                           
+                
+[32m~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'countryId' implicitly has 
+an 'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:161:72:
+[37m      161 Γöé ...onerF
+orm.get('resCountry')?.valu
+eChanges.subscribe([32mcou
+ntryId[37m => {
+          Γò╡              
+                           
+              
+[32m~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'stateId' implicitly has 
+an 'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:182:70:
+[37m      182 Γöé ...titio
+nerForm.get('resState')?.va
+lueChanges.subscribe([32ms
+tateId[37m => {
+          Γò╡              
+                           
+                
+[32m~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'countryId' implicitly has 
+an 'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:202:73:
+[37m      202 Γöé ...nerFo
+rm.get('profCountry')?.valu
+eChanges.subscribe([32mcou
+ntryId[37m => {
+          Γò╡              
+                           
+              
+[32m~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'stateId' implicitly has 
+an 'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:223:71:
+[37m      223 Γöé ...ition
+erForm.get('profState')?.va
+lueChanges.subscribe([32ms
+tateId[37m => {
+          Γò╡              
+                           
+                
+[32m~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:318:20:
+[37m      318 Γöé         
+    error: ([32merr[37m) 
+=> console.error('Failed 
+to load practit...
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:330:20:
+[37m      330 Γöé         
+    error: ([32merr[37m) 
+=> console.log('No 
+Residential Address f...
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:340:20:
+[37m      340 Γöé         
+    error: ([32merr[37m) 
+=> console.log('No 
+Professional Address ...
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:612:32:
+[37m      612 Γöé         
+                error: 
+([32merr[37m) => {
+          Γò╡              
+                   
+[32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:618:24:
+[37m      618 Γöé         
+        error: 
+([32merr[37m) => {
+          Γò╡              
+           [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'res' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:648:23:
+[37m      648 Γöé         
+        next: 
+([32mres[37m) => {
+          Γò╡              
+          [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:653:24:
+[37m      653 Γöé         
+        error: 
+([32merr[37m) => {
+          Γò╡              
+           [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:672:20:
+[37m      672 Γöé         
+    error: ([32merr[37m) 
+=> console.error('Failed 
+to load account...
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:685:20:
+[37m      685 Γöé         
+    error: ([32merr[37m) 
+=> console.error('Failed 
+to load groups'...
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:698:20:
+[37m      698 Γöé         
+    error: ([32merr[37m) 
+=> console.error('Failed 
+to load financi...
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'data' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:702:69:
+[37m      702 Γöé ...e.get
+Eligibility().subscribe([3
+2mdata[37m => 
+this.eligibilityOptions 
+=...
+          Γò╡              
+                   
+[32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'data' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:703:69:
+[37m      703 Γöé ...e.get
+BloodGroups().subscribe([3
+2mdata[37m => 
+this.bloodGroupOptions = 
+...
+          Γò╡              
+                   
+[32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'data' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:704:61:
+[37m      704 Γöé ...rvice
+.getGenders().subscribe([3
+2mdata[37m => 
+this.genderOptions = 
+Arra...
+          Γò╡              
+                   
+[32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'data' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:705:59:
+[37m      705 Γöé ...ervic
+e.getTitles().subscribe([3
+2mdata[37m => 
+this.titleOptions = 
+Array...
+          Γò╡              
+                   
+[32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'data' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:706:81:
+[37m      706 Γöé ...egist
+rationTypes().subscribe([3
+2mdata[37m => this.registr
+ationForOptio...
+          Γò╡              
+                   
+[32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:757:20:
+[37m      757 Γöé         
+    error: ([32merr[37m) 
+=> console.error('Failed 
+to load courses...
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:764:20:
+[37m      764 Γöé         
+    error: ([32merr[37m) 
+=> console.error('Failed 
+to load univers...
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:779:20:
+[37m      779 Γöé         
+    error: ([32merr[37m) 
+=> console.error('Failed 
+to load college...
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:816:24:
+[37m      816 Γöé         
+        error: 
+([32merr[37m) => 
+console.error('Failed to 
+load col...
+          Γò╡              
+           [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:828:24:
+[37m      828 Γöé         
+        error: 
+([32merr[37m) => {
+          Γò╡              
+           [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:874:20:
+[37m      874 Γöé         
+    error: ([32merr[37m) 
+=> {
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:910:20:
+[37m      910 Γöé         
+    error: ([32merr[37m) 
+=> {
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:938:20:
+[37m      938 Γöé         
+    error: ([32merr[37m) 
+=> {
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:950:20:
+[37m      950 Γöé         
+    error: ([32merr[37m) 
+=> {
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'res' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:1014:19:
+[37m      1014 Γöé        
+     next: ([32mres[37m) 
+=> {
+           Γò╡             
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:1020:20:
+[37m      1020 Γöé        
+     error: 
+([32merr[37m) => {
+           Γò╡             
+        [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'res' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:1130:23:
+[37m      1130 Γöé        
+         next: 
+([32mres[37m) => {
+           Γò╡             
+           [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:1134:24:
+[37m      1134 Γöé        
+         error: 
+([32merr[37m) => {
+           Γò╡             
+            [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/practitioner-profile/
+practitioner-profile.compon
+ent.ts:1181:20:
+[37m      1181 Γöé        
+     error: 
+([32merr[37m) => {
+           Γò╡             
+        [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/reports/reports.compo
+nent.ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/reports/reports.compo
+nent.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/reports/reports.compo
+nent.ts:4:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/reports/reports.compo
+nent.ts:7:14:
+[37m      7 Γöé     
+imports: 
+[[32mCommonModule[37m],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/reports/reports.compo
+nent.ts:7:14:
+[37m      7 Γöé     
+imports: 
+[[32mCommonModule[37m],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/admins/a
+dmins.component.ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/admins/a
+dmins.component.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/admins/a
+dmins.component.ts:4:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/admins/a
+dmins.component.ts:7:14:
+[37m      7 Γöé     
+imports: 
+[[32mCommonModule[37m],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/user-control/admins/a
+dmins.component.ts:7:14:
+[37m      7 Γöé     
+imports: 
+[[32mCommonModule[37m],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/case-wor
+kers/case-workers.component
+.ts:1:61:
+[37m      1 Γöé 
+...omponent, OnInit, 
+inject, ChangeDetectorRef 
+} from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                           
+            
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/case-wor
+kers/case-workers.component
+.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/forms'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/case-wor
+kers/case-workers.component
+.ts:3:28:
+[37m      3 Γöé import { 
+FormsModule } from 
+[32m'@angular/forms'[37m;
+        Γò╡                
+             
+[32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/case-wor
+kers/case-workers.component
+.ts:6:0:
+[37m      6 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/case-wor
+kers/case-workers.component
+.ts:9:14:
+[37m      9 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+FormsModule],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/user-control/case-wor
+kers/case-workers.component
+.ts:9:14:
+[37m      9 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+FormsModule],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/case-wor
+kers/case-workers.component
+.ts:9:28:
+[37m      9 Γöé     
+imports: [CommonModule, 
+[32mFormsModule[37m],
+        Γò╡                
+             
+[32m~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/user-control/case-wor
+kers/case-workers.component
+.ts:9:28:
+[37m      9 Γöé     
+imports: [CommonModule, 
+[32mFormsModule[37m],
+        Γò╡                
+             
+[32m~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/case-wor
+kers/case-workers.component
+.ts:213:20:
+[37m      213 Γöé         
+    error: ([32merr[37m) 
+=> {
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'res' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/case-wor
+kers/case-workers.component
+.ts:242:23:
+[37m      242 Γöé         
+        next: 
+([32mres[37m) => {
+          Γò╡              
+          [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/case-wor
+kers/case-workers.component
+.ts:247:24:
+[37m      247 Γöé         
+        error: 
+([32merr[37m) => {
+          Γò╡              
+           [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/user-con
+trol.component.ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/user-con
+trol.component.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/user-con
+trol.component.ts:3:29:
+[37m      3 Γöé import { 
+RouterOutlet } from [32m'@
+angular/router'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/user-con
+trol.component.ts:6:0:
+[37m      6 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/user-con
+trol.component.ts:9:14:
+[37m      9 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+RouterOutlet, 
+SharedSidebarComponent],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/user-control/user-con
+trol.component.ts:9:14:
+[37m      9 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+RouterOutlet, 
+SharedSidebarComponent],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/user-control/user-con
+trol.component.ts:9:28:
+[37m      9 Γöé     
+imports: [CommonModule, 
+[32mRouterOutlet[37m, 
+SharedSidebarComponent],
+        Γò╡                
+             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/user-control/user-con
+trol.component.ts:9:28:
+[37m      9 Γöé     
+imports: [CommonModule, 
+[32mRouterOutlet[37m, 
+SharedSidebarComponent],
+        Γò╡                
+             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+:61:
+[37m      1 Γöé 
+...omponent, inject, 
+OnInit, ChangeDetectorRef 
+} from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                           
+            
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:2
+:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/forms'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:3
+:72:
+[37m      3 Γöé 
+...FormGroup, 
+ReactiveFormsModule, 
+Validators } from 
+[32m'@angular/forms'[37m;
+        Γò╡                
+                           
+           
+[32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:4
+:53:
+[37m      4 Γöé ...rt { 
+RouterModule, 
+ActivatedRoute, Router } 
+from [32m'@angular/router'
+[37m;
+        Γò╡                
+                           
+          
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:8
+:0:
+[37m      8 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+1:14:
+[37m      11 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+ReactiveFormsModule, 
+RouterModule, Pra...
+         Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+1:14:
+[37m      11 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+ReactiveFormsModule, 
+RouterModule, Pra...
+         Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+1:28:
+[37m      11 Γöé 
+...ports: [CommonModule, [
+32mReactiveFormsModule[37m
+, RouterModule, Practi...
+         Γò╡               
+           [32m~~~~~~~~~~~
+~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+1:28:
+[37m      11 Γöé 
+...ports: [CommonModule, [
+32mReactiveFormsModule[37m
+, RouterModule, Practi...
+         Γò╡               
+           [32m~~~~~~~~~~~
+~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+1:49:
+[37m      11 Γöé ...ule, 
+ReactiveFormsModule, 
+[32mRouterModule[37m, 
+PractitionerSidebarComp...
+         Γò╡               
+               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+1:49:
+[37m      11 Γöé ...ule, 
+ReactiveFormsModule, 
+[32mRouterModule[37m, 
+PractitionerSidebarComp...
+         Γò╡               
+               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'checked' implicitly has 
+an 'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:5
+5:81:
+[37m      55 Γöé ...rm.get
+('isAlreadyRegistered')?.va
+lueChanges.subscribe([32mc
+hecked[37m => {
+         Γò╡               
+                           
+                
+[32m~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'params' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+16:41:
+[37m      116 Γöé         
+this.route.queryParams.subs
+cribe([32mparams[37m => {
+          Γò╡              
+                           
+ [32m~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+52:20:
+[37m      152 Γöé         
+    error: ([32merr[37m) 
+=> {
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+66:20:
+[37m      166 Γöé         
+    error: ([32merr[37m) 
+=> {
+          Γò╡              
+       [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'data' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+78:53:
+[37m      178 Γöé         
+this.adminService.getEligib
+ility().subscribe([32mdata
+[37m => {
+          Γò╡              
+                           
+             [32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'data' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+84:53:
+[37m      184 Γöé ...e.get
+BloodGroups().subscribe([3
+2mdata[37m => 
+this.bloodGroupOptions = 
+...
+          Γò╡              
+                   
+[32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'data' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+87:49:
+[37m      187 Γöé ...rvice
+.getGenders().subscribe([3
+2mdata[37m => 
+this.genderOptions = 
+Arra...
+          Γò╡              
+                   
+[32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'data' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+90:48:
+[37m      190 Γöé ...ervic
+e.getTitles().subscribe([3
+2mdata[37m => 
+this.titleOptions = 
+Array...
+          Γò╡              
+                   
+[32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'data' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:1
+93:59:
+[37m      193 Γöé ...egist
+rationTypes().subscribe([3
+2mdata[37m => this.registr
+ationForOptio...
+          Γò╡              
+                   
+[32m~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'res' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:2
+62:23:
+[37m      262 Γöé         
+        next: 
+([32mres[37m) => {
+          Γò╡              
+          [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+pages/users-management/user
+s-management.component.ts:2
+68:24:
+[37m      268 Γöé         
+        error: 
+([32merr[37m) => {
+          Γò╡              
+           [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+services/admin.service.ts:1
+:35:
+[37m      1 Γöé import { 
+Injectable, inject } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                    
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module 'rxjs'. Did you 
+mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+services/admin.service.ts:2
+:31:
+[37m      2 Γöé import { 
+of, Observable } from 
+[32m'rxjs'[37m;
+        Γò╡                
+                
+[32m~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module 'rxjs/operators'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+services/admin.service.ts:3
+:22:
+[37m      3 Γöé import { 
+delay } from 
+[32m'rxjs/operators'[37m;
+        Γò╡                
+       
+[32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/admin/
+services/admin.service.ts:6
+:0:
+[37m      6 Γöé 
+[32m@Injectable({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/landin
+g/components/landing-footer
+/landing-footer.component.t
+s:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/landin
+g/components/landing-footer
+/landing-footer.component.t
+s:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/landin
+g/components/landing-footer
+/landing-footer.component.t
+s:4:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/landin
+g/components/landing-footer
+/landing-footer.component.t
+s:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/landin
+g/components/landing-footer
+/landing-footer.component.t
+s:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/landin
+g/components/landing-nav/la
+nding-nav.component.ts:1:26
+:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/landin
+g/components/landing-nav/la
+nding-nav.component.ts:2:29
+:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/landin
+g/components/landing-nav/la
+nding-nav.component.ts:3:37
+:
+[37m      3 Γöé import { 
+Router, RouterModule } 
+from [32m'@angular/router'
+[37m;
+        Γò╡                
+                      
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/landin
+g/components/landing-nav/la
+nding-nav.component.ts:5:0:
+[37m      5 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG2003: No suitable 
+injection token for 
+parameter 'router' of 
+class 
+'LandingNavComponent'.
+  Consider using the 
+@Inject decorator to 
+specify an injection 
+token.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/landin
+g/components/landing-nav/la
+nding-nav.component.ts:107:
+22:
+[37m      107 Γöé   
+constructor(private 
+[32mrouter[37m: Router) 
+{ }
+          Γò╡              
+         [32m~~~~~~[0m
+
+  This type does not have 
+a value, so it cannot be 
+used as injection token.
+
+    src/app/features/landin
+g/components/landing-nav/la
+nding-nav.component.ts:107:
+30:
+[37m      107 Γöé   
+constructor(private 
+router: [32mRouter[37m) 
+{ }
+          Γò╡              
+                 
+[32m~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/landin
+g/pages/landing-page/landin
+g-page.component.ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/landin
+g/pages/landing-page/landin
+g-page.component.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/landin
+g/pages/landing-page/landin
+g-page.component.ts:7:0:
+[37m      7 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/landin
+g/pages/landing-page/landin
+g-page.component.ts:10:14:
+[37m      10 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+SharedHeaderComponent, 
+SharedFooterCom...
+         Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/landin
+g/pages/landing-page/landin
+g-page.component.ts:10:14:
+[37m      10 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+SharedHeaderComponent, 
+SharedFooterCom...
+         Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/user/p
+ages/user-dashboard/user-da
+shboard.component.ts:1:34:
+[37m      1 Γöé import { 
+Component, inject } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                   
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/user/p
+ages/user-dashboard/user-da
+shboard.component.ts:3:29:
+[37m      3 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/user/p
+ages/user-dashboard/user-da
+shboard.component.ts:5:0:
+[37m      5 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/user/p
+ages/user-dashboard/user-da
+shboard.component.ts:8:12:
+[37m      8 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/user/p
+ages/user-dashboard/user-da
+shboard.component.ts:8:12:
+[37m      8 Γöé   
+imports: 
+[[32mCommonModule[37m],
+        Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/user/p
+ages/user-login/user-login.
+component.ts:1:34:
+[37m      1 Γöé import { 
+Component, inject } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                   
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/forms'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/user/p
+ages/user-login/user-login.
+component.ts:2:61:
+[37m      2 Γöé 
+...rmBuilder, 
+ReactiveFormsModule, 
+Validators } from 
+[32m'@angular/forms'[37m;
+        Γò╡                
+                           
+           
+[32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/user/p
+ages/user-login/user-login.
+component.ts:3:23:
+[37m      3 Γöé import { 
+Router } from [32m'@angula
+r/router'[37m;
+        Γò╡                
+        
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/user/p
+ages/user-login/user-login.
+component.ts:5:29:
+[37m      5 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/user/p
+ages/user-login/user-login.
+component.ts:7:0:
+[37m      7 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/user/p
+ages/user-login/user-login.
+component.ts:10:12:
+[37m      10 Γöé   
+imports: [[32mReactiveForm
+sModule[37m, 
+CommonModule],
+         Γò╡             [
+32m~~~~~~~~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/user/p
+ages/user-login/user-login.
+component.ts:10:12:
+[37m      10 Γöé   
+imports: [[32mReactiveForm
+sModule[37m, 
+CommonModule],
+         Γò╡             [
+32m~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/user/p
+ages/user-login/user-login.
+component.ts:10:33:
+[37m      10 Γöé   
+imports: 
+[ReactiveFormsModule, 
+[32mCommonModule[37m],
+         Γò╡               
+                   
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/features/user/p
+ages/user-login/user-login.
+component.ts:10:33:
+[37m      10 Γöé   
+imports: 
+[ReactiveFormsModule, 
+[32mCommonModule[37m],
+         Γò╡               
+                   
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/user/p
+ages/user-login/user-login.
+component.ts:119:18:
+[37m      119 Γöé         
+  error: ([32merr[37m) 
+=> {
+          Γò╡              
+     [32m~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/features/user/u
+ser.routes.ts:1:23:
+[37m      1 Γöé import { 
+Routes } from [32m'@angula
+r/router'[37m;
+        Γò╡                
+        
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/auth-la
+yout/auth-layout.component.
+ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/auth-la
+yout/auth-layout.component.
+ts:2:29:
+[37m      2 Γöé import { 
+RouterOutlet } from [32m'@
+angular/router'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/auth-la
+yout/auth-layout.component.
+ts:6:0:
+[37m      6 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/auth-la
+yout/auth-layout.component.
+ts:9:14:
+[37m      9 Γöé     
+imports: 
+[[32mRouterOutlet[37m, 
+SharedHeaderComponent, 
+SharedFooterComp...
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/auth-la
+yout/auth-layout.component.
+ts:9:14:
+[37m      9 Γöé     
+imports: 
+[[32mRouterOutlet[37m, 
+SharedHeaderComponent, 
+SharedFooterComp...
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/footer/
+footer.component.ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/footer/
+footer.component.ts:3:0:
+[37m      3 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/header/
+header.component.ts:1:34:
+[37m      1 Γöé import { 
+Component, inject } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                   
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/header/
+header.component.ts:2:45:
+[37m      2 Γöé import { 
+RouterLink, 
+RouterLinkActive } from [3
+2m'@angular/router'[37m;
+        Γò╡                
+                           
+   
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/header/
+header.component.ts:4:29:
+[37m      4 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/header/
+header.component.ts:6:0:
+[37m      6 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/header/
+header.component.ts:9:14:
+[37m      9 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+RouterLink, 
+RouterLinkActive],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/header/
+header.component.ts:9:14:
+[37m      9 Γöé     
+imports: 
+[[32mCommonModule[37m, 
+RouterLink, 
+RouterLinkActive],
+        Γò╡               
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/header/
+header.component.ts:9:28:
+[37m      9 Γöé     
+imports: [CommonModule, 
+[32mRouterLink[37m, 
+RouterLinkActive],
+        Γò╡                
+             
+[32m~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/header/
+header.component.ts:9:28:
+[37m      9 Γöé     
+imports: [CommonModule, 
+[32mRouterLink[37m, 
+RouterLinkActive],
+        Γò╡                
+             
+[32m~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/header/
+header.component.ts:9:40:
+[37m      9 Γöé     
+imports: [CommonModule, 
+RouterLink, [32mRouterLink
+Active[37m],
+        Γò╡                
+                         
+[32m~~~~~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/header/
+header.component.ts:9:40:
+[37m      9 Γöé     
+imports: [CommonModule, 
+RouterLink, [32mRouterLink
+Active[37m],
+        Γò╡                
+                         
+[32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/main-la
+yout/main-layout.component.
+ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/main-la
+yout/main-layout.component.
+ts:2:29:
+[37m      2 Γöé import { 
+RouterOutlet } from [32m'@
+angular/router'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/main-la
+yout/main-layout.component.
+ts:7:0:
+[37m      7 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/main-la
+yout/main-layout.component.
+ts:10:12:
+[37m      10 Γöé   
+imports: 
+[[32mRouterOutlet[37m, 
+HeaderComponent, 
+FooterComponent],
+         Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/main-la
+yout/main-layout.component.
+ts:10:12:
+[37m      10 Γöé   
+imports: 
+[[32mRouterOutlet[37m, 
+HeaderComponent, 
+FooterComponent],
+         Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/sidebar
+/sidebar.component.ts:1:34:
+[37m      1 Γöé import { 
+Component, inject } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                   
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/sidebar
+/sidebar.component.ts:2:45:
+[37m      2 Γöé import { 
+RouterLink, 
+RouterLinkActive } from [3
+2m'@angular/router'[37m;
+        Γò╡                
+                           
+   
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/sidebar
+/sidebar.component.ts:4:29:
+[37m      4 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/sidebar
+/sidebar.component.ts:6:0:
+[37m      6 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/sidebar
+/sidebar.component.ts:9:12:
+[37m      9 Γöé   
+imports: 
+[[32mRouterLink[37m, 
+RouterLinkActive, 
+CommonModule],
+        Γò╡             
+[32m~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/sidebar
+/sidebar.component.ts:9:12:
+[37m      9 Γöé   
+imports: 
+[[32mRouterLink[37m, 
+RouterLinkActive, 
+CommonModule],
+        Γò╡             
+[32m~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/sidebar
+/sidebar.component.ts:9:24:
+[37m      9 Γöé   
+imports: [RouterLink, [32m
+RouterLinkActive[37m, 
+CommonModule],
+        Γò╡                
+         
+[32m~~~~~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/sidebar
+/sidebar.component.ts:9:24:
+[37m      9 Γöé   
+imports: [RouterLink, [32m
+RouterLinkActive[37m, 
+CommonModule],
+        Γò╡                
+         
+[32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/layouts/sidebar
+/sidebar.component.ts:9:42:
+[37m      9 Γöé   
+imports: [RouterLink, 
+RouterLinkActive, 
+[32mCommonModule[37m],
+        Γò╡                
+                           
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/sidebar
+/sidebar.component.ts:9:42:
+[37m      9 Γöé   
+imports: [RouterLink, 
+RouterLinkActive, 
+[32mCommonModule[37m],
+        Γò╡                
+                           
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/shared/componen
+ts/shared-footer/shared-foo
+ter.component.ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/shared/componen
+ts/shared-footer/shared-foo
+ter.component.ts:3:0:
+[37m      3 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/shared/componen
+ts/shared-header/shared-hea
+der.component.ts:1:26:
+[37m      1 Γöé import { 
+Component } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+           
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/shared/componen
+ts/shared-header/shared-hea
+der.component.ts:2:27:
+[37m      2 Γöé import { 
+RouterLink } from [32m'@an
+gular/router'[37m;
+        Γò╡                
+            
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/shared/componen
+ts/shared-header/shared-hea
+der.component.ts:4:0:
+[37m      4 Γöé 
+[32m@Component({[37m
+        Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/shared/componen
+ts/shared-header/shared-hea
+der.component.ts:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mRouterLink[37m],
+        Γò╡             
+[32m~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/shared/componen
+ts/shared-header/shared-hea
+der.component.ts:7:12:
+[37m      7 Γöé   
+imports: 
+[[32mRouterLink[37m],
+        Γò╡             
+[32m~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/core'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/shared/componen
+ts/shared-sidebar/shared-si
+debar.component.ts:1:55:
+[37m      1 Γöé ...rt { 
+Component, Input, Output, 
+EventEmitter } from 
+[32m'@angular/core'[37m;
+        Γò╡                
+                           
+            
+[32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/common'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/shared/componen
+ts/shared-sidebar/shared-si
+debar.component.ts:2:29:
+[37m      2 Γöé import { 
+CommonModule } from [32m'@
+angular/common'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/router'. 
+Did you mean to set the 
+'moduleResolution' option 
+to 'nodenext', or to add 
+aliases to the 'paths' 
+option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/shared/componen
+ts/shared-sidebar/shared-si
+debar.component.ts:3:29:
+[37m      3 Γöé import { 
+RouterModule } from [32m'@
+angular/router'[37m;
+        Γò╡                
+              
+[32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2354: This syntax 
+requires an imported 
+helper but module 'tslib' 
+cannot be found.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/shared/componen
+ts/shared-sidebar/shared-si
+debar.component.ts:14:0:
+[37m      14 Γöé 
+[32m@Component({[37m
+         Γò╡ 
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/shared/componen
+ts/shared-sidebar/shared-si
+debar.component.ts:17:12:
+[37m      17 Γöé   
+imports: 
+[[32mCommonModule[37m, 
+RouterModule],
+         Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/shared/componen
+ts/shared-sidebar/shared-si
+debar.component.ts:17:12:
+[37m      17 Γöé   
+imports: 
+[[32mCommonModule[37m, 
+RouterModule],
+         Γò╡             
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG1010: 'imports' must 
+be an array of components, 
+directives, pipes, or 
+NgModules.
+  Value could not be 
+determined statically.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/shared/componen
+ts/shared-sidebar/shared-si
+debar.component.ts:17:26:
+[37m      17 Γöé   
+imports: [CommonModule, 
+[32mRouterModule[37m],
+         Γò╡               
+            
+[32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/shared/componen
+ts/shared-sidebar/shared-si
+debar.component.ts:17:26:
+[37m      17 Γöé   
+imports: [CommonModule, 
+[32mRouterModule[37m],
+         Γò╡               
+            
+[32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS2792: Cannot find 
+module '@angular/platform-b
+rowser'. Did you mean to 
+set the 'moduleResolution' 
+option to 'nodenext', or 
+to add aliases to the 
+'paths' option?[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/main.ts:1:37:
+[37m      1 Γöé import { 
+bootstrapApplication } 
+from [32m'@angular/platfor
+m-browser'[37m;
+        Γò╡                
+                      [32m
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mTS7006: Parameter 
+'err' implicitly has an 
+'any' type.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/main.ts:6:10:
+[37m      6 Γöé   
+.catch(([32merr[37m) => 
+console.error(err));
+        Γò╡           
+[32m~~~[0m
+
+[39m[22m

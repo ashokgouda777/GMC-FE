@@ -1,0 +1,197 @@
+<!-- Page Layout -->
+<div class="page-layout">
+    <app-practitioner-sidebar></app-practitioner-sidebar>
+
+    <main class="content-area">
+        <div class="header-section">
+            <h1>{{ activeSection }} List</h1>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="text" placeholder="Search..." (input)="onSearch($event)"
+                    style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; width: 200px;"
+                    *ngIf="['Practitioner', 'PRC', 'FMG'].includes(activeSection) && !showAddForm">
+                <button *ngIf="['Practitioner', 'PRC', 'FMG'].includes(activeSection) && !showAddForm" class="btn-primary"
+                    (click)="toggleAddForm()">
+                    + Add Practitioner
+                </button>
+            </div>
+        </div>
+
+        <!-- List View -->
+        <div class="table-container" *ngIf="!showAddForm">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sl/No</th>
+                        <th>Registration No</th>
+                        <th>Registration Date</th>
+                        <th>Name</th>
+                        <th>Mobile Number</th>
+                        <th>Email</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of filteredUsers; let i = index">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ user.registrationNo || '' }}</td>
+                        <td>{{ user.registrationDate ? (user.registrationDate | date:'dd-MM-yyyy') : '' }}</td>
+                        <td>
+                            <a [routerLink]="['/admin/practitioner', user.practitionerID || user.id || user.practitionerId]"
+                                style="cursor: pointer; color: blue; text-decoration: underline;">
+                                {{ user.name }}
+                            </a>
+                        </td>
+                        <td>{{ user.mobileNumber }}</td>
+                        <td>{{ user.emailID }}</td>
+
+                    </tr>
+                    <tr *ngIf="filteredUsers.length === 0">
+                        <td colspan="6" style="text-align: center; padding: 20px; color: #666;">No practitioners found.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add Form View -->
+        <div class="form-container" *ngIf="showAddForm">
+            <div class="form-header">
+                <h2>{{ isEditing ? 'Edit Existing Practitioner' : 'Register New Practitioner' }}</h2>
+                <button class="btn-text" (click)="toggleAddForm()">Back to List</button>
+            </div>
+
+            <form [formGroup]="practitionerForm" (ngSubmit)="onSubmit()">
+                <div class="form-grid">
+
+                    <!-- Registration Details -->
+                    <div class="form-group">
+                        <label>Registration For <span class="required">*</span></label>
+                        <select formControlName="registrationFor">
+                            <option value="" disabled selected hidden>Select Type</option>
+                            <option *ngFor="let opt of registrationForOptions" [value]="opt.regid">{{
+                                opt.registrationfor }}</option>
+                        </select>
+                        <div class="error" *ngIf="isFieldInvalid('registrationFor')">Required</div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" formControlName="isAlreadyRegistered">
+                            Already Registered?
+                        </label>
+                    </div>
+
+                    <div class="form-group" *ngIf="practitionerForm.get('isAlreadyRegistered')?.value">
+                        <label>Old Registration No <span class="required">*</span></label>
+                        <input type="text" formControlName="oldRegNo" placeholder="Enter Old Reg No">
+                        <div class="error" *ngIf="isFieldInvalid('oldRegNo')">Required when already registered</div>
+                    </div>
+
+                    <div class="form-group" *ngIf="practitionerForm.get('isAlreadyRegistered')?.value">
+                        <label>Old Registration Date <span class="required">*</span></label>
+                        <input type="date" formControlName="oldRegDate">
+                        <div class="error" *ngIf="isFieldInvalid('oldRegDate')">Required when already registered</div>
+                    </div>
+
+                    <!-- Personal Details -->
+                    <div class="form-group">
+                        <label>Title <span class="required">*</span></label>
+                        <select formControlName="title">
+                            <option value="" disabled selected hidden>Select Title</option>
+                            <option *ngFor="let t of titleOptions" [value]="t.titleId">{{ t.titleName }}</option>
+                        </select>
+                        <div class="error" *ngIf="isFieldInvalid('title')">Required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name <span class="required">*</span></label>
+                        <input type="text" formControlName="name" placeholder="Enter Full Name">
+                        <div class="error" *ngIf="isFieldInvalid('name')">Required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender <span class="required">*</span></label>
+                        <select formControlName="gender">
+                            <option value="" disabled selected hidden>Select Gender</option>
+                            <option *ngFor="let g of genderOptions" [value]="g.genderId">{{ g.genderName }}</option>
+                        </select>
+                        <div class="error" *ngIf="isFieldInvalid('gender')">Required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Blood Group</label>
+                        <select formControlName="bloodGroup">
+                            <option value="" disabled selected hidden>Select Blood Group</option>
+                            <option *ngFor="let b of bloodGroupOptions" [value]="b.bloodGroupCode">{{
+                                b.bloodGroupDescription }}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Change of Name</label>
+                        <input type="text" formControlName="changeOfName" placeholder="If applicable">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Father Name <span class="required">*</span></label>
+                        <input type="text" formControlName="fatherName" placeholder="Enter Father Name">
+                        <div class="error" *ngIf="isFieldInvalid('fatherName')">Required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Birth Date <span class="required">*</span></label>
+                        <input type="date" formControlName="birthDate">
+                        <div class="error" *ngIf="isFieldInvalid('birthDate')">Required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Birth Place <span class="required">*</span></label>
+                        <input type="text" formControlName="birthPlace" placeholder="Enter Birth Place">
+                        <div class="error" *ngIf="isFieldInvalid('birthPlace')">Required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nationality <span class="required">*</span></label>
+                        <select formControlName="nationality">
+                            <option value="" disabled selected hidden>Select Nationality</option>
+                            <option *ngFor="let n of nationalityOptions" [value]="n.nationalityId">{{ n.nationality }}
+                            </option>
+                        </select>
+                        <div class="error" *ngIf="isFieldInvalid('nationality')">Required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Eligibility <span class="required">*</span></label>
+                        <select formControlName="eligibility">
+                            <option value="" disabled selected hidden>Select Eligibility</option>
+                            <option *ngFor="let e of eligibilityOptions" [value]="e.eligibiltyId">{{ e.eligibilty }}
+                            </option>
+                        </select>
+                        <div class="error" *ngIf="isFieldInvalid('eligibility')">Required</div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label>Email ID <span class="required">*</span></label>
+                        <input type="email" formControlName="email" placeholder="email@example.com">
+                        <div class="error" *ngIf="isFieldInvalid('email')">Invalid Email</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mobile Number <span class="required">*</span></label>
+                        <input type="text" formControlName="mobile" placeholder="10-digit Mobile No">
+                        <div class="error" *ngIf="isFieldInvalid('mobile')">Invalid Mobile No</div>
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" (click)="toggleAddForm()">Cancel</button>
+                    <button type="submit" class="btn-submit" [disabled]="practitionerForm.invalid">{{ isEditing ?
+                        'Update Practitioner' : 'Submit Registration' }}</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>

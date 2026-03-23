@@ -1,0 +1,12 @@
+<aside class="standard-sidebar">
+    <h3>Lists</h3>
+    <ul>
+        <li *ngFor="let item of menuItems" [routerLink]="['/admin/users']"
+            [queryParams]="{section: item.section || item.label}" [class.active]="isActive(item.section || item.label)">
+            {{ item.label }}
+        </li>
+    </ul>
+    <div *ngIf="menuItems.length === 0" style="padding: 10px; color: #666; font-size: 0.9em;">
+        Loading lists...
+    </div>
+</aside>

@@ -1,0 +1,33 @@
+<aside class="admin-sidebar">
+    <div class="sidebar-header">
+        <h3>Lists</h3>
+    </div>
+    <ul class="nav-links">
+        <li [routerLink]="['/admin/dashboard']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <span class="icon">📊</span> Dashboard
+        </li>
+
+        <li class="section-title">Practitioner Management</li>
+        <li [routerLink]="['/admin/users']" [queryParams]="{section: 'Practitioner'}" routerLinkActive="active"
+            [class.active]="isSectionActive('Practitioner') || (router.url === '/admin/users' && !isSectionActive('PRC') && !isSectionActive('FMG'))">
+            <span class="icon">👥</span> Practitioner List
+        </li>
+        <li [routerLink]="['/admin/users']" [queryParams]="{section: 'PRC'}" [class.active]="isSectionActive('PRC')">
+            <span class="icon">🏢</span> PRC List
+        </li>
+        <li [routerLink]="['/admin/users']" [queryParams]="{section: 'FMG'}" [class.active]="isSectionActive('FMG')">
+            <span class="icon">📋</span> FMG List
+        </li>
+
+        <li class="section-title">Administration</li>
+        <li [routerLink]="['/admin/configuration']" routerLinkActive="active">
+            <span class="icon">⚙️</span> Configuration
+        </li>
+        <li [routerLink]="['/admin/accounting']" routerLinkActive="active">
+            <span class="icon">💰</span> Accounting
+        </li>
+        <li [routerLink]="['/admin/reports']" routerLinkActive="active">
+            <span class="icon">📈</span> Reports
+        </li>
+    </ul>
+</aside>

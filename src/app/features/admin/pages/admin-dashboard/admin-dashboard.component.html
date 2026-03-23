@@ -1,0 +1,48 @@
+<div class="dashboard">
+    <div class="welcome-banner">
+        <h2>Welcome, {{ auth.currentUser()?.username }}</h2>
+        <span class="role-badge">{{ auth.currentUser()?.roleName || 'User' }}</span>
+    </div>
+
+    <div class="stats-grid">
+        <div class="card stat-card" routerLink="/admin/users">
+            <div class="icon-box primary">
+                <span>👥</span>
+            </div>
+            <div class="stat-info">
+                <h3>Total Practitioner</h3>
+                <p class="value">Practitioners</p>
+            </div>
+        </div>
+
+        <div class="card stat-card" routerLink="/admin/accounting">
+            <div class="icon-box secondary">
+                <span>💰</span>
+            </div>
+            <div class="stat-info">
+                <h3>Accounting</h3>
+                <p class="value">Accounting</p>
+            </div>
+        </div>
+
+        <div class="card stat-card" *ngIf="auth.hasRequiredRole([1, 2])" routerLink="/admin/configuration">
+            <div class="icon-box success">
+                <span>⚡</span>
+            </div>
+            <div class="stat-info">
+                <h3>Settings & Configuration</h3>
+                <p class="value">Configuration</p>
+            </div>
+        </div>
+
+        <div class="card stat-card" routerLink="/admin/reports">
+            <div class="icon-box warning">
+                <span>📊</span>
+            </div>
+            <div class="stat-info">
+                <h3> Analytics</h3>
+                <p class="value">Reports</p>
+            </div>
+        </div>
+    </div>
+</div>

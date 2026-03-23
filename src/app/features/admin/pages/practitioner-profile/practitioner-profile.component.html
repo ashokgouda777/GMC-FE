@@ -1,0 +1,982 @@
+<div class="page-layout">
+    <app-practitioner-sidebar></app-practitioner-sidebar>
+
+    <main class="content-area">
+        <div class="profile-container">
+            <div class="header">
+                <h1>Practitioner Name: <span class="name">{{ practitioner?.title }} {{ practitioner?.name | uppercase }}</span></h1>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn" [class.active]="activeTab === 'Personal'"
+                    (click)="setActiveTab('Personal')">Personal</button>
+                <button class="tab-btn" [class.active]="activeTab === 'Contact'"
+                    (click)="setActiveTab('Contact')">Contact Info</button>
+                <button class="tab-btn" [class.active]="activeTab === 'Educational'"
+                    (click)="setActiveTab('Educational')">Educational</button>
+                <button class="tab-btn" [class.active]="activeTab === 'Complaint'"
+                    (click)="setActiveTab('Complaint')">Complaint</button>
+                <button class="tab-btn" [class.active]="activeTab === 'Payments'"
+                    (click)="setActiveTab('Payments')">Payments</button>
+                <button class="tab-btn" [class.active]="activeTab === 'NOC'" (click)="setActiveTab('NOC')">NOC</button>
+                <button class="tab-btn" [class.active]="activeTab === 'CME'" (click)="setActiveTab('CME')">CME
+                    Points</button>
+                <button class="tab-btn" [class.active]="activeTab === 'Photo'"
+                    (click)="setActiveTab('Photo')">Photo/Sign</button>
+                <button class="tab-btn" [class.active]="activeTab === 'KMC'" (click)="setActiveTab('KMC')">GMC
+                    Register</button>
+                <button class="tab-btn" [class.active]="activeTab === 'Documents'"
+                    (click)="setActiveTab('Documents')">Documents</button>
+                <button class="tab-btn" [class.active]="activeTab === 'Certificate'"
+                    (click)="setActiveTab('Certificate')">Certificate Number</button>
+            </div>
+
+            <div class="content">
+                <!-- Personal Tab: View Mode -->
+                <div *ngIf="activeTab === 'Personal' && !isEditing">
+                    <div class="actions-bar">
+                        <a class="edit-link" (click)="toggleEditMode()">
+                            <i class="fas fa-edit"></i> Edit Personal Information
+                        </a>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-header">
+                            <h3>Personal Information</h3>
+                        </div>
+
+                        <div class="info-grid" *ngIf="practitioner">
+                            <!-- Row 1: Key Identifiers -->
+                            <div class="grid-item">
+                                <label>Registration For</label>
+                                <div class="value">{{ practitioner.registrationFor || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Registration Number</label>
+                                <div class="value highlight">{{ practitioner.registrationNo || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Registration Date</label>
+                                <div class="value">{{ practitioner.registrationDate | date:'dd MMM yyyy' }}</div>
+                            </div>
+
+                            <!-- Row 2: Name & Identity -->
+                            <div class="grid-item">
+                                <label>Title</label>
+                                <div class="value">{{ practitioner.title || '-' }}</div>
+                            </div>
+                            <div class="grid-item span-2">
+                                <label>Full Name</label>
+                                <div class="value large">{{ practitioner.name }}</div>
+                            </div>
+
+                            <!-- Row 3: Demographics -->
+                            <div class="grid-item">
+                                <label>Gender</label>
+                                <div class="value">{{ practitioner.gender == 1 ? 'Male' : 'Female' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Blood Group</label>
+                                <div class="value badge">{{ practitioner.bloodGroup || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Date of Birth</label>
+                                <div class="value">{{ practitioner.birthDate | date:'dd MMM yyyy' }}</div>
+                            </div>
+
+                            <!-- Row 4: Family & Origin -->
+                            <div class="grid-item">
+                                <label>Father/Spouse Name</label>
+                                <div class="value">{{ practitioner.spouseName || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Birth Place</label>
+                                <div class="value">{{ practitioner.birthPlace || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Change of Name</label>
+                                <div class="value">{{ practitioner.changeOfName || '-' }}</div>
+                            </div>
+
+                            <!-- Row 5: Status -->
+                            <div class="grid-item">
+                                <label>Nationality</label>
+                                <div class="value">{{ practitioner.nationality || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Eligibility to Vote</label>
+                                <div class="value">{{ practitioner.vote || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <!-- Empty -->
+                            </div>
+                            <div class="grid-item">
+                                <!-- Empty for alignment if needed -->
+                            </div>
+                        </div>
+                        <div *ngIf="!practitioner" class="loading-state">
+                            <span class="spinner"></span> Loading practitioner details...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Tab: Edit Mode -->
+                <div class="form-container" *ngIf="activeTab === 'Personal' && isEditing">
+                    <div class="form-header">
+                        <h2>Edit Personal Information</h2>
+                        <button class="btn-text" (click)="toggleEditMode()">Cancel Editing</button>
+                    </div>
+
+                    <form [formGroup]="practitionerForm" (ngSubmit)="onSubmit()">
+                        <div class="form-grid">
+                            <!-- Registration Details -->
+                            <div class="form-group">
+                                <label>Registration For <span class="required">*</span></label>
+                                <select formControlName="registrationFor">
+                                    <option value="" disabled selected hidden>Select Type</option>
+                                    <option *ngFor="let opt of registrationForOptions" [value]="opt.regid">{{
+                                        opt.registrationfor }}</option>
+                                </select>
+                                <div class="error" *ngIf="isFieldInvalid('registrationFor')">Required</div>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <label>
+                                    <input type="checkbox" formControlName="isAlreadyRegistered">
+                                    Already Registered?
+                                </label>
+                            </div>
+
+                            <div class="form-group" *ngIf="practitionerForm.get('isAlreadyRegistered')?.value">
+                                <label>Old Registration No <span class="required">*</span></label>
+                                <input type="text" formControlName="oldRegNo" placeholder="Enter Old Reg No">
+                                <div class="error" *ngIf="isFieldInvalid('oldRegNo')">Required</div>
+                            </div>
+
+                            <div class="form-group" *ngIf="practitionerForm.get('isAlreadyRegistered')?.value">
+                                <label>Old Registration Date <span class="required">*</span></label>
+                                <input type="date" formControlName="oldRegDate">
+                                <div class="error" *ngIf="isFieldInvalid('oldRegDate')">Required</div>
+                            </div>
+
+                            <!-- Personal Details -->
+                            <div class="form-group">
+                                <label>Title <span class="required">*</span></label>
+                                <select formControlName="title">
+                                    <option value="" disabled selected hidden>Select Title</option>
+                                    <option *ngFor="let t of titleOptions" [value]="t.titleId">{{ t.titleName }}
+                                    </option>
+                                </select>
+                                <div class="error" *ngIf="isFieldInvalid('title')">Required</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Name <span class="required">*</span></label>
+                                <input type="text" formControlName="name" placeholder="Enter Full Name">
+                                <div class="error" *ngIf="isFieldInvalid('name')">Required</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Gender <span class="required">*</span></label>
+                                <select formControlName="gender">
+                                    <option value="" disabled selected hidden>Select Gender</option>
+                                    <option *ngFor="let g of genderOptions" [value]="g.genderId">{{ g.genderName }}
+                                    </option>
+                                </select>
+                                <div class="error" *ngIf="isFieldInvalid('gender')">Required</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Blood Group</label>
+                                <select formControlName="bloodGroup">
+                                    <option value="" disabled selected hidden>Select Blood Group</option>
+                                    <option *ngFor="let b of bloodGroupOptions" [value]="b.bloodGroupCode">{{
+                                        b.bloodGroupDescription }}</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Change of Name</label>
+                                <input type="text" formControlName="changeOfName" placeholder="If applicable">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Father Name <span class="required">*</span></label>
+                                <input type="text" formControlName="fatherName" placeholder="Enter Father Name">
+                                <div class="error" *ngIf="isFieldInvalid('fatherName')">Required</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Birth Date <span class="required">*</span></label>
+                                <input type="date" formControlName="birthDate">
+                                <div class="error" *ngIf="isFieldInvalid('birthDate')">Required</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Birth Place <span class="required">*</span></label>
+                                <input type="text" formControlName="birthPlace" placeholder="Enter Birth Place">
+                                <div class="error" *ngIf="isFieldInvalid('birthPlace')">Required</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Nationality <span class="required">*</span></label>
+                                <select formControlName="nationality">
+                                    <option value="" disabled selected hidden>Select Nationality</option>
+                                    <option *ngFor="let n of nationalityOptions" [value]="n.nationalityId">{{
+                                        n.nationality }}</option>
+                                </select>
+                                <div class="error" *ngIf="isFieldInvalid('nationality')">Required</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Eligibility <span class="required">*</span></label>
+                                <select formControlName="eligibility">
+                                    <option value="" disabled selected hidden>Select Eligibility</option>
+                                    <option *ngFor="let e of eligibilityOptions" [value]="e.eligibiltyId">{{
+                                        e.eligibilty }}</option>
+                                </select>
+                                <div class="error" *ngIf="isFieldInvalid('eligibility')">Required</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email ID <span class="required">*</span></label>
+                                <input type="email" formControlName="email" placeholder="email@example.com">
+                                <div class="error" *ngIf="isFieldInvalid('email')">Invalid Email</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Mobile Number <span class="required">*</span></label>
+                                <input type="text" formControlName="mobile" placeholder="10-digit Mobile No">
+                                <div class="error" *ngIf="isFieldInvalid('mobile')">Invalid Mobile No</div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-cancel" (click)="toggleEditMode()">Cancel</button>
+                            <button type="submit" class="btn-submit" [disabled]="practitionerForm.invalid">Update
+                                Practitioner</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Contact Tab: View Mode -->
+                <div *ngIf="activeTab === 'Contact' && !isEditing">
+                    <div class="actions-bar">
+                        <a class="edit-link" (click)="toggleEditMode()">
+                            <i class="fas fa-edit"></i> Edit Contact Information
+                        </a>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-header">
+                            <h3>Address Information</h3>
+                        </div>
+                        <div class="info-grid">
+                            <!-- Residential Info -->
+                            <div class="grid-section-header">Residential Information</div>
+
+                            <div class="grid-item span-2">
+                                <label>Address Line 1</label>
+                                <div class="value">{{ practitioner?.residentialAddress1 || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Address Line 2</label>
+                                <div class="value">{{ practitioner?.residentialAddress2 || '-' }}</div>
+                            </div>
+
+                            <!-- Row 2 -->
+                            <div class="grid-item">
+                                <label>Rural/Urban</label>
+                                <div class="value">{{ practitioner?.residentialRuralUrban || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Country</label>
+                                <div class="value">{{ practitioner?.countryId || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>State</label>
+                                <div class="value">{{ practitioner?.stateId || '-' }}</div>
+                            </div>
+
+                            <!-- Row 3 -->
+                            <div class="grid-item">
+                                <label>City</label>
+                                <div class="value">{{ practitioner?.residentialCity || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>District</label>
+                                <div class="value">{{ practitioner?.districtId || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Postal Code</label>
+                                <div class="value">{{ practitioner?.residentialZipCode || '-' }}</div>
+                            </div>
+
+                            <!-- Row 4 -->
+                            <div class="grid-item">
+                                <label>Mobile 1</label>
+                                <div class="value">{{ practitioner?.residentialMobile1 || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Mobile 2</label>
+                                <div class="value">{{ practitioner?.residentialMobile2 || '-' }}</div>
+                            </div>
+
+                            <!-- Professional Info -->
+                            <div class="grid-section-header" style="margin-top: 20px;">Professional Address</div>
+
+                            <div class="grid-item span-2">
+                                <label>Address Line 1</label>
+                                <div class="value">{{ practitioner?.professionalAddress1 || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Address Line 2</label>
+                                <div class="value">{{ practitioner?.professionalAddress2 || '-' }}</div>
+                            </div>
+
+                            <!-- Row 2 -->
+                            <div class="grid-item">
+                                <label>Rural/Urban</label>
+                                <div class="value">{{ practitioner?.professionalRuralUrban || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Country</label>
+                                <div class="value">{{ practitioner?.professionalCountryId || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>State</label>
+                                <div class="value">{{ practitioner?.professionalStateId || '-' }}</div>
+                            </div>
+
+                            <!-- Row 3 -->
+                            <div class="grid-item">
+                                <label>City</label>
+                                <div class="value">{{ practitioner?.professionalCity || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>District</label>
+                                <div class="value">{{ practitioner?.professionalDistrictId || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Postal Code</label>
+                                <div class="value">{{ practitioner?.professionalZipCode || '-' }}</div>
+                            </div>
+
+                            <!-- Row 4 -->
+                            <div class="grid-item">
+                                <label>Mobile 1</label>
+                                <div class="value">{{ practitioner?.professionalMobile1 || '-' }}</div>
+                            </div>
+                            <div class="grid-item">
+                                <label>Mobile 2</label>
+                                <div class="value">{{ practitioner?.professionalMobile2 || '-' }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Tab: Edit Mode -->
+                <div class="form-container" *ngIf="activeTab === 'Contact' && isEditing">
+                    <!-- Loading Overlay -->
+                    <div class="loading-overlay" *ngIf="isLoadingContactInfo">
+                        <div class="spinner"></div>
+                        <p>Loading contact details...</p>
+                    </div>
+
+                    <div class="form-header">
+                        <h2>Edit Contact Information</h2>
+                        <button class="btn-text" (click)="toggleEditMode()">Cancel Editing</button>
+                    </div>
+
+                    <form [formGroup]="practitionerForm" (ngSubmit)="onSubmit()">
+                        <div class="form-grid">
+
+                            <!-- Residential Address Section -->
+                            <div class="section-title span-2">Residential Information</div>
+
+                            <div class="form-group span-2">
+                                <label>Residential Address - Line 1</label>
+                                <input type="text" formControlName="resAddress1">
+                            </div>
+                            <div class="form-group span-2">
+                                <label>Residential Address - Line 2</label>
+                                <input type="text" formControlName="resAddress2">
+                            </div>
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" formControlName="resCity">
+                            </div>
+                            <div class="form-group">
+                                <label>Rural/Urban</label>
+                                <select formControlName="resRuralUrban">
+                                    <option value="" disabled selected hidden>Select</option>
+                                    <option *ngFor="let ru of ruralUrbanOptions" [value]="ru.typeId || ru.typeName">{{
+                                        ru.typeName }}</option>
+                                    <!-- Fallback hardcoded as requested by user if API returns nothing or simple strings -->
+                                    <option value="Rural">Rural</option>
+                                    <option value="Urban">Urban</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Country</label>
+                                <select formControlName="resCountry">
+                                    <option value="" disabled selected hidden>Select Country</option>
+                                    <option *ngFor="let c of countryOptions" [value]="c.countryId">{{ c.countryName }}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>State</label>
+                                <select formControlName="resState">
+                                    <option value="" disabled selected hidden>Select State</option>
+                                    <option *ngFor="let s of resStateOptions" [value]="s.stateId">{{ s.stateName }}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>District</label>
+                                <select formControlName="resDistrict">
+                                    <option value="" disabled selected hidden>Select District</option>
+                                    <option *ngFor="let d of resDistrictOptions" [value]="d.districtId">{{
+                                        d.districtName
+                                        }}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Postal Code</label>
+                                <input type="text" formControlName="resPinCode">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone 1</label>
+                                <input type="text" formControlName="resPhone1">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone 2</label>
+                                <input type="text" formControlName="resPhone2">
+                            </div>
+
+
+                            <!-- Professional Address Section -->
+                            <div class="section-title span-2"
+                                style="display: flex; justify-content: space-between; align-items: center;">
+                                <span>Professional Address</span>
+                                <label class="checkbox-label" style="font-size: 0.9rem; font-weight: normal;">
+                                    <input type="checkbox" formControlName="isProSameAsRes"> Same as Residential Address
+                                </label>
+                            </div>
+
+                            <div class="form-group span-2">
+                                <label>Professional Address - Line 1</label>
+                                <input type="text" formControlName="profAddress1">
+                            </div>
+                            <div class="form-group span-2">
+                                <label>Professional Address - Line 2</label>
+                                <input type="text" formControlName="profAddress2">
+                            </div>
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" formControlName="profCity">
+                            </div>
+                            <div class="form-group">
+                                <label>Rural/Urban</label>
+                                <select formControlName="profRuralUrban">
+                                    <option value="" disabled selected hidden>Select</option>
+                                    <option *ngFor="let ru of ruralUrbanOptions" [value]="ru.typeId || ru.typeName">{{
+                                        ru.typeName }}</option>
+                                    <option value="Rural">Rural</option>
+                                    <option value="Urban">Urban</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Country</label>
+                                <select formControlName="profCountry">
+                                    <option value="" disabled selected hidden>Select Country</option>
+                                    <option *ngFor="let c of countryOptions" [value]="c.countryId">{{ c.countryName }}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>State</label>
+                                <select formControlName="profState">
+                                    <option value="" disabled selected hidden>Select State</option>
+                                    <option *ngFor="let s of profStateOptions" [value]="s.stateId">{{ s.stateName }}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>District</label>
+                                <select formControlName="profDistrict">
+                                    <option value="" disabled selected hidden>Select District</option>
+                                    <option *ngFor="let d of profDistrictOptions" [value]="d.districtId">{{
+                                        d.districtName
+                                        }}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Postal Code</label>
+                                <input type="text" formControlName="profPinCode">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone 1</label>
+                                <input type="text" formControlName="profPhone1">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone 2</label>
+                                <input type="text" formControlName="profPhone2">
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-cancel" (click)="toggleEditMode()">Cancel</button>
+                            <button type="submit" class="btn-submit" [disabled]="practitionerForm.invalid">Update
+                                Practitioner</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Education Tab -->
+                <div class="education-section" *ngIf="activeTab === 'Educational'">
+
+                    <!-- Add/Edit Form -->
+                    <div class="form-container extended-form" *ngIf="isAddingEducation">
+                        <div class="form-header">
+                            <h2>{{ editingEducationId ? 'Edit' : 'Add' }} Educational Information</h2>
+                            <button class="btn-text" (click)="toggleAddEducation()">Cancel</button>
+                        </div>
+                        <form [formGroup]="educationForm" (ngSubmit)="saveEducation()">
+                            <div class="form-grid">
+                                <!-- Degree -->
+                                <div class="form-group">
+                                    <label>Degree <span class="required">*</span></label>
+                                    <select formControlName="degree">
+                                        <option value="" disabled selected hidden>Select Degree</option>
+                                        <option *ngFor="let c of courseOptions" [value]="c.courseId">{{
+                                            c.courseDescription }}</option>
+                                    </select>
+                                    <div class="error" *ngIf="isFieldInvalid('degree')">Required</div>
+                                </div>
+
+                                <!-- Course Name -->
+                                <div class="form-group">
+                                    <label>Course Name</label>
+                                    <input type="text" formControlName="courseName" placeholder="Enter Course Name">
+                                </div>
+
+                                <!-- Other Subject -->
+                                <div class="form-group">
+                                    <label>Other Subject</label>
+                                    <input type="text" formControlName="otherSubject" placeholder="Enter Other Subject">
+                                </div>
+
+                                <!-- Passing Month -->
+                                <div class="form-group">
+                                    <label>Passing Month <span class="required">*</span></label>
+                                    <select formControlName="passMonth">
+                                        <option value="" disabled selected hidden>Select Month</option>
+                                        <option *ngFor="let m of months" [value]="m.value">{{ m.name }}</option>
+                                    </select>
+                                    <div class="error"
+                                        *ngIf="educationForm.get('passMonth')?.touched && educationForm.get('passMonth')?.invalid">
+                                        Required</div>
+                                </div>
+
+                                <!-- Passing Year -->
+                                <div class="form-group">
+                                    <label>Passing Year <span class="required">*</span></label>
+                                    <select formControlName="passYear">
+                                        <option value="" disabled selected hidden>Select Year</option>
+                                        <option *ngFor="let y of years" [value]="y">{{ y }}</option>
+                                    </select>
+                                    <div class="error"
+                                        *ngIf="educationForm.get('passYear')?.touched && educationForm.get('passYear')?.invalid">
+                                        Required</div>
+                                </div>
+
+                                <!-- University -->
+                                <div class="form-group span-3">
+                                    <label>Name Of The University</label>
+                                    <select formControlName="university" (change)="onUniversityChange()">
+                                        <option value="" disabled selected hidden>Select University</option>
+                                        <option *ngFor="let u of universityOptions" [value]="u.universityId">{{
+                                            u.universityName }}</option>
+                                    </select>
+                                </div>
+
+                                <!-- College -->
+                                <div class="form-group span-3">
+                                    <label>Name Of The College Studied <span class="required">*</span></label>
+                                    <select formControlName="college">
+                                        <option value="" disabled selected hidden>Select College</option>
+                                        <option *ngFor="let c of collegeOptions" [value]="c.colid">{{ c.colname }}
+                                        </option>
+                                    </select>
+                                    <div class="error"
+                                        *ngIf="educationForm.get('college')?.touched && educationForm.get('college')?.invalid">
+                                        Required</div>
+                                </div>
+
+
+                                <!-- Certificate No -->
+                                <div class="form-group">
+                                    <label>Certificate No</label>
+                                    <input type="text" formControlName="certificateNo"
+                                        placeholder="Enter Certificate No">
+                                </div>
+
+                                <!-- Certificate Date -->
+                                <div class="form-group">
+                                    <label>Certificate Date</label>
+                                    <input type="date" formControlName="certificateDate">
+                                </div>
+
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-cancel" (click)="toggleAddEducation()">Cancel</button>
+                                <button type="submit" class="btn-submit" [disabled]="educationForm.invalid">Save
+                                    Education</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- List View -->
+                    <div class="education-list" *ngIf="!isAddingEducation">
+                        <div class="actions-bar">
+                            <a class="edit-link" (click)="toggleAddEducation()">
+                                <i class="fas fa-plus"></i> Add Education
+                            </a>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="card-header">
+                                <h3>Education Information</h3>
+                            </div>
+
+                            <div class="card-content" style="padding: 0;">
+                                <div class="no-data" *ngIf="educationList.length === 0"
+                                    style="padding: 20px; text-align: center; color: #666;">
+                                    No educational records found.
+                                </div>
+
+                                <div class="education-item" *ngFor="let edu of educationList; let last = last"
+                                    [style.border-bottom]="last ? 'none' : '1px solid #ddd'" style="padding: 20px;">
+                                    <div class="item-header"
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                        <h4 style="margin: 0; color: #333; font-size: 1rem; font-weight: 600;">{{
+                                            edu.degreeName }}</h4>
+                                        <div class="item-actions">
+                                            <a (click)="editEducation(edu)"
+                                                style="cursor: pointer; margin-right: 15px; color: var(--primary-color); font-weight: 500; font-size: 0.9rem;">Edit</a>
+                                            <a (click)="deleteEducation(edu.educationId)"
+                                                style="cursor: pointer; color: #f44336; font-weight: 500; font-size: 0.9rem;">Delete</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="info-grid"
+                                        style="padding: 0; display: grid; grid-template-columns: 1fr 2fr; gap: 20px;">
+                                        <!-- Row 1 -->
+                                        <div class="grid-item">
+                                            <label>Year & Month of Passing</label>
+                                            <div class="value">{{ edu.convertedDate }}</div>
+                                        </div>
+                                        <div class="grid-item">
+                                            <label>Name Of The College</label>
+                                            <div class="value">{{ edu.collegeName }}</div>
+                                        </div>
+                                        <div class="grid-item">
+                                            <label>Certificate No</label>
+                                            <div class="value">{{ edu.certificateNo || '-' }}</div>
+                                        </div>
+                                        <div class="grid-item">
+                                            <label>Certificate Date</label>
+                                            <div class="value">{{ (edu.certificateDate && edu.certificateDate !== '-') ? (edu.certificateDate | date:'dd-MM-yyyy') : '-' }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payments Tab -->
+                <div class="payments-section" *ngIf="activeTab === 'Payments'">
+                    <div class="actions-bar">
+                        <a class="edit-link" (click)="toggleAddPayment()">
+                            <i class="fas fa-plus"></i> Add Payment History
+                        </a>
+                    </div>
+
+                    <div class="receipt-card" *ngFor="let pay of paymentList">
+                        <div class="receipt-header">
+                            <div class="type-badge">
+                                <div class="type-main">
+                                    <span class="type">{{ (pay.ledgerDescription || pay.feeItemname || pay.type) |
+                                        uppercase }}</span>
+                                    <span class="mode">({{ (pay.ledgerDescription ? pay.type : pay.mode) || 'Online'
+                                        }})</span>
+                                </div>
+                                <div class="sub-actions">
+                                    <button class="text-action-btn" *ngIf="pay.receiptNo" (click)="generateReceipt(pay.receiptNo)">Receipt</button>
+                                    <button class="text-action-btn">{{ pay.ledgerDescription || pay.feeItemname }}
+                                        Certificate</button>
+                                </div>
+                            </div>
+                            <div class="action-links">
+                            </div>
+                        </div>
+
+                        <div class="receipt-body">
+                            <div class="details-column">
+                                <div class="detail-group">
+                                    <span class="label">RECEIPT NO</span>
+                                    <span class="value highlight-orange">{{ pay.receiptNo }}</span>
+                                </div>
+                                <div class="detail-group">
+                                    <span class="label">TRANSACTION NO</span>
+                                    <span class="value">{{ pay.transactionNo || '-' }}</span>
+                                </div>
+                                <div class="detail-group">
+                                    <span class="label">CERTIFICATE NO</span>
+                                    <span class="value">{{ pay.certificateNo || '-' }}</span>
+                                </div>
+                            </div>
+
+                            <div class="details-column">
+                                <div class="detail-group">
+                                    <span class="label">RECEIPT DATE</span>
+                                    <span class="value">{{ pay.receiptDate | date:'dd-MM-yyyy' }}</span>
+                                </div>
+                                <div class="detail-group">
+                                    <span class="label">TRANSACTION DATE</span>
+                                    <span class="value">{{ (pay.transactionDate && pay.transactionDate !== '-') ?
+                                        (pay.transactionDate | date:'dd-MM-yyyy') : (pay.receiptDate |
+                                        date:'dd-MM-yyyy') }}</span>
+                                </div>
+                                <div class="detail-group">
+                                    <span class="label">CERTIFICATE ISSUED</span>
+                                    <span class="value">{{ pay.certificateIssued || '-' }}</span>
+                                </div>
+                            </div>
+
+                            <div class="details-column amount-col">
+                                <div class="detail-group amount-group">
+                                    <span class="label">AMOUNT</span>
+                                    <span class="value amount">{{ (pay.amount || 0) | currency:'INR' }}</span>
+                                </div>
+                                <div class="detail-group">
+                                    <span class="label">BANK</span>
+                                    <span class="value">{{ pay.bank || '-' }}</span>
+                                </div>
+                                <div class="detail-group">
+                                    <span class="label">REGISTRATION DATE</span>
+                                    <span class="value">{{ pay.councilRegistrationDate && pay.councilRegistrationDate
+                                        !== '-' ? (pay.councilRegistrationDate | date:'dd-MM-yyyy') : '-' }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo/Sign Tab -->
+                <div *ngIf="activeTab === 'Photo'" class="photos-tab-container">
+                    <div class="smartcard-links">
+                        <a href="javascript:void(0)" class="link-primary">View Smartcard Front Page</a>
+                        <a href="javascript:void(0)" class="link-primary">View Smartcard Back Page</a>
+                    </div>
+
+                    <div class="photos-grid">
+                        <!-- Photo -->
+                        <div class="photo-card">
+                            <div class="card-header">Photo</div>
+                            <div class="card-actions">
+                                <a href="javascript:void(0)" class="action-btn primary"
+                                    (click)="openCamera('photo')">Add Photo</a>
+                                <a href="javascript:void(0)" class="action-btn secondary">Add</a>
+                                <a href="javascript:void(0)" class="action-btn secondary"
+                                    (click)="triggerFileUpload('photo')">Upload</a>
+                                <a href="javascript:void(0)" class="action-btn secondary">Print Photo</a>
+                            </div>
+                            <div class="card-image">
+                                <img *ngIf="practitioner?.photo" [src]="practitioner.photo" class="preview-img">
+                                <div *ngIf="!practitioner?.photo" class="placeholder icon-placeholder">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Upload Photo</span>
+                                </div>
+                            </div>
+                            <div class="card-footer" *ngIf="practitioner?.photo">
+                                <button class="btn-save" (click)="saveImage('photo')">Save Photo</button>
+                            </div>
+                        </div>
+
+                        <!-- Signature -->
+                        <div class="photo-card">
+                            <div class="card-header">Signature</div>
+                            <div class="card-actions">
+                                <a href="javascript:void(0)" class="action-btn primary"
+                                    (click)="onCaptureWacomSignature()">Get Sign from Wacom</a>
+                                <a href="javascript:void(0)" class="action-btn secondary">Add</a>
+                                <a href="javascript:void(0)" class="action-btn secondary"
+                                    (click)="onCaptureWacomSignature()">Capture (STU)</a>
+                                <a href="javascript:void(0)" class="action-btn secondary"
+                                    (click)="triggerFileUpload('signature')">Upload Signature</a>
+                            </div>
+                            <div class="card-image">
+                                <img *ngIf="practitioner?.signature" [src]="practitioner.signature" class="preview-img">
+                                <div *ngIf="!practitioner?.signature" class="placeholder icon-placeholder">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Upload Signature</span>
+                                </div>
+                            </div>
+                            <div class="card-footer" *ngIf="practitioner?.signature">
+                                <button class="btn-save" (click)="saveImage('signature')">Save Signature</button>
+                            </div>
+                        </div>
+
+
+
+                        <!-- Thumb Impression -->
+                        <div class="photo-card">
+                            <div class="card-header">Thumb Impression</div>
+                            <div class="card-actions">
+                                <select [(ngModel)]="selectedReader" class="reader-select" *ngIf="readers.length > 0">
+                                    <option *ngFor="let r of readers" [value]="r">{{ r }}</option>
+                                </select>
+                                <span *ngIf="readers.length === 0" class="no-reader">No Reader Found</span>
+
+                                <a href="javascript:void(0)" class="action-btn primary" (click)="onStartThumbCapture()"
+                                    *ngIf="!isCapturingThumb && readers.length > 0">Start Capture</a>
+                                <a href="javascript:void(0)" class="action-btn danger" (click)="onStopThumbCapture()"
+                                    *ngIf="isCapturingThumb && readers.length > 0">Stop Capture</a>
+                            </div>
+                            <div class="card-image">
+                                <img *ngIf="practitioner?.thumbImpression" [src]="practitioner.thumbImpression"
+                                    class="preview-img">
+                                <div *ngIf="!practitioner?.thumbImpression" class="placeholder icon-placeholder">
+                                    <i class="fas fa-fingerprint"></i>
+                                    <span *ngIf="isCapturingThumb">Please place finger on reader...</span>
+                                    <span *ngIf="!isCapturingThumb">Capture Thumb</span>
+                                </div>
+                            </div>
+                            <div class="card-footer" *ngIf="practitioner?.thumbImpression">
+                                <button class="btn-save" (click)="saveImage('thumbImpression')">Save Thumb</button>
+                            </div>
+                        </div>
+
+                        <!-- Barcode -->
+                        <div class="photo-card">
+                            <div class="card-header">Barcode</div>
+                            <div class="card-actions">
+                                <a href="javascript:void(0)" class="action-btn secondary"
+                                    (click)="generateBarcode()">Generate</a>
+                                <a href="javascript:void(0)" class="action-btn secondary">BarCode Details</a>
+                            </div>
+                            <div class="card-image">
+                                <img *ngIf="practitioner?.barcode" [src]="practitioner.barcode" class="preview-img">
+                                <div *ngIf="!practitioner?.barcode" class="placeholder icon-placeholder dark">
+                                    <i class="fas fa-barcode"></i>
+                                    <span>Generate Barcode</span>
+                                </div>
+                            </div>
+                            <div class="card-footer" *ngIf="practitioner?.barcode">
+                                <button class="btn-save" (click)="saveImage('barcode')">Save Barcode</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Hidden File Input -->
+    <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+
+    <!-- Camera Modal -->
+    <div class="modal-overlay" *ngIf="isCameraOpen">
+        <div class="modal-container camera-modal">
+            <div class="form-header">
+                <h2>Capture {{ currentUploadType | titlecase }}</h2>
+                <button class="btn-text" type="button" (click)="closeCamera()">Close</button>
+            </div>
+            <div class="camera-view">
+                <video #videoElement autoplay playsinline></video>
+                <canvas #canvasElement style="display: none;"></canvas>
+            </div>
+            <div class="camera-actions">
+                <button class="btn-capture" (click)="capturePhoto()">
+                    <i class="fas fa-camera"></i> Capture
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Payment Modal -->
+    <div class="modal-overlay" *ngIf="isAddingPayment">
+        <div class="modal-container form-container">
+            <div class="form-header">
+                <h2>Add Payment Details</h2>
+                <button class="btn-text" type="button" (click)="toggleAddPayment()">Close</button>
+            </div>
+
+            <form [formGroup]="paymentForm" (ngSubmit)="savePayment()">
+                <div class="form-grid">
+                    <!-- Row 1 -->
+                    <div class="form-group">
+                        <label>Financial Year <span class="required">*</span></label>
+                        <select formControlName="financialYear">
+                            <option *ngFor="let opt of financialYearOptions" [value]="opt.years">{{ opt.years }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Group <span class="required">*</span></label>
+                        <select formControlName="group">
+                            <option *ngFor="let opt of groupOptions" [value]="opt.account">{{ opt.account }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Account <span class="required">*</span></label>
+                        <select formControlName="account">
+                            <option *ngFor="let opt of accountOptions" [value]="opt.account">{{ opt.account }}</option>
+                        </select>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="form-group">
+                        <label>Payment For <span class="required">*</span></label>
+                        <select formControlName="paymentFor" (change)="onLedgerChange()">
+                            <option value="" disabled selected hidden>Select</option>
+                            <option *ngFor="let opt of ledgerOptions" [value]="opt.ledgerID">{{ opt.ledgerName }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Bank</label>
+                        <input type="text" formControlName="bank" placeholder="Enter Bank Name">
+                    </div>
+                    <div class="form-group">
+                        <label>D.D.No</label>
+                        <input type="text" formControlName="ddNo" placeholder="Enter DD No">
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="form-group">
+                        <label>D.D.Date</label>
+                        <input type="date" formControlName="ddDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Amount <span class="required">*</span></label>
+                        <input type="number" formControlName="amount" placeholder="Enter Amount" readonly>
+                    </div>
+                    <!-- Empty item to balance grid if needed -->
+                    <div class="form-group"></div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" (click)="toggleAddPayment()">Cancel</button>
+                    <button type="submit" class="btn-submit" [disabled]="paymentForm.invalid">Save Payment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

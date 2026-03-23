@@ -1,0 +1,475 @@
+﻿
+> gmc-portal@0.0.0 build
+> ng build
+
+[33mΓ¥»[39m Building...
+[32mΓ£ö[39m Building...
+[1mInitial chunk files[22m[2m | [22m[1mNames[22m        [2m | [22m [1mRaw size[22m[2m | [22m[1mEstimated transfer size[22m
+[32mmain-JHZOODUA.js[39m   [2m | [22m[2mmain[22m         [2m | [22m[36m156.18 kB[39m[2m | [22m               [36m37.01 kB[39m
+[32mchunk-TILUDTM2.js[39m  [2m | [22m[2m-[22m            [2m | [22m[36m125.53 kB[39m[2m | [22m               [36m37.65 kB[39m
+[32mstyles-OKB6SSXZ.css[39m[2m | [22m[2mstyles[22m       [2m | [22m[36m212 bytes[39m[2m | [22m              [36m212 bytes[39m
+
+[1m [22m                  [2m | [22m[1mInitial total[22m[2m | [22m[1m281.92 kB[22m[2m | [22m               [1m74.87 kB[22m
+
+[1mLazy chunk files[22m   [2m | [22m[1mNames[22m        [2m | [22m [1mRaw size[22m[2m | [22m[1mEstimated transfer size[22m
+[32mchunk-74LBG5F2.js[39m  [2m | [22m[2madmin-routes[22m [2m | [22m  [36m1.28 kB[39m[2m | [22m              [36m566 bytes[39m
+[32mchunk-BCJRGA6A.js[39m  [2m | [22m[2muser-routes[22m  [2m | [22m[36m561 bytes[39m[2m | [22m              [36m561 bytes[39m
+
+Application bundle generation complete. [3.455 seconds] - 2026-02-02T13:10:34.739Z
+
+node.exe : 
+[1m[33m[33mΓû▓ [43
+;33m[[43;30mWARNING[
+43;33m][0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+At line:1 char:1
++ & "C:\Program Files\
+nodejs/node.exe" "C:\U
+sers\admin\AppData\Roa
+ming\ ...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: ([1m[33m   
+ [33mΓ...gular-sas    
+s][0m:String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+
+    src/app/features/a
+dmin/pages/admin-dashb
+oard/admin-dashboard.c
+omponent.ts:2:12:
+[37m      2 Γöé     
+@import 
+[32m[37m'variables';
+        Γò╡           
+  [32m^[0m
+
+
+  Sass @import rules 
+are deprecated and 
+will be removed in 
+Dart Sass 3.0.0.
+  
+  More info and 
+automated migrator: [
+4mhttps://sass-lang.co
+m/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43
+;30mWARNING[43;33m][
+0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/a
+dmin/pages/admin-login
+/admin-login.component
+.ts:2:12:
+[37m      2 Γöé     
+@import 
+[32m[37m'variables';
+        Γò╡           
+  [32m^[0m
+
+
+  Sass @import rules 
+are deprecated and 
+will be removed in 
+Dart Sass 3.0.0.
+  
+  More info and 
+automated migrator: [
+4mhttps://sass-lang.co
+m/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43
+;30mWARNING[43;33m][
+0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/features/u
+ser/pages/user-login/u
+ser-login.component.ts
+:2:12:
+[37m      2 Γöé     
+@import 
+[32m[37m'variables';
+        Γò╡           
+  [32m^[0m
+
+
+  Sass @import rules 
+are deprecated and 
+will be removed in 
+Dart Sass 3.0.0.
+  
+  More info and 
+automated migrator: [
+4mhttps://sass-lang.co
+m/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43
+;30mWARNING[43;33m][
+0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/au
+th-layout/auth-layout.
+component.ts:2:12:
+[37m      2 Γöé     
+@import 
+[32m[37m'variables';
+        Γò╡           
+  [32m^[0m
+
+
+  Sass @import rules 
+are deprecated and 
+will be removed in 
+Dart Sass 3.0.0.
+  
+  More info and 
+automated migrator: [
+4mhttps://sass-lang.co
+m/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43
+;30mWARNING[43;33m][
+0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/au
+th-layout/auth-layout.
+component.ts:3:12:
+[37m      3 Γöé     
+@import 
+[32m[37m'mixins';
+        Γò╡           
+  [32m^[0m
+
+
+  Sass @import rules 
+are deprecated and 
+will be removed in 
+Dart Sass 3.0.0.
+  
+  More info and 
+automated migrator: [
+4mhttps://sass-lang.co
+m/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43
+;30mWARNING[43;33m][
+0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/fo
+oter/footer.component.
+ts:2:12:
+[37m      2 Γöé     
+@import 
+[32m[37m'variables';
+        Γò╡           
+  [32m^[0m
+
+
+  Sass @import rules 
+are deprecated and 
+will be removed in 
+Dart Sass 3.0.0.
+  
+  More info and 
+automated migrator: [
+4mhttps://sass-lang.co
+m/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43
+;30mWARNING[43;33m][
+0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/fo
+oter/footer.component.
+ts:3:12:
+[37m      3 Γöé     
+@import 
+[32m[37m'mixins';
+        Γò╡           
+  [32m^[0m
+
+
+  Sass @import rules 
+are deprecated and 
+will be removed in 
+Dart Sass 3.0.0.
+  
+  More info and 
+automated migrator: [
+4mhttps://sass-lang.co
+m/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43
+;30mWARNING[43;33m][
+0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/he
+ader/header.component.
+ts:2:12:
+[37m      2 Γöé     
+@import 
+[32m[37m'variables';
+        Γò╡           
+  [32m^[0m
+
+
+  Sass @import rules 
+are deprecated and 
+will be removed in 
+Dart Sass 3.0.0.
+  
+  More info and 
+automated migrator: [
+4mhttps://sass-lang.co
+m/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43
+;30mWARNING[43;33m][
+0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/he
+ader/header.component.
+ts:3:12:
+[37m      3 Γöé     
+@import 
+[32m[37m'mixins';
+        Γò╡           
+  [32m^[0m
+
+
+  Sass @import rules 
+are deprecated and 
+will be removed in 
+Dart Sass 3.0.0.
+  
+  More info and 
+automated migrator: [
+4mhttps://sass-lang.co
+m/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43
+;30mWARNING[43;33m][
+0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/ma
+in-layout/main-layout.
+component.ts:2:12:
+[37m      2 Γöé     
+@import 
+[32m[37m'variables';
+        Γò╡           
+  [32m^[0m
+
+
+  Sass @import rules 
+are deprecated and 
+will be removed in 
+Dart Sass 3.0.0.
+  
+  More info and 
+automated migrator: [
+4mhttps://sass-lang.co
+m/d/import[0m
+
+
+[33mΓû▓ [43;33m[[43
+;30mWARNING[43;33m][
+0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/app/layouts/si
+debar/sidebar.componen
+t.ts:2:12:
+[37m      2 Γöé     
+@import 
+[32m[37m'variables';
+        Γò╡           
+  [32m^[0m
+
+
+  Sass @import rules 
+are deprecated and 
+will be removed in 
+Dart Sass 3.0.0.
+  
+  More info and 
+automated migrator: [
+4mhttps://sass-lang.co
+m/d/import[0m
+Output location: D:\ASHOK Working Folder\GMC\GMC FE\gmc-portal\dist\gmc-portal
+
+
+
+[33mΓû▓ [43;33m[[43
+;30mWARNING[43;33m][
+0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    
+src/styles.scss:1:8:
+[37m      1 Γöé 
+@import [32m[37m'sty
+les/variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules 
+are deprecated and 
+will be removed in 
+Dart Sass 3.0.0.
+  
+  More info and 
+automated migrator: [
+4mhttps://sass-lang.co
+m/d/import[0m
+
+  The plugin 
+"angular-sass" was 
+triggered by this 
+import
+
+    angular:styles/glo
+bal:styles:1:8:
+[37m      1 Γöé 
+@import [32m'src/styl
+es.scss'[37m;
+        Γò╡         [
+32m~~~~~~~~~~~~~~~~~[
+0m
+
+
+[33mΓû▓ [43;33m[[43
+;30mWARNING[43;33m][
+0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    
+src/styles.scss:2:8:
+[37m      2 Γöé 
+@import [32m[37m'sty
+les/mixins';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules 
+are deprecated and 
+will be removed in 
+Dart Sass 3.0.0.
+  
+  More info and 
+automated migrator: [
+4mhttps://sass-lang.co
+m/d/import[0m
+
+  The plugin 
+"angular-sass" was 
+triggered by this 
+import
+
+    angular:styles/glo
+bal:styles:1:8:
+[37m      1 Γöé 
+@import [32m'src/styl
+es.scss'[37m;
+        Γò╡         [
+32m~~~~~~~~~~~~~~~~~[
+0m
+
+
+[33mΓû▓ [43;33m[[43
+;30mWARNING[43;33m][
+0m 
+[1mDeprecation[0m 
+[1m[35m[plugin 
+angular-sass][0m
+
+    src/styles/_mixins
+.scss:1:8:
+[37m      1 Γöé 
+@import 
+[32m[37m'variables';
+        Γò╡         
+[32m^[0m
+
+
+  Sass @import rules 
+are deprecated and 
+will be removed in 
+Dart Sass 3.0.0.
+  
+  More info and 
+automated migrator: [
+4mhttps://sass-lang.co
+m/d/import[0m
+
+  The plugin 
+"angular-sass" was 
+triggered by this 
+import
+
+    angular:styles/glo
+bal:styles:1:8:
+[37m      1 Γöé 
+@import [32m'src/styl
+es.scss'[37m;
+        Γò╡         [
+32m~~~~~~~~~~~~~~~~~[
+0m
+
+[39m[22m

@@ -1,1 +1,127 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'styles/variables';
+@import 'styles/mixins';
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: $font-family;
+    background-color: $bg-color;
+    color: $text-color;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    color: $text-color;
+    font-weight: 700;
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $text-secondary;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $primary-color;
+}
+
+// Global Table Styles for Dynamic Theming
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+        background-color: var(--table-header-bg, #f4f7fe);
+
+        th {
+            color: var(--table-header-text, #2B3674);
+            font-weight: 600;
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 2px solid $border-color;
+        }
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px solid $border-color;
+            transition: background 0.2s;
+            background-color: var(--table-body-bg, #FFFFFF);
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.02);
+            }
+        }
+
+        td {
+            padding: 12px 16px;
+            color: var(--table-body-text, #2B3674);
+
+            // Apply text color to span/div within td as well to ensure coverage
+            span,
+            div {
+                color: inherit;
+            }
+        }
+    }
+}
+
+// Global Table Action Buttons
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s;
+    color: var(--table-btn-color, #0077B6);
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--table-btn-color, #0077B6);
+    padding: 0;
+
+    &:hover {
+        text-decoration: underline;
+        opacity: 0.8;
+    }
+}

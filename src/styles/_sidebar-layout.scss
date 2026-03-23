@@ -1,0 +1,90 @@
+@import 'variables';
+
+// Unified Sidebar Layout
+.page-layout {
+    display: flex;
+    gap: $spacing-lg;
+    height: calc(100vh - 160px); // Adjust based on header/footer
+    padding: $spacing-md;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+.standard-sidebar {
+    width: 250px;
+    background: var(--sidebar-bg, #ffffff);
+    border-radius: 12px;
+    padding: $spacing-md;
+    box-shadow: $shadow-sm;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100%; // Fill parent height
+
+    // Header Style
+    h3 {
+        margin-bottom: $spacing-md;
+        color: var(--sidebar-text, $text-secondary); // Dynamic text color
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        padding-left: $spacing-sm;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    // Navigation List
+    ul,
+    nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        li,
+        a {
+            padding: $spacing-sm $spacing-md; // 10px 12px roughly
+            cursor: pointer;
+            border-radius: 8px;
+            color: var(--sidebar-text, $text-color); // Dynamic text color
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+
+            // Hover State
+            &:hover {
+                background: color-mix(in srgb, $sidebar-active-color, transparent 95%); // Light tint of active color
+                color: $sidebar-active-color;
+                transform: translateX(4px);
+            }
+
+            // Active State
+            &.active,
+            &[aria-current="page"],
+            &.router-link-active {
+                background: $sidebar-active-color;
+                color: $white;
+                box-shadow: 0 4px 10px color-mix(in srgb, $sidebar-active-color, transparent 70%); // Soft Shadow of active color
+            }
+        }
+    }
+}
+
+// Content Area (Shared Style)
+.content-area {
+    flex: 1;
+    background: $white;
+    border-radius: 12px;
+    padding: $spacing-lg;
+    box-shadow: $shadow-sm;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

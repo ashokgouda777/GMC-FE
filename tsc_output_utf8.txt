@@ -1,0 +1,7 @@
+﻿src/app/features/admin/pages/practitioner-profile/practitioner-profile.component.ts(7,36): error TS2307: Cannot find module 'src/app/core/services/fingerprint.service' or its corresponding type declarations.
+src/app/features/admin/pages/practitioner-profile/practitioner-profile.component.ts(276,37): error TS2339: Property 'onSampleCaptured' does not exist on type 'unknown'.
+src/app/features/admin/pages/practitioner-profile/practitioner-profile.component.ts(283,37): error TS2339: Property 'onReaderError' does not exist on type 'unknown'.
+src/app/features/admin/pages/practitioner-profile/practitioner-profile.component.ts(295,33): error TS2339: Property 'stopCapture' does not exist on type 'unknown'.
+src/app/features/admin/pages/practitioner-profile/practitioner-profile.component.ts(296,33): error TS2339: Property 'destroy' does not exist on type 'unknown'.
+src/app/features/admin/pages/practitioner-profile/practitioner-profile.component.ts(1184,38): error TS2339: Property 'isAvailable' does not exist on type 'unknown'.
+src/app/features/admin/pages/practitioner-profile/practitioner-profile.component.ts(1191,33): error TS2339: Property 'startCapture' does not exist on type 'unknown'.

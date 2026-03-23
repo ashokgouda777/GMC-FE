@@ -1,0 +1,102 @@
+    @import 'variables';
+    @import 'mixins';
+
+    .welcome-banner {
+        padding: 0 $spacing-lg;
+        margin: $spacing-md auto;
+        max-width: 1200px;
+        display: flex;
+        align-items: center;
+        gap: $spacing-md;
+
+        h2 {
+            margin: 0;
+            color: $text-color;
+            font-size: 1.8rem;
+        }
+
+        .role-badge {
+            background: rgba($primary-color, 0.1);
+            color: $primary-color;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba($primary-color, 0.2);
+        }
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $spacing-xl;
+        margin-bottom: $spacing-lg;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: $spacing-lg;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+
+        .stat-card {
+            @include card-base;
+            @include card-hover;
+            padding: $spacing-md;
+            display: flex;
+            align-items: center;
+            gap: $spacing-md;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .icon-box {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                @include flex-center;
+                font-size: 1.5rem;
+
+                &.primary {
+                    background: rgba($primary-color, 0.1);
+                    color: $primary-color;
+                }
+
+                &.secondary {
+                    background: rgba($secondary-color, 0.1);
+                    color: $secondary-color;
+                }
+
+                &.success {
+                    background: rgba($success-color, 0.1);
+                    color: $success-color;
+                }
+
+                &.warning {
+                    background: rgba($warning-color, 0.1);
+                    color: $warning-color;
+                }
+            }
+
+            .stat-info {
+                h3 {
+                    color: $text-secondary;
+                    font-size: 1.1rem;
+                    margin: 0;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                }
+
+                .value {
+                    font-size: 1.8rem;
+                    margin: 5px 0 0;
+                    font-weight: 700;
+                    color: $text-color;
+                }
+            }
+        }
+    }

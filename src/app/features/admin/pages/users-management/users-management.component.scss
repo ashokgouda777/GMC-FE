@@ -1,0 +1,259 @@
+    @import 'variables';
+    @import 'mixins';
+    @import 'sidebar-layout';
+
+    // .page-layout and .standard-sidebar are imported from sidebar-layout
+
+
+    .content-area {
+        flex: 1;
+        background: $white;
+        border-radius: 12px;
+        padding: $spacing-lg;
+        box-shadow: $shadow-sm;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: $spacing-md;
+
+            h1 {
+                margin: 0;
+                color: $text-color;
+                font-size: 1.5rem;
+                border: none;
+                padding: 0;
+            }
+
+            .btn-primary {
+                background: $primary-color;
+                color: $white;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-weight: 500;
+                box-shadow: none;
+                transition: none;
+
+                &:hover {
+                    filter: brightness(0.9);
+                    transform: none;
+                    box-shadow: none;
+                }
+            }
+        }
+
+        .table-container {
+            background: $white;
+            border-radius: 8px;
+            box-shadow: $shadow-sm;
+            overflow: auto;
+            flex: 1;
+            border: none;
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                border-spacing: 0;
+
+                th,
+                td {
+                    padding: 12px 16px;
+                    text-align: left;
+                    border-bottom: 1px solid $bg-color;
+                }
+
+                th {
+                    background: var(--table-header-bg, color-mix(in srgb, var(--primary-color, #0077B6) 5%, transparent));
+                    color: var(--table-header-text, var(--primary-color, #0077B6));
+                    font-weight: 600;
+                    position: sticky;
+                    top: 0;
+                    z-index: 10;
+                    text-transform: none;
+                    font-size: 1rem;
+                    letter-spacing: normal;
+                    border-bottom: none;
+                }
+
+                tbody tr {
+                    transition: none;
+
+                    &:nth-child(even) {
+                        background-color: transparent;
+                    }
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.01);
+                    }
+
+                    .action-buttons {
+                        display: flex;
+                        gap: 8px;
+
+                        .btn-icon {
+                            background: none;
+                            border: none;
+                            cursor: pointer;
+                            font-size: 0.9rem;
+                            font-weight: 500;
+                            padding: 4px 8px;
+                            border-radius: 4px;
+                            transition: background 0.2s;
+
+                            &.edit {
+                                color: $primary-color;
+
+                                &:hover {
+                                    background: rgba($primary-color, 0.1);
+                                }
+                            }
+
+                            &.delete {
+                                color: $error-color;
+
+                                &:hover {
+                                    background: rgba($error-color, 0.1);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .form-container {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 10px; // space for scrollbar
+
+            .form-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: $spacing-lg;
+                border-bottom: 1px solid $border-color;
+                padding-bottom: 10px;
+
+                h2 {
+                    margin: 0;
+                    font-size: 1.2rem;
+                    color: $primary-color;
+                }
+
+                .btn-text {
+                    background: none;
+                    border: none;
+                    color: $text-secondary;
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+            }
+
+            .form-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: $spacing-lg;
+
+                @media (max-width: 1024px) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                @media (max-width: 768px) {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+
+                label {
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    color: $text-color;
+
+                    .required {
+                        color: $error-color;
+                        margin-left: 2px;
+                    }
+                }
+
+                input,
+                select {
+                    padding: 10px;
+                    border: 1px solid $border-color;
+                    border-radius: 6px;
+                    font-size: 0.95rem;
+
+                    &:focus {
+                        outline: none;
+                        border-color: $primary-color;
+                    }
+                }
+
+                .error {
+                    color: $error-color;
+                    font-size: 0.8rem;
+                }
+
+                &.checkbox-group {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+                    height: 100%; // align with other inputs
+                    padding-top: 25px; // rough vertical alignment
+
+                    label {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        cursor: pointer;
+                    }
+
+                    input {
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+            }
+
+            .form-actions {
+                display: flex;
+                justify-content: flex-end;
+                gap: 15px;
+                margin-top: $spacing-xl;
+                padding-top: $spacing-md;
+                border-top: 1px solid $border-color;
+
+                button {
+                    padding: 10px 30px;
+                    border-radius: 6px;
+                    border: none;
+                    cursor: pointer;
+                    font-weight: 600;
+
+                    &.btn-cancel {
+                        background: $bg-color;
+                        color: $text-color;
+                    }
+
+                    &.btn-submit {
+                        background: $primary-color;
+                        color: $white;
+
+                        &:disabled {
+                            opacity: 0.6;
+                            cursor: not-allowed;
+                        }
+                    }
+                }
+            }
+        }
+    }
