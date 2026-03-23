@@ -133,6 +133,10 @@ export class AdminService {
         return this.api.put(`Practitioners/update/${id}`, data);
     }
 
+    approvePractitioner(id: string) {
+        return this.api.put(`Practitioners/approve/${id}`, {});
+    }
+
     uploadPractitionerImage(practitionerId: string, type: string, file: File) {
         const formData = new FormData();
         formData.append('file', file);
