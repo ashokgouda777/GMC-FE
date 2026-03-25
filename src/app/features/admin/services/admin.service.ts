@@ -113,6 +113,18 @@ export class AdminService {
         return this.api.get('MasterData/accounts');
     }
 
+    getReportTypes() {
+        return this.api.get('Reports/types');
+    }
+
+    getReportGroups() {
+        return this.api.get('Reports/groups');
+    }
+
+    getGroupLedgerMaster() {
+        return this.api.get('MasterData/GetLedgerList');
+    }
+
     getPractitionerMaster(): Observable<any> {
         return this.api.get('MasterData/PractitionerMaster');
     }
@@ -194,6 +206,109 @@ export class AdminService {
 
     printCertificate(rid: string, pid: string) {
         return this.api.get(`Certificates/printcertificate?rid=${rid}&pid=${pid}`, undefined, undefined, 'blob');
+    }
+    
+
+    getLedgerReport(filters: any) {
+        const queryParams = {
+            financialYearId: filters.financialYear,
+            ledgerId: filters.ledgerName,
+            fromDate: filters.fromDate,
+            toDate: filters.toDate
+        };
+        const params = Object.entries(queryParams)
+            .filter(([_, value]) => value !== null && value !== undefined && value !== '')
+            .map(([key, value]) => `${key}=${value}`)
+            .join('&');
+        
+        const url = `Reports/ledger-report${params ? '?' + params : ''}`;
+        console.log('Fetching Ledger Report from URL:', url);
+        return this.api.get(url);
+    }
+
+    generateLedgerReport(filters: any) {
+        const queryParams = {
+            financialYearId: filters.financialYear,
+            ledgerId: filters.ledgerName,
+            fromDate: filters.fromDate,
+            toDate: filters.toDate
+        };
+        const params = Object.entries(queryParams)
+            .filter(([_, value]) => value !== null && value !== undefined && value !== '')
+            .map(([key, value]) => `${key}=${value}`)
+            .join('&');
+        
+        const url = `Certificates/GenerateLedgerReport${params ? '?' + params : ''}`;
+        console.log('Generating Ledger PDF from URL:', url);
+        return this.api.get(url, undefined, undefined, 'blob');
+    }
+
+    generateDaybookReport(filters: any) {
+        const queryParams = {
+            financialYearId: filters.financialYear,
+            ledgerId: filters.ledgerName,
+            fromDate: filters.fromDate,
+            toDate: filters.toDate
+        };
+        const params = Object.entries(queryParams)
+            .filter(([_, value]) => value !== null && value !== undefined && value !== '')
+            .map(([key, value]) => `${key}=${value}`)
+            .join('&');
+        
+        const url = `Certificates/GenerateDaybookReport${params ? '?' + params : ''}`;
+        console.log('Generating Daybook PDF from URL:', url);
+        return this.api.get(url, undefined, undefined, 'blob');
+    }
+
+    getDaybookReport(filters: any) {
+        const queryParams = {
+            financialYearId: filters.financialYear,
+            ledgerId: filters.ledgerName,
+            fromDate: filters.fromDate,
+            toDate: filters.toDate
+        };
+        const params = Object.entries(queryParams)
+            .filter(([_, value]) => value !== null && value !== undefined && value !== '')
+            .map(([key, value]) => `${key}=${value}`)
+            .join('&');
+        
+        const url = `Reports/Daybook-report${params ? '?' + params : ''}`;
+        console.log('Fetching Daybook Report from URL:', url);
+        return this.api.get(url);
+    }
+
+    getRenewalReport(filters: any) {
+        const queryParams = {
+            financialYearId: filters.financialYear,
+            ledgerId: filters.ledgerName,
+            fromDate: filters.fromDate,
+            toDate: filters.toDate
+        };
+        const params = Object.entries(queryParams)
+            .filter(([_, value]) => value !== null && value !== undefined && value !== '')
+            .map(([key, value]) => `${key}=${value}`)
+            .join('&');
+        
+        const url = `Reports/renewal-report${params ? '?' + params : ''}`;
+        console.log('Fetching Renewal Report from URL:', url);
+        return this.api.get(url);
+    }
+
+    generateRenewalReport(filters: any) {
+        const queryParams = {
+            financialYearId: filters.financialYear,
+            ledgerId: filters.ledgerName,
+            fromDate: filters.fromDate,
+            toDate: filters.toDate
+        };
+        const params = Object.entries(queryParams)
+            .filter(([_, value]) => value !== null && value !== undefined && value !== '')
+            .map(([key, value]) => `${key}=${value}`)
+            .join('&');
+        
+        const url = `Certificates/GeneraterenewalReport${params ? '?' + params : ''}`;
+        console.log('Generating Renewal PDF from URL:', url);
+        return this.api.get(url, undefined, undefined, 'blob');
     }
 
     // Mock Payment Data

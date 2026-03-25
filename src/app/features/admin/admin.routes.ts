@@ -35,6 +35,18 @@ export const ADMIN_ROUTES: Routes = [
             {
                 path: 'cash-book',
                 loadComponent: () => import('./pages/accounting/pages/cash-book/cash-book.component').then(m => m.CashBookComponent)
+            },
+            {
+                path: 'ledger-report',
+                loadComponent: () => import('./pages/accounting/pages/ledger-report/ledger-report.component').then(m => m.LedgerReportComponent)
+            },
+            {
+                path: 'daybook-report',
+                loadComponent: () => import('./pages/accounting/pages/daybook-report/daybook-report.component').then(m => m.DaybookReportComponent)
+            },
+            {
+                path: 'renewal-report',
+                loadComponent: () => import('./pages/accounting/pages/renewal-report/renewal-report.component').then(m => m.RenewalReportComponent)
             }
         ]
     },
