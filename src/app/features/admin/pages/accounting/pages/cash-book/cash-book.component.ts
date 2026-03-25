@@ -34,46 +34,56 @@ import { ReceiptsComponent } from './components/receipts/receipts.component';
     .cash-book-container {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 16px;
       height: 100%;
+      color: var(--text-color, #1e293b);
+      font-family: 'Poppins', 'Inter', sans-serif;
     }
 
     .tabs-header {
       display: flex;
-      gap: 12px;
-      padding: 4px;
-      background: #f8f9fa;
-      border-radius: 12px;
+      background: var(--card-bg, #ffffff);
+      border-radius: 8px;
       width: fit-content;
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      border: 1px solid var(--sidebar-active-color, #e2e8f0);
+      padding: 4px;
+      gap: 4px;
     }
 
     .tab-btn {
-      padding: 10px 24px;
+      padding: 6px 16px;
       border: none;
       background: transparent;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
-      font-weight: 600;
-      color: #6c757d;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-color, #64748b);
+      transition: all 0.2s ease;
+      font-size: 0.85rem;
+      white-space: nowrap;
 
-      &:hover {
-        color: #495057;
-        background: rgba(0,0,0,0.02);
+      &:hover:not(.active) {
+        background: rgba(var(--primary-color-rgb, 107, 70, 193), 0.05);
+        color: var(--primary-color, #6b46c1);
       }
 
       &.active {
-        background: white;
-        color: #6b46c1;
-        box-shadow: 0 4px 12px rgba(107, 70, 193, 0.15);
+        background: var(--primary-color, #6b46c1);
+        color: white;
+        box-shadow: 0 2px 4px rgba(var(--primary-color-rgb, 107, 70, 193), 0.2);
       }
     }
 
     .tab-content {
       flex: 1;
       min-height: 0;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .placeholder-content {
@@ -81,24 +91,34 @@ import { ReceiptsComponent } from './components/receipts/receipts.component';
       align-items: center;
       justify-content: center;
       height: 400px;
-      background: #fdfdfd;
-      border-radius: 16px;
-      border: 2px dashed #e9ecef;
+      background: var(--card-bg, #ffffff);
+      border-radius: 8px;
+      border: 1px solid var(--sidebar-active-color, #e2e8f0);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
 
     .empty-state {
       text-align: center;
-      color: #adb5bd;
+      color: #94a3b8;
 
       i {
-        font-size: 3rem;
+        font-size: 2.5rem;
         margin-bottom: 16px;
-        opacity: 0.5;
+        color: var(--primary-color, #cbd5e1);
+        opacity: 0.8;
       }
 
       h3 {
-        color: #495057;
+        color: var(--text-color, #334155);
         margin-bottom: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 0.85rem;
+        max-width: 320px;
+        margin: 0 auto;
       }
     }
   `]
