@@ -57,20 +57,25 @@ export class PractitionerSidebarComponent implements OnInit {
         const currentSection = tree.queryParams['section'];
         const urlPath = this.router.url.split('?')[0];
 
-        // 1. Exact match on section query param
+        // 1. Exact match on section query param ALWAYS takes precedence
         if (currentSection === section) {
             return true;
         }
 
-        // 2. Default logic for 'Practitioner' section (which is the first item/default list)
-        if (section === 'Practitioner') {
-            // Active if no section param AND we are on the main users list
-            if (!currentSection && urlPath === '/admin/users') {
-                return true;
+        // 2. If NO section param, resolve defaults based on URL path
+        if (!currentSection) {
+            // Default list is PRC
+            if (section === 'PRC') {
+                if (urlPath === '/admin/users') {
+                    return true;
+                }
             }
-            // Active if we are on the practitioner detail page
-            if (urlPath.startsWith('/admin/practitioner/')) {
-                return true;
+
+            // Fallback for profile pages if no section provided
+            if (section === 'Practitioner') {
+                if (urlPath.startsWith('/admin/practitioner/')) {
+                    return true;
+                }
             }
         }
 

@@ -1,20 +1,31 @@
 import { HttpInterceptorFn } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
+    // Only intercept requests to our specific API URL
+    if (!req.url.startsWith(environment.apiUrl)) {
+        return next(req);
+    }
+
+    // Exclude login requests specifically by checking if the URL ends with exact login paths
+    const isLoginRequest = req.url.endsWith('/Users/login') || req.url.endsWith('/Users/userlogin');
+    
     // Get token directly from localStorage to avoid circular dependency with AuthService
     const currentUserStr = localStorage.getItem('currentUser');
     let token = null;
-    try {
-        if (currentUserStr) {
+
+    if (currentUserStr) {
+        try {
             const user = JSON.parse(currentUserStr);
-            token = user.token;
+            token = user?.token;
+        } catch (e) {
+            console.error('AuthInterceptor: Error parsing user token', e);
         }
-    } catch (e) {
-        console.error('Error parsing user token from localStorage', e);
     }
 
-    const isLoginRequest = req.url.includes('/Users/login') || req.url.includes('/Users/userlogin');
-
+    // Attach token if present and not a login request
+    // Alternatively, if the user wants it "by default" for ALL, 
+    // we could remove !isLoginRequest, but usually it's better to exclude it.
     if (token && !isLoginRequest) {
         const cloned = req.clone({
             setHeaders: {

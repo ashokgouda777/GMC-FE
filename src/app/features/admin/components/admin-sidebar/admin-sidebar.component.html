@@ -8,11 +8,11 @@
         </li>
 
         <li class="section-title">Practitioner Management</li>
-        <li [routerLink]="['/admin/users']" [queryParams]="{section: 'Practitioner'}" routerLinkActive="active"
-            [class.active]="isSectionActive('Practitioner') || (router.url === '/admin/users' && !isSectionActive('PRC') && !isSectionActive('FMG'))">
+        <li [routerLink]="['/admin/users']" [queryParams]="{section: 'Practitioner'}" [class.active]="isSectionActive('Practitioner')">
             <span class="icon">👥</span> Practitioner List
         </li>
-        <li [routerLink]="['/admin/users']" [queryParams]="{section: 'PRC'}" [class.active]="isSectionActive('PRC')">
+        <li [routerLink]="['/admin/users']" [queryParams]="{section: 'PRC'}" 
+            [class.active]="isSectionActive('PRC') || (router.url === '/admin/users' && !isSectionActive('Practitioner') && !isSectionActive('FMG'))">
             <span class="icon">🏢</span> PRC List
         </li>
         <li [routerLink]="['/admin/users']" [queryParams]="{section: 'FMG'}" [class.active]="isSectionActive('FMG')">

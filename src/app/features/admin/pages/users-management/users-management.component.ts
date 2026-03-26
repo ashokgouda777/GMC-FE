@@ -21,6 +21,10 @@ export class UsersManagementComponent implements OnInit {
 
     activeSection = 'Practitioner';
     showAddForm = false;
+    
+    // Approval Modal State
+    showApprovalModal = false;
+    selectedUserForApproval: any = null;
 
     // Dropdown Mock Data
     registrationForOptions: any[] = []; // Loaded from API
@@ -117,7 +121,7 @@ export class UsersManagementComponent implements OnInit {
             if (section) {
                 this.setActiveSection(section);
             } else {
-                this.setActiveSection('Practitioner');
+                this.setActiveSection('PRC');
             }
         });
 
@@ -235,19 +239,38 @@ export class UsersManagementComponent implements OnInit {
     onApprove(user: any) {
         const id = user.practitionerID || user.id || user.practitionerId;
         if (!id) { alert('Practitioner ID not found.'); return; }
-        if (!confirm(`Make practitioner "${user.name}" permanent?`)) return;
+        
+        // Open the custom approval modal instead of browser confirm
+        this.selectedUserForApproval = user;
+        this.showApprovalModal = true;
+    }
 
+    cancelApproval() {
+        this.showApprovalModal = false;
+        this.selectedUserForApproval = null;
+    }
+
+    confirmApproval() {
+        if (!this.selectedUserForApproval) return;
+        
+        const user = this.selectedUserForApproval;
+        const id = user.practitionerID || user.id || user.practitionerId;
+        
         this.approvingId = id;
+        this.showApprovalModal = false; // Close modal immediately to show "Applying..." in list if needed, or keep open
+
         this.adminService.approvePractitioner(id).subscribe({
             next: () => {
                 alert(`${user.name} is now permanent!`);
                 this.approvingId = null;
+                this.selectedUserForApproval = null;
                 this.loadPractitioners();
             },
             error: (err) => {
                 console.error('Operation failed:', err);
                 alert('Failed to make permanent. Please try again.');
                 this.approvingId = null;
+                this.selectedUserForApproval = null;
             }
         });
     }

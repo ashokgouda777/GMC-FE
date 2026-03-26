@@ -37,6 +37,7 @@
                         <td>{{ user.registrationDate ? (user.registrationDate | date:'dd-MM-yyyy') : '' }}</td>
                         <td>
                             <a [routerLink]="['/admin/practitioner', user.practitionerID || user.id || user.practitionerId]"
+                                [queryParams]="{section: activeSection}"
                                 style="cursor: pointer; color: blue; text-decoration: underline;">
                                 {{ user.name }}
                             </a>
@@ -48,7 +49,12 @@
                                 class="btn-approve"
                                 [disabled]="approvingId === (user.practitionerID || user.id || user.practitionerId)"
                                 (click)="onApprove(user)">
-                                {{ approvingId === (user.practitionerID || user.id || user.practitionerId) ? 'Applying...' : '✔ Permanent' }}
+                                <ng-container *ngIf="approvingId === (user.practitionerID || user.id || user.practitionerId); else defaultText">
+                                    Applying...
+                                </ng-container>
+                                <ng-template #defaultText>
+                                    Make<br>Permanent
+                                </ng-template>
                             </button>
                         </td>
                     </tr>
@@ -201,4 +207,36 @@
             </form>
         </div>
     </main>
+
+    <!-- PRC Approval Modal -->
+    <div class="modal-overlay" *ngIf="showApprovalModal">
+        <div class="modal-content approval-modal">
+            <div class="modal-header">
+                <h3>Make Permanent</h3>
+                <button class="close-btn" (click)="cancelApproval()">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="info-group">
+                    <label>Practitioner Name</label>
+                    <div class="value">{{ selectedUserForApproval?.name }}</div>
+                </div>
+                
+                <div class="info-group">
+                    <label>PRC Registration No</label>
+                    <div class="value">{{ selectedUserForApproval?.registrationNo || 'N/A' }}</div>
+                </div>
+
+                <div class="instruction">
+                    <span class="icon">ℹ️</span>
+                    Proceed with making this practitioner permanent in the system?
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-secondary" (click)="cancelApproval()">Cancel</button>
+                <button class="btn-confirm" (click)="confirmApproval()">Confirm</button>
+            </div>
+        </div>
+    </div>
 </div>

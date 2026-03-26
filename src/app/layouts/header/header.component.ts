@@ -40,7 +40,7 @@ import { CommonModule } from '@angular/common';
             <a *ngIf="auth.hasRequiredRole([1, 2])" routerLink="/admin/configuration" routerLinkActive="active">Configuration</a>
             <span class="divider"></span>
             
-            <a routerLink="/admin/users" routerLinkActive="active">Practitioner</a>
+            <a [routerLink]="['/admin/users']" [queryParams]="{section: 'PRC'}" routerLinkActive="active">Practitioner</a>
             <span class="divider"></span>
             
             <a routerLink="/admin/accounting" routerLinkActive="active">Accounting</a>
