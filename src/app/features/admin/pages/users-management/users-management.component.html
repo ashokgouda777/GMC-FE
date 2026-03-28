@@ -1,6 +1,6 @@
 <!-- Page Layout -->
 <div class="page-layout">
-    <app-practitioner-sidebar></app-practitioner-sidebar>
+    <app-practitioner-sidebar [activeSection]="activeSection"></app-practitioner-sidebar>
 
     <main class="content-area">
         <div class="header-section">
@@ -174,16 +174,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Eligibility <span class="required">*</span></label>
+                        <label>Eligibility to Vote <span class="required">*</span></label>
                         <select formControlName="eligibility">
-                            <option value="" disabled selected hidden>Select Eligibility</option>
+                            <option value="" disabled selected hidden>Select Eligibility to Vote</option>
                             <option *ngFor="let e of eligibilityOptions" [value]="e.eligibiltyId">{{ e.eligibilty }}
                             </option>
                         </select>
                         <div class="error" *ngIf="isFieldInvalid('eligibility')">Required</div>
                     </div>
-
-
 
                     <div class="form-group">
                         <label>Email ID <span class="required">*</span></label>

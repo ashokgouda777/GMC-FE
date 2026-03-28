@@ -73,13 +73,13 @@ import { CountryList } from './country-master.model';
         <div class="form-container card">
             <form [formGroup]="districtForm" (ngSubmit)="onSubmit()">
                 <div class="form-body">
-                    <div class="form-grid">
+                    <div class="form-grid grid-2">
                         <div class="form-group">
                             <label>Country <span class="required">*</span></label>
                             <select formControlName="countryId" (change)="onCountryChange()">
                                 <option value="">Select Country</option>
                                 <option *ngFor="let country of countries" [value]="country.countryId">
-                                    {{ country.countryName }}
+                                    {{ country.countryName }} ({{ country.countryId }})
                                 </option>
                             </select>
                         </div>
@@ -88,7 +88,7 @@ import { CountryList } from './country-master.model';
                             <select formControlName="stateId">
                                 <option value="">Select State</option>
                                 <option *ngFor="let state of availableStates" [value]="state.stateId">
-                                    {{ state.stateName }}
+                                    {{ state.stateName }} ({{ state.stateId }})
                                 </option>
                             </select>
                         </div>
@@ -100,7 +100,7 @@ import { CountryList } from './country-master.model';
                             <label>Status</label>
                             <select formControlName="status">
                                 <option value="A">Active</option>
-                                <option value="D">Inactive</option>
+                                <option value="N">Inactive</option>
                             </select>
                         </div>
                     </div>
@@ -123,37 +123,38 @@ import { CountryList } from './country-master.model';
 </div>
   `,
   styles: [`
-.page-container { padding: 24px; background: #f8fafc; min-height: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-.header-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid #e2e8f0; padding-bottom: 16px; }
-.header-actions h2 { margin: 0; font-size: 1.5rem; font-weight: 700; color: #0f172a; }
+.page-container { padding: 24px; background: var(--bg-color); min-height: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+.header-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 16px; }
+.header-actions h2 { margin: 0; font-size: 1.5rem; font-weight: 700; color: var(--text-color); }
 .actions { display: flex; gap: 12px; }
-.search-box { padding: 10px 16px; border: 1px solid #e2e8f0; border-radius: 8px; width: 300px; font-size: 0.9rem; }
-.table-container { background: #ffffff; border-radius: 12px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); overflow: auto; }
+.search-box { padding: 10px 16px; border: 1px solid rgba(0,0,0,0.1); background: var(--card-bg); color: var(--text-color); border-radius: 8px; width: 300px; font-size: 0.9rem; }
+.table-container { background: var(--card-bg); border-radius: 12px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); overflow: auto; }
 .data-table { width: 100%; border-collapse: collapse; }
-.data-table th { background: #f8fafc; padding: 16px; text-align: left; font-size: 0.85rem; font-weight: 600; color: #64748b; text-transform: uppercase; border-bottom: 2px solid #f1f5f9; }
-.data-table td { padding: 16px; border-top: 1px solid #f1f5f9; color: #334155; }
+.data-table th { background: var(--table-header-bg); padding: 16px; text-align: left; font-size: 0.85rem; font-weight: 600; color: var(--table-header-text); text-transform: uppercase; border-bottom: 2px solid rgba(0,0,0,0.05); }
+.data-table td { padding: 16px; border-top: 1px solid rgba(0,0,0,0.05); background: var(--table-body-bg); color: var(--table-body-text); }
 .status-badge { display: inline-flex; padding: 4px 12px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
 .status-badge.active { background: #dcfce7; color: #166534; }
 .status-badge:not(.active) { background: #fee2e2; color: #991b1b; }
 
-.card { background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); padding: 32px; max-width: 600px; margin: 0 auto; }
+.card { background: var(--card-bg); border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); padding: 32px; max-width: 600px; margin: 0 auto; }
 .form-grid { display: grid; gap: 24px; }
+.grid-2 { grid-template-columns: 1fr 1fr; }
 .form-group { display: flex; flex-direction: column; gap: 8px; }
-.form-group label { font-weight: 600; font-size: 0.9rem; color: #334155; }
-.form-group input, .form-group select { padding: 12px 14px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.95rem; background: #ffffff; color: #1e293b; }
-.form-group input:focus, .form-group select:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+.form-group label { font-weight: 600; font-size: 0.9rem; color: var(--text-color); }
+.form-group input, .form-group select { padding: 12px 14px; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; font-size: 0.95rem; background: var(--card-bg); color: var(--table-body-text); }
+.form-group input:focus, .form-group select:focus { border-color: var(--primary-color); outline: none; box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.1); }
 .required { color: #ef4444; }
 
-.form-footer { margin-top: 40px; padding-top: 24px; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; }
+.form-footer { margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
 .action-buttons { display: flex; gap: 16px; }
 
-.btn-primary { background: #2563eb; color: #ffffff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-.btn-primary:hover:not(:disabled) { background: #1d4ed8; }
+.btn-primary { background: var(--button-color); color: #ffffff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: filter 0.2s; }
+.btn-primary:hover:not(:disabled) { filter: brightness(0.9); }
 .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
-.btn-secondary { background: #ffffff; color: #475569; border: 1px solid #e2e8f0; padding: 12px 32px; border-radius: 8px; font-weight: 600; cursor: pointer; }
-.btn-secondary:hover { background: #f8fafc; }
+.btn-secondary { background: var(--bg-color); color: var(--text-color); border: 1px solid rgba(0,0,0,0.1); padding: 12px 32px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.btn-secondary:hover { background: rgba(0,0,0,0.05); }
 
-.no-data { text-align: center; padding: 64px !important; color: #94a3b8; font-style: italic; }
+.no-data { text-align: center; padding: 64px !important; color: var(--text-color); opacity: 0.6; font-style: italic; }
   `]
 })
 export class DistrictListComponent implements OnInit {
@@ -193,9 +194,9 @@ export class DistrictListComponent implements OnInit {
       next: (response: any) => {
         const data = Array.isArray(response) ? response : (response.data || []);
         this.countries = data.map((item: any) => ({
-          countryId: item.countryId || item.CountryId || item.id || '',
+          countryId: String(item.countryId || item.CountryId || item.id || ''),
           countryName: item.countryName || item.CountryName || item.name || '',
-          status: item.status || item.Status || (item.active === 'Yes' ? 'A' : 'D')
+          status: item.active || item.status || item.Status || (item.active === 'Yes' ? 'A' : 'N')
         }));
         this.cdr.detectChanges();
       },
@@ -208,9 +209,9 @@ export class DistrictListComponent implements OnInit {
       next: (response: any) => {
         const data = Array.isArray(response) ? response : (response.data || []);
         this.allStates = data.map((item: any) => ({
-          stateId: item.stateId || item.StateId || item.id || '',
+          stateId: String(item.stateId || item.StateId || item.id || ''),
           stateName: item.stateName || item.StateName || item.name || '',
-          countryId: item.countryId || item.CountryId || ''
+          countryId: String(item.countryId || item.CountryId || '')
         }));
         this.cdr.detectChanges();
       },
@@ -223,14 +224,14 @@ export class DistrictListComponent implements OnInit {
       next: (response: any) => {
         const data = Array.isArray(response) ? response : (response.data || []);
         this.districts = data.map((item: any) => ({
-          districtId: item.districtId || item.DistrictId || item.id || '',
+          districtId: String(item.districtId || item.DistrictId || item.id || ''),
           districtName: item.districtName || item.DistrictName || '',
-          stateId: item.stateId || item.StateId || '',
+          stateId: String(item.stateId || item.StateId || ''),
           stateName: item.stateName || item.StateName || '',
-          countryId: item.countryId || item.CountryId || '',
+          countryId: String(item.countryId || item.CountryId || ''),
           countryName: item.countryName || item.CountryName || '',
-          status: item.status || item.Status || (item.active === 'Yes' ? 'A' : 'D'),
-          activeStatus: (item.status === 'A' || item.Status === 'A' || item.active === 'Yes') ? 'Active' : 'Inactive'
+          status: item.active || item.status || item.Status || (item.active === 'Yes' ? 'A' : 'N'),
+          activeStatus: (item.active === 'A' || item.status === 'A' || item.Status === 'A' || item.active === 'Yes' || item.status === 'Active') ? 'Active' : 'Inactive'
         }));
         this.filteredDistricts = [...this.districts];
         this.cdr.detectChanges();
@@ -241,8 +242,8 @@ export class DistrictListComponent implements OnInit {
 
 
   onCountryChange() {
-    const countryId = this.districtForm.get('countryId')?.value;
-    this.availableStates = this.allStates.filter(s => s.countryId === countryId);
+    const countryId = String(this.districtForm.get('countryId')?.value);
+    this.availableStates = this.allStates.filter(s => String(s.countryId) === countryId);
     this.districtForm.patchValue({ stateId: '' });
   }
 
@@ -266,12 +267,11 @@ export class DistrictListComponent implements OnInit {
   openEditView(district: DistrictList) {
     this.isEditing = true;
     this.selectedDistrict = district;
-    this.availableStates = this.allStates.filter(s => s.countryId === district.countryId);
+    this.availableStates = this.allStates.filter(s => String(s.countryId) === String(district.countryId));
     this.districtForm.patchValue({
       countryId: district.countryId,
       stateId: district.stateId,
       districtName: district.districtName,
-
       status: district.status
     });
     this.showEditView = true;
@@ -288,17 +288,9 @@ export class DistrictListComponent implements OnInit {
     }
 
     const v = this.districtForm.value;
-    const payload = {
-      DistrictId: this.isEditing ? this.selectedDistrict?.districtId : '0',
-      CountryId: v.countryId,
-      StateId: v.stateId,
-      DistrictName: v.districtName,
-      Status: v.status,
-      CreatedBy: 'Admin'
-    };
+    const districtId = this.isEditing ? this.selectedDistrict?.districtId : undefined;
 
-    console.log('Saving District Payload:', payload);
-    this.districtService.save(payload).subscribe({
+    this.districtService.save(v.countryId!, v.stateId!, v.districtName!, districtId, v.status!).subscribe({
       next: () => {
         alert(`District ${this.isEditing ? 'updated' : 'saved'} successfully!`);
         this.loadDistricts();

@@ -9,6 +9,7 @@ export interface SidebarItem {
   action?: string; // For click handling (if no route)
   icon?: string;
   active?: boolean; // Manual active state
+  section?: string; // For grouping or specialized highlighting
 }
 
 @Component({
@@ -29,7 +30,9 @@ export interface SidebarItem {
              [routerLinkActiveOptions]="{exact: false}"
              [class.active]="item.active"
              class="sidebar-item">
-            <span *ngIf="item.icon" [class]="item.icon"></span>
+            <span *ngIf="item.icon" class="sidebar-icon" [ngClass]="item.icon.includes(' ') ? item.icon : ''">
+                {{ item.icon.includes(' ') ? '' : item.icon }}
+            </span>
             {{ item.label }}
           </a>
 
@@ -38,7 +41,9 @@ export interface SidebarItem {
              (click)="onItemClick(item)"
              [class.active]="item.active"
              class="sidebar-item">
-            <span *ngIf="item.icon" [class]="item.icon"></span>
+            <span *ngIf="item.icon" class="sidebar-icon" [ngClass]="item.icon.includes(' ') ? item.icon : ''">
+                {{ item.icon.includes(' ') ? '' : item.icon }}
+            </span>
             {{ item.label }}
           </a>
 

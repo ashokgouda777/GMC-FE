@@ -1,6 +1,6 @@
 export interface CountryList {
     countryId: string;
     countryName: string;
-    status: 'A' | 'D';
+    status: 'Yes' | 'No';
     activeStatus?: 'Active' | 'Inactive'; // For UI display
 }

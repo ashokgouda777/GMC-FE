@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AdminService } from '../../../services/admin.service';
@@ -380,10 +380,6 @@ interface ThemePreset {
 
             <!-- Save Actions Bar -->
             <div class="actions-bar">
-              <div class="actions-left">
-                <span *ngIf="saveSuccess" class="save-success">✓ Settings saved successfully!</span>
-                <span *ngIf="saveError" class="save-error">✗ {{saveError}}</span>
-              </div>
               <div class="actions-right">
                 <button type="button" class="btn-ghost" (click)="resetTheme()">
                   ↩ Reset Defaults
@@ -770,11 +766,10 @@ export class WebsiteConfigComponent implements OnInit {
   private adminService = inject(AdminService);
   private themeService = inject(ThemeService);
   private authService = inject(AuthService);
+  private cdr = inject(ChangeDetectorRef);
 
   activeSection = 'Colors';
   loading = false;
-  saveSuccess = false;
-  saveError = '';
   activePresetName = '';
 
   sidebarItems: SidebarItem[] = [
@@ -896,8 +891,6 @@ export class WebsiteConfigComponent implements OnInit {
     this.colorForm.patchValue(preset.colors);
     this.themeService.setTheme(preset.colors);
     this.activePresetName = preset.name;
-    this.saveSuccess = false;
-    this.saveError = '';
   }
 
   loadSettings(applyTheme = false) {
@@ -933,14 +926,12 @@ export class WebsiteConfigComponent implements OnInit {
     if (this.colorForm.invalid) return;
 
     this.loading = true;
-    this.saveSuccess = false;
-    this.saveError = '';
 
     const currentUser = this.authService.currentUser();
     const userId = currentUser ? currentUser.id : null;
     if (!userId) {
-      this.saveError = 'User session not found. Please log in again.';
       this.loading = false;
+      alert('User session not found. Please log in again.');
       return;
     }
 
@@ -949,17 +940,19 @@ export class WebsiteConfigComponent implements OnInit {
     this.adminService.updateSiteSettings(payload).subscribe({
       next: () => {
         this.themeService.setTheme(this.colorForm.value);
-        this.saveSuccess = true;
         this.loading = false;
-        alert('Site settings updated successfully!');
-        setTimeout(() => this.saveSuccess = false, 4000);
+        this.cdr.detectChanges();
+        setTimeout(() => {
+          alert('✓ Settings saved successfully!');
+        }, 100);
       },
       error: (err) => {
         const msg = err.error?.message || err.error?.title || err.message || 'Unknown error occurred';
-        this.saveError = msg;
         this.loading = false;
-        alert(`Failed to save settings.\nError: ${msg}`);
-        setTimeout(() => this.saveError = '', 6000);
+        this.cdr.detectChanges();
+        setTimeout(() => {
+          alert(`✗ Failed to save settings.\nError: ${msg}`);
+        }, 100);
       }
     });
   }

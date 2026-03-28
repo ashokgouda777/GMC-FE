@@ -28,8 +28,6 @@ export class ConfigurationComponent {
     { label: 'User Management', route: 'user-management' },
     { label: 'User Access Control', route: 'user-access-control' },
     { label: 'Website Configuration', route: 'website-config' },
-    { label: 'Notification Configuration', route: 'notification-config' },
-    { label: 'Broadcast SMS', route: 'broadcast-sms' },
     { label: 'University List', route: 'university-list' },
     { label: 'Colleges List', route: 'colleges-list' },
     { label: 'Subject Master', route: 'subject-master' },

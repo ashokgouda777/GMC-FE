@@ -25,7 +25,6 @@ import { UniversityList } from './university-list.model';
                 <thead>
                     <tr>
                         <th>University Name</th>
-                        <th>Code</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -33,7 +32,6 @@ import { UniversityList } from './university-list.model';
                 <tbody>
                     <tr *ngFor="let university of filteredUniversities">
                         <td>{{ university.universityName }}</td>
-                        <td>{{ university.universityCode }}</td>
                         <td>
                             <span class="status-badge" [class.active]="university.activeStatus === 'Active'">
                                 {{ university.activeStatus }}
@@ -50,7 +48,7 @@ import { UniversityList } from './university-list.model';
 
                     </tr>
                     <tr *ngIf="filteredUniversities.length === 0">
-                        <td colspan="4" class="no-data">No universities found.</td>
+                        <td colspan="3" class="no-data">No universities found.</td>
                     </tr>
                 </tbody>
             </table>
@@ -73,10 +71,6 @@ import { UniversityList } from './university-list.model';
                             <input type="text" formControlName="universityName" placeholder="Enter University Name">
                         </div>
                         <div class="form-group">
-                            <label>University Code <span class="required">*</span></label>
-                            <input type="text" formControlName="universityCode" placeholder="Enter Code">
-                        </div>
-                        <div class="form-group">
                             <label>Status <span class="required">*</span></label>
                             <select formControlName="activeStatus">
                                 <option value="A">Active</option>
@@ -87,7 +81,7 @@ import { UniversityList } from './university-list.model';
                 </div> <!-- end form-body -->
                 <div class="form-footer">
                     <div class="validation-msg" *ngIf="universityForm.invalid && (universityForm.dirty || universityForm.touched)">
-                        <span class="required">* Please fill all fields correctly. Code must be max 5 characters.</span>
+                        <span class="required">* Please fill all fields correctly.</span>
                     </div>
                     <button type="submit" class="btn-primary" [disabled]="universityForm.invalid">
                         {{ isEditing ? 'Update University' : 'Save University' }}
@@ -107,7 +101,7 @@ import { UniversityList } from './university-list.model';
     styles: [`
 .page-container {
     padding: 24px;
-    background: #f8fafc;
+    background: var(--bg-color);
     min-height: 100%;
 }
 
@@ -122,7 +116,7 @@ import { UniversityList } from './university-list.model';
     margin: 0;
     font-size: 1.5rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--text-color);
 }
 
 .actions {
@@ -132,7 +126,9 @@ import { UniversityList } from './university-list.model';
 
 .search-box {
     padding: 10px 16px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: var(--card-bg);
+    color: var(--text-color);
     border-radius: 8px;
     width: 280px;
     font-size: 0.9rem;
@@ -140,13 +136,13 @@ import { UniversityList } from './university-list.model';
 }
 
 .search-box:focus {
-    border-color: #3b82f6;
+    border-color: var(--primary-color);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.1);
 }
 
 .table-container {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -158,20 +154,20 @@ import { UniversityList } from './university-list.model';
 }
 
 .data-table th {
-    background: #f1f5f9;
+    background: var(--table-header-bg);
     padding: 16px;
     text-align: left;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #64748b;
+    color: var(--table-header-text);
     text-transform: uppercase;
     letter-spacing: 0.025em;
 }
 
 .data-table td {
     padding: 16px;
-    border-top: 1px solid #f1f5f9;
-    color: #334155;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    color: var(--table-body-text);
     font-size: 0.95rem;
 }
 
@@ -194,9 +190,9 @@ import { UniversityList } from './university-list.model';
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: #e7f1ff;
-    color: #0056b3;
-    border: 1px solid #dbeafe;
+    background: rgba(var(--primary-color), 0.1);
+    color: var(--primary-color);
+    border: 1px solid rgba(var(--primary-color), 0.2);
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s;
@@ -207,15 +203,11 @@ import { UniversityList } from './university-list.model';
 }
 
 .btn-icon:hover {
-    background: #cce3ff;
-    color: #004494;
+    background: var(--primary-color);
+    color: #ffffff;
     transform: translateY(-2px);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
-
-
-
 
 /* Edit View Styles */
 .edit-page-view {
@@ -228,7 +220,7 @@ import { UniversityList } from './university-list.model';
 }
 
 .card {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 12px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     padding: 32px;
@@ -254,22 +246,23 @@ import { UniversityList } from './university-list.model';
 .form-group label {
     font-weight: 600;
     font-size: 0.875rem;
-    color: #475569;
+    color: var(--text-color);
 }
 
 .form-group input, .form-group select {
     padding: 10px 14px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: var(--card-bg);
+    color: var(--table-body-text);
     border-radius: 8px;
     font-size: 0.95rem;
-    color: #1e293b;
     transition: all 0.2s;
 }
 
 .form-group input:focus, .form-group select:focus {
-    border-color: #3b82f6;
+    border-color: var(--primary-color);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.1);
 }
 
 .required {
@@ -282,11 +275,11 @@ import { UniversityList } from './university-list.model';
     gap: 12px;
     margin-top: 32px;
     padding-top: 24px;
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid rgba(0,0,0,0.05);
 }
 
 .btn-primary {
-    background: #2563eb;
+    background: var(--button-color);
     color: #ffffff;
     border: none;
     padding: 10px 24px;
@@ -297,7 +290,7 @@ import { UniversityList } from './university-list.model';
 }
 
 .btn-primary:hover:not(:disabled) {
-    background: #1d4ed8;
+    filter: brightness(0.9);
 }
 
 .btn-primary.btn-sm {
@@ -315,9 +308,9 @@ import { UniversityList } from './university-list.model';
 }
 
 .btn-secondary {
-    background: #f8fafc;
-    color: #475569;
-    border: 1px solid #e2e8f0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid rgba(0,0,0,0.1);
     padding: 10px 24px;
     border-radius: 8px;
     font-weight: 600;
@@ -326,13 +319,14 @@ import { UniversityList } from './university-list.model';
 }
 
 .btn-secondary:hover {
-    background: #f1f5f9;
+    background: rgba(0,0,0,0.05);
 }
 
 .no-data {
     text-align: center;
     padding: 48px !important;
-    color: #94a3b8;
+    color: var(--text-color);
+    opacity: 0.6;
     font-style: italic;
 }
   `]

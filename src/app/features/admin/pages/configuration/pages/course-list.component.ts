@@ -27,8 +27,6 @@ import { CourseList } from './course-list.model';
                         <th>Sl. No</th>
                         <th>Course Name</th>
                         <th>Shortcut Code</th>
-                        <th>Nomenclature</th>
-                        <th>Addl. Degree</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -38,8 +36,6 @@ import { CourseList } from './course-list.model';
                         <td>{{ i + 1 }}</td>
                         <td>{{ course.courseName }}</td>
                         <td>{{ course.shortcutCode }}</td>
-                        <td>{{ course.nomenclature }}</td>
-                        <td>{{ course.additionalDegree }}</td>
                         <td>
                             <span class="status-badge" [class.active]="course.activeStatus === 'Active'">
                                 {{ course.activeStatus }}
@@ -54,7 +50,7 @@ import { CourseList } from './course-list.model';
                         </td>
                     </tr>
                     <tr *ngIf="filteredCourses.length === 0">
-                        <td colspan="7" class="no-data">No courses found.</td>
+                        <td colspan="5" class="no-data">No courses found.</td>
                     </tr>
                 </tbody>
             </table>
@@ -71,7 +67,7 @@ import { CourseList } from './course-list.model';
         <div class="form-container card">
             <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
                 <div class="form-body">
-                    <div class="form-grid">
+                    <div class="form-grid grid-2">
                         <div class="form-group">
                             <label>Course Name <span class="required">*</span></label>
                             <input type="text" formControlName="courseName" placeholder="Enter Course Name">
@@ -79,18 +75,6 @@ import { CourseList } from './course-list.model';
                         <div class="form-group">
                             <label>Course Shortcut Code <span class="required">*</span></label>
                             <input type="text" formControlName="shortcutCode" placeholder="Enter Shortcut Code">
-                        </div>
-                        <div class="form-group">
-                            <label>Course Nomenclature <span class="required">*</span></label>
-                            <input type="text" formControlName="nomenclature" placeholder="Enter Nomenclature">
-                        </div>
-                        <div class="form-group">
-                            <label>Additional Degree Status</label>
-                            <select formControlName="additionalDegree">
-                                <option [value]="null">Select Status</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
                         </div>
                         <div class="form-group" *ngIf="isEditing">
                             <label>Status</label>
@@ -119,37 +103,38 @@ import { CourseList } from './course-list.model';
 </div>
   `,
   styles: [`
-.page-container { padding: 24px; background: #f8fafc; min-height: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-.header-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid #e2e8f0; padding-bottom: 16px; }
-.header-actions h2 { margin: 0; font-size: 1.5rem; font-weight: 700; color: #0f172a; }
+.page-container { padding: 24px; background: var(--bg-color); min-height: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+.header-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 16px; }
+.header-actions h2 { margin: 0; font-size: 1.5rem; font-weight: 700; color: var(--text-color); }
 .actions { display: flex; gap: 12px; }
-.search-box { padding: 10px 16px; border: 1px solid #e2e8f0; border-radius: 8px; width: 300px; font-size: 0.9rem; }
-.table-container { background: #ffffff; border-radius: 12px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); overflow: auto; }
+.search-box { padding: 10px 16px; border: 1px solid rgba(0,0,0,0.1); background: var(--card-bg); color: var(--text-color); border-radius: 8px; width: 300px; font-size: 0.9rem; }
+.table-container { background: var(--card-bg); border-radius: 12px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); overflow: auto; }
 .data-table { width: 100%; border-collapse: collapse; }
-.data-table th { background: #f8fafc; padding: 16px; text-align: left; font-size: 0.85rem; font-weight: 600; color: #64748b; text-transform: uppercase; border-bottom: 2px solid #f1f5f9; }
-.data-table td { padding: 16px; border-top: 1px solid #f1f5f9; color: #334155; }
+.data-table th { background: var(--table-header-bg); padding: 16px; text-align: left; font-size: 0.85rem; font-weight: 600; color: var(--table-header-text); text-transform: uppercase; border-bottom: 2px solid rgba(0,0,0,0.05); }
+.data-table td { padding: 16px; border-top: 1px solid rgba(0,0,0,0.05); background: var(--table-body-bg); color: var(--table-body-text); }
 .status-badge { display: inline-flex; padding: 4px 12px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
 .status-badge.active { background: #dcfce7; color: #166534; }
 .status-badge:not(.active) { background: #fee2e2; color: #991b1b; }
 
-.card { background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); padding: 32px; max-width: 600px; margin: 0 auto; }
+.card { background: var(--card-bg); border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); padding: 32px; max-width: 600px; margin: 0 auto; }
 .form-grid { display: grid; gap: 24px; }
+.grid-2 { grid-template-columns: 1fr 1fr; }
 .form-group { display: flex; flex-direction: column; gap: 8px; }
-.form-group label { font-weight: 600; font-size: 0.9rem; color: #334155; }
-.form-group input, .form-group select { padding: 12px 14px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.95rem; background: #ffffff; color: #1e293b; }
-.form-group input:focus, .form-group select:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+.form-group label { font-weight: 600; font-size: 0.9rem; color: var(--text-color); }
+.form-group input, .form-group select { padding: 12px 14px; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; font-size: 0.95rem; background: var(--card-bg); color: var(--table-body-text); }
+.form-group input:focus, .form-group select:focus { border-color: var(--primary-color); outline: none; box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.1); }
 .required { color: #ef4444; }
 
-.form-footer { margin-top: 40px; padding-top: 24px; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; }
+.form-footer { margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
 .action-buttons { display: flex; gap: 16px; }
 
-.btn-primary { background: #2563eb; color: #ffffff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-.btn-primary:hover:not(:disabled) { background: #1d4ed8; }
+.btn-primary { background: var(--button-color); color: #ffffff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: filter 0.2s; }
+.btn-primary:hover:not(:disabled) { filter: brightness(0.9); }
 .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
-.btn-secondary { background: #ffffff; color: #475569; border: 1px solid #e2e8f0; padding: 12px 32px; border-radius: 8px; font-weight: 600; cursor: pointer; }
-.btn-secondary:hover { background: #f8fafc; }
+.btn-secondary { background: var(--bg-color); color: var(--text-color); border: 1px solid rgba(0,0,0,0.1); padding: 12px 32px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.btn-secondary:hover { background: rgba(0,0,0,0.05); }
 
-.no-data { text-align: center; padding: 64px !important; color: #94a3b8; font-style: italic; }
+.no-data { text-align: center; padding: 64px !important; color: var(--text-color); opacity: 0.6; font-style: italic; }
   `]
 })
 export class CourseListComponent implements OnInit {
@@ -167,8 +152,6 @@ export class CourseListComponent implements OnInit {
   courseForm = this.fb.group({
     courseName: ['', Validators.required],
     shortcutCode: ['', Validators.required],
-    nomenclature: ['', Validators.required],
-    additionalDegree: [null as string | null],
     status: ['Active', Validators.required]
   });
 
@@ -188,8 +171,6 @@ export class CourseListComponent implements OnInit {
             courseId: item[idKey] || item.id || item.Id || item.course_id || '',
             courseName: item.courseName || item.courseDescription || item.CourseDescription || '',
             shortcutCode: item.shortcutCode || item.courseShortCode || item.CourseShortCode || '',
-            nomenclature: item.nomenclature || item.courseNomeclature || item.CourseNomeclature || '',
-            additionalDegree: item.additionalDegree || null,
             status: item.status || 'Active',
             activeStatus: (item.status === 'Active' || item.status === 'A') ? 'Active' : 'Inactive'
           };
@@ -209,15 +190,14 @@ export class CourseListComponent implements OnInit {
     const query = (event.target as HTMLInputElement).value.toLowerCase();
     this.filteredCourses = this.courses.filter(c =>
       c.courseName.toLowerCase().includes(query) ||
-      c.shortcutCode.toLowerCase().includes(query) ||
-      c.nomenclature.toLowerCase().includes(query)
+      c.shortcutCode.toLowerCase().includes(query)
     );
   }
 
   openAddView() {
     this.isEditing = false;
     this.selectedCourse = null;
-    this.courseForm.reset({ status: 'Active', courseName: '', shortcutCode: '', nomenclature: '', additionalDegree: null });
+    this.courseForm.reset({ status: 'Active', courseName: '', shortcutCode: '' });
     this.showEditView = true;
   }
 
@@ -227,8 +207,6 @@ export class CourseListComponent implements OnInit {
     this.courseForm.patchValue({
       courseName: course.courseName,
       shortcutCode: course.shortcutCode,
-      nomenclature: course.nomenclature,
-      additionalDegree: course.additionalDegree,
       status: course.status
     });
     this.showEditView = true;
@@ -249,8 +227,8 @@ export class CourseListComponent implements OnInit {
       CourseId: this.isEditing ? this.selectedCourse?.courseId : '',
       CourseDescription: v.courseName,
       CourseShortCode: v.shortcutCode,
-      CourseNomeclature: v.nomenclature,
-      AdditionalDegree: v.additionalDegree,
+      CourseNomeclature: '', // Removed from UI
+      AdditionalDegree: 'No', // Removed from UI
       Status: v.status === 'Active' ? 'A' : 'D',
       CreatedBy: 'Admin'
     };

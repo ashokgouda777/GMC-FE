@@ -2038,40 +2038,10 @@ export class UserDashboardComponent implements OnInit {
       }
     };
 
-    // First notify the webhook
+    // Notify the webhook - this is now the only API call used to finalize payment
     this.adminService.hitPaymentWebhook(webhookPayload).subscribe({
       next: (res) => {
         console.log('Webhook hit successfully', res);
-        this.finalizePaymentRecord(razorpayResponse);
-      },
-      error: (err) => {
-        console.error('Webhook notification failed', err);
-        // Proceeding to finalize record even if webhook fails, to ensure user data is saved
-        this.finalizePaymentRecord(razorpayResponse);
-      }
-    });
-  }
-
-  private finalizePaymentRecord(razorpayResponse: any) {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
-    const userId = currentUser.id;
-
-    const payload = {
-      practitionerID: userId,
-      type: this.selectedLedger().ledgerID,
-      amount: String(this.paymentAmount()),
-      paymentFor: this.selectedLedger().ledgerID,
-      transactionNo: razorpayResponse.razorpay_payment_id,
-      bank: 'Razorpay',
-      receiptDate: new Date().toISOString(),
-      feeItemname: this.selectedLedger().ledgerName,
-      createdBy: 'User'
-    };
-
-    const headers = new HttpHeaders({ 'pId': String(userId) });
-
-    this.adminService.createRenewal(payload, headers).subscribe({
-      next: () => {
         this.paymentStatus.set({ success: true, message: 'Payment successful! Record updated. Redirecting to receipts...' });
         setTimeout(() => {
           this.setActiveTab('receipts');
@@ -2082,12 +2052,14 @@ export class UserDashboardComponent implements OnInit {
         }, 2000);
       },
       error: (err) => {
-        console.error('Failed to finalize payment record', err);
-        this.paymentStatus.set({ success: false, message: 'Payment received but record update failed. Please contact support.' });
+        console.error('Webhook notification failed', err);
+        // Providing clear error feedback if the webhook fails
+        this.paymentStatus.set({ success: false, message: 'Payment confirmed but record update failed. Please contact support.' });
         this.isProcessingPayment.set(false);
       }
     });
   }
+
 
   getFilteredPersonalData() {
     let data = this.practitionerData();

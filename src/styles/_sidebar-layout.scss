@@ -59,6 +59,14 @@
             align-items: center;
             font-size: 0.95rem;
 
+            .sidebar-icon {
+                margin-right: 12px;
+                font-size: 1.1rem;
+                min-width: 24px;
+                display: inline-flex;
+                justify-content: center;
+            }
+
             // Hover State
             &:hover {
                 background: color-mix(in srgb, $sidebar-active-color, transparent 95%); // Light tint of active color

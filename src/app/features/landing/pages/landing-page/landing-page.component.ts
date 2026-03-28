@@ -101,56 +101,6 @@ import { UserLoginComponent } from '../../../user/pages/user-login/user-login.co
                     </p>
                 </div>
 
-                <div class="functions-label">
-                    <span class="label-line"></span>
-                    <span class="label-text">Powers, Duties &amp; Functions of the Council</span>
-                    <span class="label-line"></span>
-                </div>
-
-                <div class="functions-grid">
-                    <div class="func-card">
-                        <div class="func-num">01</div>
-                        <div class="func-icon-wrap">&#x1F4CB;</div>
-                        <h4>Practitioner Registration</h4>
-                        <p>Maintain a live register and provide for the registration of medical practitioners.</p>
-                    </div>
-                    <div class="func-card">
-                        <div class="func-num">02</div>
-                        <div class="func-icon-wrap">&#x2696;&#xFE0F;</div>
-                        <h4>Appeals</h4>
-                        <p>Hear and decide appeals against any decision of the Registrar.</p>
-                    </div>
-                    <div class="func-card">
-                        <div class="func-num">03</div>
-                        <div class="func-icon-wrap">&#x1F4DC;</div>
-                        <h4>Code of Ethics</h4>
-                        <p>Prescribe a Code of Ethics for regulating the professional conduct of practitioners.</p>
-                    </div>
-                    <div class="func-card">
-                        <div class="func-num">04</div>
-                        <div class="func-icon-wrap">&#x1F6AB;</div>
-                        <h4>Disciplinary Action</h4>
-                        <p>Reprimand, suspend, or remove names from the register.</p>
-                    </div>
-                    <div class="func-card">
-                        <div class="func-num">05</div>
-                        <div class="func-icon-wrap">&#x1F4E8;</div>
-                        <h4>Public Complaints</h4>
-                        <p>Receive and process complaints from the public against medical practitioner misconduct or negligence.</p>
-                    </div>
-                    <div class="func-card">
-                        <div class="func-num">06</div>
-                        <div class="func-icon-wrap">&#x1F6E1;&#xFE0F;</div>
-                        <h4>Member Protection</h4>
-                        <p>Provide protection to council members in discharging their professional duties.</p>
-                    </div>
-                    <div class="func-card">
-                        <div class="func-num">07</div>
-                        <div class="func-icon-wrap">&#x1F512;</div>
-                        <h4>Unqualified Practice</h4>
-                        <p>Ensure that no unqualified person practices the modern system of medicine.</p>
-                    </div>
-                </div>
             </div>
         </section>
 

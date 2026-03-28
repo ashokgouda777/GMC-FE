@@ -13,8 +13,6 @@ export const ADMIN_ROUTES: Routes = [
             { path: 'user-management', loadComponent: () => import('./pages/configuration/pages/user-management.component').then(m => m.UserManagementComponent) },
             { path: 'user-access-control', loadComponent: () => import('./pages/configuration/pages/user-access-control.component').then(m => m.UserAccessControlComponent) },
             { path: 'website-config', loadComponent: () => import('./pages/configuration/pages/website-config.component').then(m => m.WebsiteConfigComponent) },
-            { path: 'notification-config', loadComponent: () => import('./pages/configuration/pages/notification-config.component').then(m => m.NotificationConfigComponent) },
-            { path: 'broadcast-sms', loadComponent: () => import('./pages/configuration/pages/broadcast-sms.component').then(m => m.BroadcastSmsComponent) },
             { path: 'university-list', loadComponent: () => import('./pages/configuration/pages/university-list.component').then(m => m.UniversityListComponent) },
             { path: 'colleges-list', loadComponent: () => import('./pages/configuration/pages/colleges-list.component').then(m => m.CollegesListComponent) },
             { path: 'subject-master', loadComponent: () => import('./pages/configuration/pages/subject-master.component').then(m => m.SubjectMasterComponent) },

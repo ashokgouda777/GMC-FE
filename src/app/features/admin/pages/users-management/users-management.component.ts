@@ -26,9 +26,8 @@ export class UsersManagementComponent implements OnInit {
     showApprovalModal = false;
     selectedUserForApproval: any = null;
 
-    // Dropdown Mock Data
-    registrationForOptions: any[] = []; // Loaded from API
-
+    // Dropdown Data
+    registrationForOptions: any[] = [];
     titleOptions: any[] = [];
     genderOptions: any[] = [];
     bloodGroupOptions: any[] = [];
@@ -55,7 +54,6 @@ export class UsersManagementComponent implements OnInit {
     });
 
     constructor() {
-        // Validation logic for conditional fields
         this.practitionerForm.get('isAlreadyRegistered')?.valueChanges.subscribe(checked => {
             const regNoControl = this.practitionerForm.get('oldRegNo');
             const regDateControl = this.practitionerForm.get('oldRegDate');
@@ -73,7 +71,6 @@ export class UsersManagementComponent implements OnInit {
         });
     }
 
-    // Users Data
     users: any[] = [];
     filteredUsers: any[] = [];
 
@@ -93,18 +90,6 @@ export class UsersManagementComponent implements OnInit {
         );
     }
 
-    // toggleAddForm() {
-    //     this.showAddForm = !this.showAddForm;
-    //     if (!this.showAddForm) {
-    //         this.practitionerForm.reset({
-    //             title: '', registrationFor: '',
-    //             bloodGroup: '', nationality: '', eligibility: '',
-    //             isAlreadyRegistered: false
-    //         });
-    //         this.filteredUsers = [...this.users]; // Reset filter on toggle
-    //     }
-    // }
-
     isFieldInvalid(fieldName: string): boolean {
         const field = this.practitionerForm.get(fieldName);
         return !!(field && field.invalid && (field.dirty || field.touched));
@@ -115,13 +100,12 @@ export class UsersManagementComponent implements OnInit {
     approvingId: any = null;
 
     ngOnInit() {
-        // Handle sidebar navigation via query params
         this.route.queryParams.subscribe(params => {
             const section = params['section'];
             if (section) {
                 this.setActiveSection(section);
             } else {
-                this.setActiveSection('PRC');
+                this.setActiveSection('Practitioner');
             }
         });
 
@@ -134,9 +118,7 @@ export class UsersManagementComponent implements OnInit {
     }
 
     loadPractitioners() {
-        console.log('Loading practitioners for section:', this.activeSection);
-        
-        // Map section to registrationfor value: PRC=0, Practitioner=1, FMG=2
+        // Corrected Explicit Mapping: PRC=0, Practitioner (Permanent)=1, FMG=2
         let regFor: string | undefined = undefined;
         if (this.activeSection === 'Practitioner') regFor = '1';
         else if (this.activeSection === 'PRC') regFor = '0';
@@ -144,28 +126,14 @@ export class UsersManagementComponent implements OnInit {
 
         this.adminService.getPractitioners(regFor).subscribe({
             next: (data: any) => {
-                console.log('Practitioners data received:', data);
-                if (Array.isArray(data)) {
-                    this.users = data;
-                } else if (data?.result && Array.isArray(data.result)) {
-                    this.users = data.result;
-                } else if (data?.data && Array.isArray(data.data)) {
-                    this.users = data.data;
-                } else {
-                    console.error('Data is not an array:', data);
-                    this.users = [];
-                }
+                const results = Array.isArray(data) ? data : (data.result || data.data || []);
+                this.users = results;
                 this.filteredUsers = [...this.users];
-                console.log('Users array updated. Count:', this.users.length);
-                this.cdr.detectChanges(); // Force DOM update
+                this.cdr.detectChanges();
             },
-            error: (err) => {
-                console.error('Failed to load practitioners', err);
-            }
+            error: (err) => console.error('Failed to load practitioners', err)
         });
     }
-
-    // ... (rest of loading methods same as before) ...
 
     loadNationalities() {
         this.adminService.getNationalities().subscribe({
@@ -173,74 +141,55 @@ export class UsersManagementComponent implements OnInit {
                 this.nationalityOptions = Array.isArray(data) ? data : (data?.result || []);
                 this.setDefaults();
             },
-            error: (err) => {
-                console.error('Failed to load nationalities', err);
-                this.nationalityOptions = [];
-            }
+            error: (err) => console.error('Failed to load nationalities', err)
         });
     }
 
-    // Helper to robustly load dropdowns (simplified for brevity in this replace block)
-    // I will keep existing loading methods but applied similar robustness pattern if I could, 
-    // but focusing on practitioners first.
-
     loadEligibility() {
-        this.adminService.getEligibility().subscribe(data => {
-            this.eligibilityOptions = Array.isArray(data) ? data : [];
+        this.adminService.getEligibility().subscribe((data: any) => {
+            this.eligibilityOptions = Array.isArray(data) ? data : (data?.result || []);
             this.setDefaults();
         });
     }
     loadBloodGroups() {
-        this.adminService.getBloodGroups().subscribe(data => this.bloodGroupOptions = Array.isArray(data) ? data : []);
+        this.adminService.getBloodGroups().subscribe((data: any) => this.bloodGroupOptions = Array.isArray(data) ? data : (data?.result || []));
     }
     loadGenders() {
-        this.adminService.getGenders().subscribe(data => this.genderOptions = Array.isArray(data) ? data : []);
+        this.adminService.getGenders().subscribe((data: any) => this.genderOptions = Array.isArray(data) ? data : (data?.result || []));
     }
     loadTitles() {
-        this.adminService.getTitles().subscribe(data => this.titleOptions = Array.isArray(data) ? data : []);
+        this.adminService.getTitles().subscribe((data: any) => this.titleOptions = Array.isArray(data) ? data : (data?.result || []));
     }
     loadRegistrationTypes() {
-        this.adminService.getRegistrationTypes().subscribe(data => this.registrationForOptions = Array.isArray(data) ? data : []);
+        this.adminService.getRegistrationTypes().subscribe((data: any) => this.registrationForOptions = Array.isArray(data) ? data : (data?.result || []));
     }
 
     onEdit(user: any) {
         this.isEditing = true;
-        this.currentPractitionerId = user.practitionerID || user.id; // Fallback
+        this.currentPractitionerId = user.practitionerID || user.id || user.practitionerId;
         this.showAddForm = true;
 
-        // Patch form
         this.practitionerForm.patchValue({
-            registrationFor: user.registrationType || '',
+            registrationFor: String(user.registrationType || ''),
             title: user.title || '',
             name: user.name,
             gender: user.gender,
             bloodGroup: user.bloodGroup,
-            changeOfName: user.changeOfName,
-            fatherName: user.spouseName, // Mapping back
+            changeOfName: user.changeOfName || '',
+            fatherName: user.spouseName || '', 
             birthDate: user.birthDate ? user.birthDate.split('T')[0] : '',
-            birthPlace: user.birthPlace,
-            nationality: user.nationality,
-            eligibility: user.vote, // Mapped back
-            email: user.emailID,
-            mobile: user.mobileNumber,
+            birthPlace: user.birthPlace || '',
+            nationality: user.nationality || '',
+            eligibility: user.vote || '', 
+            email: user.emailID || '',
+            mobile: user.mobileNumber || '',
             isAlreadyRegistered: !!user.registrationNo && user.registrationNo !== '',
-            oldRegNo: user.registrationNo,
+            oldRegNo: user.registrationNo || '',
             oldRegDate: user.registrationDate ? user.registrationDate.split('T')[0] : ''
         });
     }
 
-    onDelete(user: any) {
-        if (confirm('Are you sure you want to delete this practitioner?')) {
-            // Implement delete if needed, for now just log
-            console.log('Delete requested for', user);
-        }
-    }
-
     onApprove(user: any) {
-        const id = user.practitionerID || user.id || user.practitionerId;
-        if (!id) { alert('Practitioner ID not found.'); return; }
-        
-        // Open the custom approval modal instead of browser confirm
         this.selectedUserForApproval = user;
         this.showApprovalModal = true;
     }
@@ -252,12 +201,10 @@ export class UsersManagementComponent implements OnInit {
 
     confirmApproval() {
         if (!this.selectedUserForApproval) return;
-        
         const user = this.selectedUserForApproval;
         const id = user.practitionerID || user.id || user.practitionerId;
-        
         this.approvingId = id;
-        this.showApprovalModal = false; // Close modal immediately to show "Applying..." in list if needed, or keep open
+        this.showApprovalModal = false;
 
         this.adminService.approvePractitioner(id).subscribe({
             next: () => {
@@ -268,9 +215,8 @@ export class UsersManagementComponent implements OnInit {
             },
             error: (err) => {
                 console.error('Operation failed:', err);
-                alert('Failed to make permanent. Please try again.');
+                alert('Failed to make permanent.');
                 this.approvingId = null;
-                this.selectedUserForApproval = null;
             }
         });
     }
@@ -278,10 +224,8 @@ export class UsersManagementComponent implements OnInit {
     onSubmit() {
         if (this.practitionerForm.valid) {
             const formValue = this.practitionerForm.value;
-
             const payload = {
-                // If editing, include ID if API requires it in body, otherwise just payload
-                practitionerID: this.isEditing ? this.currentPractitionerId : "0",
+                practitionerID: this.isEditing ? String(this.currentPractitionerId) : "0",
                 countryId: "1", stateId: "1", councilId: "1",
                 registrationNo: formValue.isAlreadyRegistered ? formValue.oldRegNo : "",
                 registrationType: String(formValue.registrationFor || ""),
@@ -299,25 +243,21 @@ export class UsersManagementComponent implements OnInit {
                 bloodGroup: String(formValue.bloodGroup || ""),
                 createdBy: "Admin",
                 registrationDate: formValue.isAlreadyRegistered ? new Date(formValue.oldRegDate).toISOString() : null,
-                registrationFor: String(formValue.registrationFor || "0"),
+                registrationFor: String(formValue.registrationFor || ""),
                 status: "1"
             };
 
             const request$ = this.isEditing
-                ? this.adminService.updatePractitioner(this.currentPractitionerId, payload)
+                ? this.adminService.updatePractitioner(String(this.currentPractitionerId), payload)
                 : this.adminService.createPractitioner(payload);
 
             request$.subscribe({
-                next: (res) => {
-                    console.log(this.isEditing ? 'Update Success:' : 'Registration Success:', res);
+                next: () => {
                     alert(`Practitioner ${this.isEditing ? 'Updated' : 'Registered'} Successfully!`);
                     this.toggleAddForm();
                     this.loadPractitioners();
                 },
-                error: (err) => {
-                    console.error('Operation Failed:', err);
-                    alert(`Failed to ${this.isEditing ? 'update' : 'register'} practitioner. Please try again.`);
-                }
+                error: (err) => alert('Failed to save practitioner.')
             });
         } else {
             this.practitionerForm.markAllAsTouched();
@@ -345,16 +285,19 @@ export class UsersManagementComponent implements OnInit {
     setDefaults() {
         if (this.isEditing) return;
 
-        // Default to Indian
-        const indian = this.nationalityOptions.find(n => n.nationality?.toLowerCase() === 'indian');
-        if (indian) {
-            this.practitionerForm.patchValue({ nationality: indian.nationalityId });
+        // Corrected Explicit Mapping: PRC=0, Practitioner (Permanent)=1, FMG=2
+        if (this.activeSection === 'Practitioner') {
+            this.practitionerForm.patchValue({ registrationFor: '1' });
+        } else if (this.activeSection === 'PRC') {
+            this.practitionerForm.patchValue({ registrationFor: '0' });
+        } else if (this.activeSection === 'FMG') {
+            this.practitionerForm.patchValue({ registrationFor: '2' });
         }
 
-        // Default to Eligible
+        const indian = this.nationalityOptions.find(n => n.nationality?.toLowerCase() === 'indian');
+        if (indian) this.practitionerForm.patchValue({ nationality: indian.nationalityId });
+
         const eligible = this.eligibilityOptions.find(e => e.eligibilty?.toLowerCase().includes('eligible'));
-        if (eligible) {
-            this.practitionerForm.patchValue({ eligibility: eligible.eligibiltyId });
-        }
+        if (eligible) this.practitionerForm.patchValue({ eligibility: eligible.eligibiltyId });
     }
 }

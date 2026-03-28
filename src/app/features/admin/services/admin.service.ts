@@ -146,7 +146,7 @@ export class AdminService {
     }
 
     approvePractitioner(id: string) {
-        return this.api.put(`Practitioners/approve/${id}`, {});
+        return this.api.post(`Practitioners/makeperment?practitionerId=${id}`, {});
     }
 
     uploadPractitionerImage(practitionerId: string, type: string, file: File) {
