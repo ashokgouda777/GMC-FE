@@ -2,6 +2,7 @@ import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
+import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { AdminService } from '../../services/admin.service';
 import { PractitionerSidebarComponent } from '../../components/practitioner-sidebar/practitioner-sidebar.component';
 
@@ -25,6 +26,12 @@ export class UsersManagementComponent implements OnInit {
     // Approval Modal State
     showApprovalModal = false;
     selectedUserForApproval: any = null;
+    
+    // Pagination State
+    totalRecords = 0;
+    currentPage = 1;
+    pageSize = 100;
+    totalPages = 0;
 
     // Dropdown Data
     registrationForOptions: any[] = [];
@@ -33,6 +40,8 @@ export class UsersManagementComponent implements OnInit {
     bloodGroupOptions: any[] = [];
     nationalityOptions: any[] = [];
     eligibilityOptions: any[] = [];
+
+    private searchSubject = new Subject<string>();
 
     practitionerForm: FormGroup = this.fb.group({
         registrationFor: ['', Validators.required],
@@ -77,17 +86,40 @@ export class UsersManagementComponent implements OnInit {
     setActiveSection(section: string) {
         this.activeSection = section;
         this.showAddForm = false;
+        this.currentPage = 1;
         this.loadPractitioners();
     }
 
     onSearch(event: any) {
-        const query = event.target.value.toLowerCase();
-        this.filteredUsers = this.users.filter(user =>
-            (user.name && user.name.toLowerCase().includes(query)) ||
-            (user.registrationNo && user.registrationNo.toLowerCase().includes(query)) ||
-            (user.mobileNumber && user.mobileNumber.toLowerCase().includes(query)) ||
-            (user.emailID && user.emailID.toLowerCase().includes(query))
-        );
+        const query = event.target.value;
+        this.searchSubject.next(query);
+    }
+
+    performSearch(query: string) {
+        if (!query || query.trim() === '') {
+            this.loadPractitioners();
+            return;
+        }
+
+        this.adminService.searchPractitioners(query).subscribe({
+            next: (response: any) => {
+                console.log('Search API Response:', response);
+                // The search API might return a direct array or a paginated response.
+                // Based on common patterns, if it's a search, it might just return results.
+                this.users = response.data || response || [];
+                this.filteredUsers = [...this.users];
+                this.totalRecords = this.users.length;
+                this.totalPages = 1; // Search results often bypass pagination or return first page
+                this.currentPage = 1;
+                this.cdr.detectChanges();
+            },
+            error: (err) => {
+                console.error('Search failed', err);
+                this.users = [];
+                this.filteredUsers = [];
+                this.cdr.detectChanges();
+            }
+        });
     }
 
     isFieldInvalid(fieldName: string): boolean {
@@ -109,6 +141,13 @@ export class UsersManagementComponent implements OnInit {
             }
         });
 
+        this.searchSubject.pipe(
+            debounceTime(500),
+            distinctUntilChanged()
+        ).subscribe(query => {
+            this.performSearch(query);
+        });
+
         this.loadRegistrationTypes();
         this.loadTitles();
         this.loadGenders();
@@ -124,15 +163,40 @@ export class UsersManagementComponent implements OnInit {
         else if (this.activeSection === 'PRC') regFor = '0';
         else if (this.activeSection === 'FMG') regFor = '2';
 
-        this.adminService.getPractitioners(regFor).subscribe({
-            next: (data: any) => {
-                const results = Array.isArray(data) ? data : (data.result || data.data || []);
-                this.users = results;
+        this.adminService.getPractitioners(regFor, this.currentPage, this.pageSize).subscribe({
+            next: (response: any) => {
+                console.log('Practitioner API Response:', response);
+                this.users = response.data || [];
+                this.totalRecords = response.totalRecords || 0;
+                this.totalPages = response.totalPages || 0;
                 this.filteredUsers = [...this.users];
                 this.cdr.detectChanges();
             },
             error: (err) => console.error('Failed to load practitioners', err)
         });
+    }
+
+    onPageChange(page: number) {
+        if (page >= 1 && page <= this.totalPages) {
+            this.currentPage = page;
+            this.loadPractitioners();
+        }
+    }
+
+    mathMin(a: number, b: number): number {
+        return Math.min(a, b);
+    }
+
+    getPages(): number[] {
+        const pages = [];
+        const start = Math.max(1, this.currentPage - 2);
+        const end = Math.min(this.totalPages, start + 4);
+        const actualStart = Math.max(1, end - 4);
+        
+        for (let i = actualStart; i <= end; i++) {
+            pages.push(i);
+        }
+        return pages;
     }
 
     loadNationalities() {
@@ -215,7 +279,11 @@ export class UsersManagementComponent implements OnInit {
             },
             error: (err) => {
                 console.error('Operation failed:', err);
-                alert('Failed to make permanent.');
+                let errorMessage = 'Failed to make permanent.';
+                if (err.error) {
+                    errorMessage = typeof err.error === 'string' ? err.error : (err.error.message || JSON.stringify(err.error));
+                }
+                alert(errorMessage);
                 this.approvingId = null;
             }
         });
@@ -257,7 +325,16 @@ export class UsersManagementComponent implements OnInit {
                     this.toggleAddForm();
                     this.loadPractitioners();
                 },
-                error: (err) => alert('Failed to save practitioner.')
+                error: (err) => {
+                    console.error('Save failed:', err);
+                    let errorMessage = 'Failed to save practitioner.';
+                    if (err.error) {
+                        errorMessage = typeof err.error === 'string' ? err.error : (err.error.message || JSON.stringify(err.error));
+                    } else if (err.message) {
+                        errorMessage = err.message;
+                    }
+                    alert(errorMessage);
+                }
             });
         } else {
             this.practitionerForm.markAllAsTouched();

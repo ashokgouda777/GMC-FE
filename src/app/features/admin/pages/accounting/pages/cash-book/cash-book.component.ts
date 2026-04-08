@@ -8,26 +8,7 @@ import { ReceiptsComponent } from './components/receipts/receipts.component';
   imports: [CommonModule, ReceiptsComponent],
   template: `
     <div class="cash-book-container">
-      <div class="tabs-header">
-        <button 
-          *ngFor="let tab of tabs" 
-          [class.active]="activeTab === tab"
-          (click)="activeTab = tab"
-          class="tab-btn">
-          {{ tab }}
-        </button>
-      </div>
-
-      <div class="tab-content">
-        <app-receipts *ngIf="activeTab === 'Receipts'"></app-receipts>
-        <div *ngIf="activeTab !== 'Receipts'" class="placeholder-content">
-          <div class="empty-state">
-            <i class="fas fa-layer-group"></i>
-            <h3>{{ activeTab }} Module</h3>
-            <p>The {{ activeTab }} functionality is currently being processed.</p>
-          </div>
-        </div>
-      </div>
+      <app-receipts></app-receipts>
     </div>
   `,
   styles: [`
@@ -124,6 +105,4 @@ import { ReceiptsComponent } from './components/receipts/receipts.component';
   `]
 })
 export class CashBookComponent {
-  tabs = ['Receipts', 'Payments', 'Contra Entry', 'Cancel Receipts'];
-  activeTab = 'Receipts';
 }

@@ -31,8 +31,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let user of filteredUsers; let i = index">
-                        <td>{{ i + 1 }}</td>
+                    <tr *ngFor="let user of filteredUsers; let i = index" [class.cancelled]="user.status === 'C'">
+                        <td>{{ (currentPage - 1) * pageSize + i + 1 }}</td>
                         <td>{{ user.registrationNo || '' }}</td>
                         <td>{{ user.registrationDate ? (user.registrationDate | date:'dd-MM-yyyy') : '' }}</td>
                         <td>
@@ -64,6 +64,15 @@
                     </tr>
                 </tbody>
             </table>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-container" *ngIf="totalRecords > 0 && !showAddForm">
+                <div class="pagination-controls">
+                    <button [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Previous</button>
+                    <button *ngFor="let p of getPages()" [class.active]="p === currentPage" (click)="onPageChange(p)">{{ p }}</button>
+                    <button [disabled]="currentPage === totalPages" (click)="onPageChange(currentPage + 1)">Next</button>
+                </div>
+            </div>
         </div>
 
         <!-- Add Form View -->

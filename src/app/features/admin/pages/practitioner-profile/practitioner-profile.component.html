@@ -14,8 +14,6 @@
                     (click)="setActiveTab('Contact')">Contact Info</button>
                 <button class="tab-btn" [class.active]="activeTab === 'Educational'"
                     (click)="setActiveTab('Educational')">Educational</button>
-                <button class="tab-btn" [class.active]="activeTab === 'Complaint'"
-                    (click)="setActiveTab('Complaint')">Complaint</button>
                 <button class="tab-btn" [class.active]="activeTab === 'Payments'"
                     (click)="setActiveTab('Payments')">Payments</button>
                 <button class="tab-btn" [class.active]="activeTab === 'NOC'" (click)="setActiveTab('NOC')">NOC</button>
@@ -28,8 +26,6 @@
                     Register</button>
                 <button class="tab-btn" [class.active]="activeTab === 'Documents'"
                     (click)="setActiveTab('Documents')">Documents</button>
-                <button class="tab-btn" [class.active]="activeTab === 'Certificate'"
-                    (click)="setActiveTab('Certificate')">Certificate Number</button>
 
             </div>
 
@@ -110,10 +106,12 @@
                                 <div class="value">{{ practitioner.vote || '-' }}</div>
                             </div>
                             <div class="grid-item">
-                                <!-- Empty -->
+                                <label>Mobile Number</label>
+                                <div class="value">{{ practitioner.mobileNumber || '-' }}</div>
                             </div>
                             <div class="grid-item">
-                                <!-- Empty for alignment if needed -->
+                                <label>Email ID</label>
+                                <div class="value">{{ practitioner.emailID || '-' }}</div>
                             </div>
                         </div>
                         <div *ngIf="!practitioner" class="loading-state">
@@ -531,7 +529,7 @@
                         <div class="form-actions">
                             <button type="button" class="btn-cancel" (click)="toggleEditMode()">Cancel</button>
                             <button type="submit" class="btn-submit" [disabled]="practitionerForm.invalid">Update
-                                Practitioner</button>
+                                Address</button>
                         </div>
                     </form>
                 </div>
@@ -609,7 +607,7 @@
                                     <label>Name Of The College Studied <span class="required">*</span></label>
                                     <select formControlName="college">
                                         <option value="" disabled selected hidden>Select College</option>
-                                        <option *ngFor="let c of collegeOptions" [value]="c.colid">{{ c.colname }}
+                                        <option *ngFor="let c of collegeOptions" [value]="c.colid">{{ c.colName }}
                                         </option>
                                     </select>
                                     <div class="error"
@@ -627,7 +625,7 @@
 
                                 <!-- Certificate Date -->
                                 <div class="form-group">
-                                    <label>Certificate Date</label>
+                                    <label>Certificate Issued Date</label>
                                     <input type="date" formControlName="certificateDate">
                                 </div>
 
@@ -682,15 +680,19 @@
                                             <div class="value">{{ edu.convertedDate }}</div>
                                         </div>
                                         <div class="grid-item">
+                                            <label>Name Of The University</label>
+                                            <div class="value">{{ edu.universityName || '-' }}</div>
+                                        </div>
+                                        <div class="grid-item">
                                             <label>Name Of The College</label>
-                                            <div class="value">{{ edu.collegeName }}</div>
+                                            <div class="value">{{ edu.collegeName || '-' }}</div>
                                         </div>
                                         <div class="grid-item">
                                             <label>Certificate No</label>
                                             <div class="value">{{ edu.certificateNo || '-' }}</div>
                                         </div>
                                         <div class="grid-item">
-                                            <label>Certificate Date</label>
+                                            <label>Certificate Issued Date</label>
                                             <div class="value">{{ (edu.certificateDate && edu.certificateDate !== '-') ? (edu.certificateDate | date:'dd-MM-yyyy') : '-' }}</div>
                                         </div>
                                     </div>
@@ -719,8 +721,7 @@
                                 </div>
                                 <div class="sub-actions">
                                     <button class="text-action-btn" *ngIf="pay.receiptNo" (click)="generateReceipt(pay.receiptNo)">Receipt</button>
-                                    <button class="text-action-btn">{{ pay.ledgerDescription || pay.feeItemname }}
-                                        Certificate</button>
+                                    <button class="text-action-btn" (click)="printCertificate(pay.renewalID || pay.renewalId)">{{ pay.displayName }}</button>
                                 </div>
                             </div>
                             <div class="action-links">
@@ -791,12 +792,10 @@
                         <div class="photo-card">
                             <div class="card-header">Photo</div>
                             <div class="card-actions">
-                                <a href="javascript:void(0)" class="action-btn primary"
-                                    (click)="openCamera('photo')">Add Photo</a>
-                                <a href="javascript:void(0)" class="action-btn secondary">Add</a>
                                 <a href="javascript:void(0)" class="action-btn secondary"
-                                    (click)="triggerFileUpload('photo')">Upload</a>
-                                <a href="javascript:void(0)" class="action-btn secondary">Print Photo</a>
+                                    (click)="openCamera('photo')">Add Photo</a>
+                                <a href="javascript:void(0)" class="action-btn secondary"
+                                    (click)="triggerFileUpload('photo')">Upload Photo</a>
                             </div>
                             <div class="card-image">
                                 <img *ngIf="practitioner?.photo" [src]="practitioner.photo" class="preview-img">
@@ -814,9 +813,6 @@
                         <div class="photo-card">
                             <div class="card-header">Signature</div>
                             <div class="card-actions">
-                                <a href="javascript:void(0)" class="action-btn primary"
-                                    (click)="onCaptureWacomSignature()">Get Sign from Wacom</a>
-                                <a href="javascript:void(0)" class="action-btn secondary">Add</a>
                                 <a href="javascript:void(0)" class="action-btn secondary"
                                     (click)="onCaptureWacomSignature()">Capture (STU)</a>
                                 <a href="javascript:void(0)" class="action-btn secondary"
@@ -870,7 +866,8 @@
                             <div class="card-actions">
                                 <a href="javascript:void(0)" class="action-btn secondary"
                                     (click)="generateBarcode()">Generate</a>
-                                <a href="javascript:void(0)" class="action-btn secondary">BarCode Details</a>
+                                <a href="javascript:void(0)" class="action-btn secondary"
+                                    (click)="openBarcodeDetails()">BarCode Details</a>
                             </div>
                             <div class="card-image">
                                 <img *ngIf="practitioner?.barcode" [src]="practitioner.barcode" class="preview-img">
@@ -881,6 +878,125 @@
                             </div>
                             <div class="card-footer" *ngIf="practitioner?.barcode">
                                 <button class="btn-save" (click)="saveImage('barcode')">Save Barcode</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GMC Register Tab -->
+                <div *ngIf="activeTab === 'KMC'" class="register-section">
+                    <div class="info-card">
+                        <div class="card-header">
+                            <h3>Official Registration Record</h3>
+                        </div>
+                        <div class="card-content" style="padding: 25px;">
+                            <div class="register-summary">
+                                <div class="summary-header" style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid #f0f0f0; padding-bottom: 20px;">
+                                    <h2 style="margin: 0; color: var(--primary-color); font-size: 1.5rem;">GOA MEDICAL COUNCIL</h2>
+                                    <p style="margin: 5px 0 0; color: #666; font-weight: 500;">Permanent Registration Details</p>
+                                </div>
+
+                                <div class="register-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                                    <div class="register-item">
+                                        <label style="display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-bottom: 5px;">Practitioner Name</label>
+                                        <div class="value" style="font-size: 1.1rem; font-weight: 600; color: #333;">{{ practitioner?.title }} {{ practitioner?.name | uppercase }}</div>
+                                    </div>
+
+                                    <div class="register-item">
+                                        <label style="display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-bottom: 5px;">Registration Number</label>
+                                        <div class="value" style="font-size: 1.1rem; font-weight: 700; color: var(--primary-color);">{{ practitioner?.registrationNo || '-' }}</div>
+                                    </div>
+
+                                    <div class="register-item">
+                                        <label style="display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-bottom: 5px;">Registration For</label>
+                                        <div class="value" style="font-size: 1rem; color: #444;">{{ practitioner?.registrationFor || '-' }}</div>
+                                    </div>
+
+                                    <div class="register-item">
+                                        <label style="display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-bottom: 5px;">Registration Date</label>
+                                        <div class="value" style="font-size: 1rem; color: #444;">{{ practitioner?.registrationDate | date:'dd MMMM yyyy' }}</div>
+                                    </div>
+
+                                    <div class="register-item">
+                                        <label style="display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-bottom: 5px;">Qualifications</label>
+                                        <div class="value" style="font-size: 0.95rem; color: #444; line-height: 1.5;">
+                                            <div *ngFor="let edu of educationList">
+                                                • {{ edu.degreeName }} ({{ edu.collegeName }})
+                                            </div>
+                                            <div *ngIf="educationList.length === 0">-</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="register-item">
+                                        <label style="display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-bottom: 5px;">Status</label>
+                                        <div class="value">
+                                            <span class="status-badge" [style.background]="practitioner?.status === 'A' || practitioner?.status === '1' ? '#e8f5e9' : '#ffebee'" 
+                                                  [style.color]="practitioner?.status === 'A' || practitioner?.status === '1' ? '#2e7d32' : '#c62828'"
+                                                  style="padding: 4px 12px; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">
+                                                {{ (practitioner?.status === 'A' || practitioner?.status === '1') ? 'ACTIVE' : 'INACTIVE' }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documents Tab -->
+                <div *ngIf="activeTab === 'Documents'" class="documents-section">
+                    <div class="actions-bar">
+                        <a class="edit-link" (click)="toggleAddDocument()">
+                            <i class="fas fa-plus"></i> Add Documents
+                        </a>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-header">
+                            <h3>Practitioner Documents</h3>
+                        </div>
+
+                        <div class="card-content" style="padding: 0;">
+                            <div class="no-data" *ngIf="documentList.length === 0"
+                                style="padding: 20px; text-align: center; color: #666;">
+                                No documents found for this practitioner.
+                            </div>
+
+                            <!-- Grouped Documents Display -->
+                            <div class="document-groups" *ngIf="documentList.length > 0">
+                                <div class="document-group" *ngFor="let group of documentList" style="margin-bottom: 25px;">
+                                    <div class="group-header" style="background: #f5f5f5; padding: 10px 15px; border-left: 4px solid var(--primary-color); margin-bottom: 15px;">
+                                        <h4 style="margin: 0; color: #333; font-weight: 600;">{{ group.documentName }}</h4>
+                                    </div>
+                                    
+                                    <div class="table-responsive">
+                                        <table class="custom-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Document Name</th>
+                                                    <th>Upload Date</th>
+                                                    <th class="text-center">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let doc of group.documents">
+                                                    <td>{{ doc.documentType || '-' }}</td>
+                                                    <td>{{ doc.createdOn | date:'dd MMM yyyy' }}</td>
+                                                    <td class="actions">
+                                                        <div class="action-buttons">
+                                                            <a [href]="doc.documentUrl" target="_blank" class="btn-view" *ngIf="doc.documentUrl">
+                                                                <i class="fas fa-eye"></i> View
+                                                            </a>
+                                                            <button class="btn-icon delete" (click)="deleteDocument(doc.documentId)" title="Delete Document">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -977,6 +1093,46 @@
                 <div class="form-actions">
                     <button type="button" class="btn-cancel" (click)="toggleAddPayment()">Cancel</button>
                     <button type="submit" class="btn-submit" [disabled]="paymentForm.invalid">Save Payment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Document Modal -->
+    <div class="modal-overlay" *ngIf="isAddingDocument">
+        <div class="modal-container form-container">
+            <div class="form-header">
+                <h2>Add Practitioner Document</h2>
+                <button class="btn-text" type="button" (click)="toggleAddDocument()">Close</button>
+            </div>
+
+            <form [formGroup]="documentForm" (ngSubmit)="saveDocument()">
+                <div class="form-grid">
+                    <div class="form-group span-3">
+                        <label>Select Certificate <span class="required">*</span></label>
+                        <select formControlName="certificateId">
+                            <option value="" disabled selected hidden>Select Certificate</option>
+                            <option *ngFor="let cert of certificatesData" [value]="cert.id">{{ cert.name }}</option>
+                        </select>
+                    </div>
+
+                    <!-- Dynamic Documents Section -->
+                    <div class="form-group span-3" *ngIf="dynamicDocuments.length > 0">
+                        <div class="dynamic-docs-list">
+                            <div class="dynamic-doc-item" *ngFor="let doc of dynamicDocuments" style="margin-bottom: 15px; padding: 10px; border: 1px dashed #ccc; border-radius: 4px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">{{ doc.docdetailes }} <span class="required">*</span></label>
+                                <input type="file" (change)="onDynamicFileSelected($event, doc.id)" class="file-input-field">
+                                <div class="file-info" *ngIf="selectedDynamicFiles[doc.id]" style="font-size: 0.8rem; margin-top: 5px; color: var(--primary-color);">
+                                    Selected: {{ selectedDynamicFiles[doc.id].name }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" (click)="toggleAddDocument()">Cancel</button>
+                    <button type="submit" class="btn-submit" [disabled]="documentForm.invalid">Upload Document</button>
                 </div>
             </form>
         </div>

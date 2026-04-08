@@ -37,6 +37,7 @@ export class ConfigurationComponent {
     { label: 'Country Master', route: 'country-master' },
     { label: 'Nationality Master', route: 'nationality-master' },
     { label: 'Registration Type', route: 'registration-type' },
+    { label: 'Council Master', route: 'council-master' },
     { label: 'Signature', route: 'signature' }
   ];
 }

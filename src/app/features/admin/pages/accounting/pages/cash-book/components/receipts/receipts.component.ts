@@ -34,7 +34,7 @@ interface CashbookSearchResult {
       <!-- Main Receipt Register Card -->
       <div class="section-card register-card">
         <div class="section-header register-header">
-          <h3>Receipt Register</h3>
+          <h3>Cash Book</h3>
         </div>
 
         <form [formGroup]="receiptForm" class="register-body">
@@ -72,7 +72,7 @@ interface CashbookSearchResult {
             <div class="field-item">
               <label>Select Group</label>
               <select formControlName="group">
-                <option value="">Select Group</option>
+                <option value="GMC Cash Book">GMC Cash Book</option>
                 <option *ngFor="let g of groups" [value]="g.id">{{ g.label }}</option>
               </select>
             </div>
@@ -547,9 +547,18 @@ export class ReceiptsComponent implements OnInit {
       next: (data: any) => {
         const raw = Array.isArray(data) ? data : (data?.result || data?.data || []);
         this.groups = raw.map((g: any) => ({
-          id: g.account || g.Id || g.id || g.Name || g.GroupName || g,
-          label: g.account || g.Name || g.name || g.GroupName || 'Group'
+          id: g.account || g.Id || g.id || g.Name || g.GroupName || g.groupName || g,
+          label: g.account || g.Name || g.name || g.GroupName || g.groupName || 'Group'
         }));
+
+        // Ensure GMC Cash Book is in the list and set as default for new records
+        if (!this.groups.find(g => g.id === 'GMC Cash Book' || g.label === 'GMC Cash Book')) {
+          this.groups.unshift({ id: 'GMC Cash Book', label: 'GMC Cash Book' });
+        }
+
+        if (this.isEditing && !this.selectedReceiptId) {
+          this.receiptForm.get('group')?.setValue('GMC Cash Book');
+        }
       }
     });
   }
@@ -570,7 +579,7 @@ export class ReceiptsComponent implements OnInit {
       date: [today, Validators.required],
       receiptNumber: [{ value: '', disabled: true }],
       financialYear: ['', Validators.required],
-      group: ['KMC Cash book'],
+      group: ['GMC Cash Book'],
       groupReceiptNumber: [''],
       entries: this.fb.array([this.createEntry(), this.createEntry()]),
       remarks: [''],
@@ -684,7 +693,7 @@ export class ReceiptsComponent implements OnInit {
       date: receiptDate,
       receiptNumber: res.receiptNumber,
       financialYear: res.financialYear || (this.financialYearsData[0]?.id || ''),
-      group: res.type === 'Off line' ? 'KMC Cash book' : 'general',
+      group: 'GMC Cash Book',
       groupReceiptNumber: res.receiptNumber,
       remarks: res.remarks,
       createdBy: res.createdBy,
@@ -723,6 +732,7 @@ export class ReceiptsComponent implements OnInit {
     this.selectedReceiptId = null;
     this.isEditing = true;
     this.initForms();
+    this.receiptForm.get('group')?.setValue('GMC Cash Book');
     this.receiptForm.enable();
     this.receiptForm.get('receiptNumber')?.disable(); // Auto-generated
   }

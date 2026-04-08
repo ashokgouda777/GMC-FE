@@ -1,5 +1,6 @@
 import { Component, inject, OnInit, OnDestroy, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
+import { forkJoin } from 'rxjs';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -38,8 +39,13 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
     practitioner: any = null;
     activeTab: string = 'Personal';
 
-    // Edit Mode & Form
+    // State Flags
     isEditing = false;
+    isAddingEducation = false;
+    isAddingPayment = false;
+    isAddingDocument = false;
+    isAddingAddress = false;
+    isCapturingThumb = false;
     practitionerForm: FormGroup = this.fb.group({
         registrationFor: ['', Validators.required],
         isAlreadyRegistered: [false],
@@ -85,16 +91,20 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
     });
 
     // Payment Form
-    isAddingPayment = false;
     paymentForm = this.fb.group({
-        financialYear: ['2025-2026', Validators.required],
-        group: ['GMC Cash book', Validators.required],
-        account: ['417208009 IBK', Validators.required],
+        financialYear: ['', Validators.required],
+        group: ['', Validators.required],
+        account: ['', Validators.required],
         paymentFor: ['', Validators.required],
         bank: [''],
         ddNo: [''],
         ddDate: [''],
         amount: ['', Validators.required]
+    });
+
+    documentForm = this.fb.group({
+        certificateId: ['', Validators.required],
+        file: [null, Validators.required]
     });
 
     // Mock Options for Payment Form
@@ -104,6 +114,7 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
     paymentForOptions = ['Registration', 'Smart Card', 'Renewal', 'Good Standing Certificate'];
     ledgerOptions: any[] = [];
     registrationForOptions: any[] = [];
+    certificatesData: any[] = [];
     titleOptions: any[] = [];
     genderOptions: any[] = [];
     bloodGroupOptions: any[] = [];
@@ -124,7 +135,6 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
     // Fingerprint
     readers: string[] = [];
     selectedReader: string = '';
-    isCapturingThumb = false;
 
     constructor() {
         // Validation logic for conditional fields
@@ -171,6 +181,29 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
         for (let i = currentYear; i >= 1950; i--) {
             this.years.push(i);
         }
+
+        // Handle Dynamic Documents based on Certificate Selection
+        this.documentForm.get('certificateId')?.valueChanges.subscribe(value => {
+            if (value) {
+                const selectedCert = this.certificatesData.find(c => c.id == value);
+                const certificateType = selectedCert ? selectedCert.typeid : 'R'; // Fallback to 'R' if not found
+
+                this.adminService.getDocumentsForServices(certificateType).subscribe({
+                    next: (data: any) => {
+                        this.dynamicDocuments = Array.isArray(data) ? data : [];
+                        this.selectedDynamicFiles = {}; // Reset selections
+                        this.cdr.detectChanges();
+                    },
+                    error: (err) => {
+                        console.error('Failed to load dynamic documents', err);
+                        this.dynamicDocuments = [];
+                    }
+                });
+            } else {
+                this.dynamicDocuments = [];
+                this.selectedDynamicFiles = {};
+            }
+        });
     }
 
     setupAddressListeners() {
@@ -259,19 +292,22 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
 
     setActiveTab(tab: string) {
         this.activeTab = tab;
-        this.isEditing = false; // Reset edit mode when switching tabs
-        this.isAddingEducation = false; // Reset education add mode
+        this.isEditing = false;
+        this.isAddingEducation = false;
+        this.isAddingPayment = false;
+        this.isAddingDocument = false;
 
         if (tab === 'Educational' && this.practitionerId) {
             this.loadEducation(this.practitionerId);
-        }
-
-        if (tab === 'Payments' && this.practitionerId) {
+        } else if (tab === 'Payments' && this.practitionerId) {
             this.loadPayments(this.practitionerId);
             this.loadPaymentLedgers();
-            this.loadAccounts();
-            this.loadGroups();
             this.loadFinancialYears();
+            this.loadGroups();
+            this.loadAccounts();
+        } else if (tab === 'Documents' && this.practitionerId) {
+            this.loadDocuments(this.practitionerId);
+            this.loadCertificates();
         }
     }
 
@@ -436,6 +472,8 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
         this.adminService.getPractitionerById(id).subscribe({
             next: (pData: any) => {
                 if (pData) {
+                    const clean = (val: any) => (val === null || val === undefined || val === '-' || val === 'null' || val === '1' || val === 1) ? '' : val;
+                    
                     // Map 'sign' to 'signature' and 'thumb' to 'thumbImpression' for template consistency
                     if (pData.sign && !pData.signature) {
                         pData.signature = pData.sign;
@@ -443,6 +481,13 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
                     if (pData.thumb && !pData.thumbImpression) {
                         pData.thumbImpression = this.sanitizer.bypassSecurityTrustUrl(pData.thumb);
                     }
+
+                    // Sanitize potential placeholder IDs
+                    pData.countryId = clean(pData.countryId);
+                    pData.stateId = clean(pData.stateId);
+                    pData.professionalCountryId = clean(pData.professionalCountryId);
+                    pData.professionalStateId = clean(pData.professionalStateId);
+
                     this.practitioner = pData;
                     this.loadPractitionerAddress(id);
                     this.cdr.detectChanges();
@@ -476,6 +521,7 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
 
     mapAddressToPractitioner(address: any, type: 'R' | 'P') {
         const isRes = type === 'R';
+        const cleanStr = (val: any) => (val === null || val === undefined || val === '-' || val === 'null' || val === '1' || val === 1) ? '' : val;
 
         // Update Practitioner Object for View Mode
         if (this.practitioner) {
@@ -485,9 +531,9 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
                 this.practitioner.residentialCity = address.city;
                 this.practitioner.residentialRuralUrban = address.placeType;
                 // Prefer Name if available for display, populateForm will resolve ID
-                this.practitioner.countryId = address.countryName || address.country;
-                this.practitioner.stateId = address.stateName || address.state;
-                this.practitioner.districtId = address.districtName || address.district;
+                this.practitioner.countryId = cleanStr(address.countryName || address.country);
+                this.practitioner.stateId = cleanStr(address.stateName || address.state);
+                this.practitioner.districtId = cleanStr(address.districtName || address.district);
                 this.practitioner.residentialZipCode = address.zip;
                 this.practitioner.residentialMobile1 = address.phone1;
                 this.practitioner.residentialMobile2 = address.phone2;
@@ -496,9 +542,9 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
                 this.practitioner.professionalAddress2 = address.address2;
                 this.practitioner.professionalCity = address.city;
                 this.practitioner.professionalRuralUrban = address.placeType;
-                this.practitioner.professionalCountryId = address.countryName || address.country;
-                this.practitioner.professionalStateId = address.stateName || address.state;
-                this.practitioner.professionalDistrictId = address.districtName || address.district;
+                this.practitioner.professionalCountryId = cleanStr(address.countryName || address.country);
+                this.practitioner.professionalStateId = cleanStr(address.stateName || address.state);
+                this.practitioner.professionalDistrictId = cleanStr(address.districtName || address.district);
                 this.practitioner.professionalZipCode = address.zip;
                 this.practitioner.professionalMobile1 = address.phone1;
                 this.practitioner.professionalMobile2 = address.phone2;
@@ -537,10 +583,12 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
 
         // Helper to find ID by Name or ID
         const findId = (options: any[], key: string, valKey: string, userVal: any) => {
-            if (!userVal) return '';
+            if (!userVal || userVal === '-' || userVal === 'null' || userVal === '1' || userVal === 1) return '';
             const found = options.find(o => o[key] == userVal || o[valKey] == userVal); // Loose equality for string/number match
-            return found ? found[key] : userVal;
+            return found ? found[key] : ''; // Fallback to empty if not found in options
         };
+
+        const clean = (val: any) => (val === null || val === undefined || val === '-' || val === 'null' || val === '1' || val === 1) ? '' : val;
 
         // Reg Type
         let regTypeId = user.registrationType;
@@ -559,44 +607,44 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
         this.practitionerForm.patchValue({
             registrationFor: regTypeId || '',
             title: titleId,
-            name: user.name,
+            name: clean(user.name),
             gender: genderId,
             bloodGroup: bloodGroupId,
-            changeOfName: user.changeOfName,
-            fatherName: user.spouseName,
+            changeOfName: clean(user.changeOfName),
+            fatherName: clean(user.spouseName),
             birthDate: user.birthDate ? user.birthDate.split('T')[0] : '',
-            birthPlace: user.birthPlace,
+            birthPlace: clean(user.birthPlace),
             nationality: nationalityId,
             eligibility: eligibilityId,
-            email: user.emailID,
-            mobile: user.mobileNumber,
+            email: clean(user.emailID),
+            mobile: clean(user.mobileNumber),
             isAlreadyRegistered: !!user.registrationNo && user.registrationNo !== '',
-            oldRegNo: user.registrationNo,
+            oldRegNo: clean(user.registrationNo),
             oldRegDate: user.registrationDate ? user.registrationDate.split('T')[0] : '',
 
             // Address Fields (Mapping)
             // Residential
-            resAddress1: user.residentialAddress1,
-            resAddress2: user.residentialAddress2,
-            resCity: user.residentialCity,
-            resRuralUrban: user.residentialRuralUrban,
+            resAddress1: clean(user.residentialAddress1),
+            resAddress2: clean(user.residentialAddress2),
+            resCity: clean(user.residentialCity),
+            resRuralUrban: clean(user.residentialRuralUrban),
             resCountry: findId(this.countryOptions, 'countryId', 'countryName', user.countryId),
             // State & District patched async below
-            resPinCode: user.residentialZipCode,
-            resPhone1: user.residentialMobile1,
-            resPhone2: user.residentialMobile2,
+            resPinCode: clean(user.residentialZipCode),
+            resPhone1: clean(user.residentialMobile1),
+            resPhone2: clean(user.residentialMobile2),
 
             // Professional
             isProSameAsRes: false,
-            profAddress1: user.professionalAddress1,
-            profAddress2: user.professionalAddress2,
-            profCity: user.professionalCity,
-            profRuralUrban: user.professionalRuralUrban,
+            profAddress1: clean(user.professionalAddress1),
+            profAddress2: clean(user.professionalAddress2),
+            profCity: clean(user.professionalCity),
+            profRuralUrban: clean(user.professionalRuralUrban),
             profCountry: findId(this.countryOptions, 'countryId', 'countryName', user.professionalCountryId || user.countryId),
             // State & District patched async below
-            profPinCode: user.professionalZipCode,
-            profPhone1: user.professionalMobile1,
-            profPhone2: user.professionalMobile2
+            profPinCode: clean(user.professionalZipCode),
+            profPhone1: clean(user.professionalMobile1),
+            profPhone2: clean(user.professionalMobile2)
         });
 
         // Load Residential States if Country is present
@@ -797,8 +845,8 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
         this.adminService.getAccounts().subscribe({
             next: (data: any) => {
                 this.accountOptions = Array.isArray(data) ? data : (data?.result || []);
-                // Optional: set default account if needed
-                if (this.accountOptions.length > 0) {
+                // Set default account if nothing is selected or if we want to force latest
+                if (this.accountOptions.length > 0 && !this.paymentForm.get('account')?.value) {
                     this.paymentForm.patchValue({ account: this.accountOptions[this.accountOptions.length - 1].account });
                 }
             },
@@ -810,8 +858,8 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
         this.adminService.getGroups().subscribe({
             next: (data: any) => {
                 this.groupOptions = Array.isArray(data) ? data : (data?.result || []);
-                // Optional: set default group if needed
-                if (this.groupOptions.length > 0) {
+                // Set default group if nothing is selected or if we want to force latest
+                if (this.groupOptions.length > 0 && !this.paymentForm.get('group')?.value) {
                     this.paymentForm.patchValue({ group: this.groupOptions[this.groupOptions.length - 1].account });
                 }
             },
@@ -823,8 +871,8 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
         this.adminService.getFinancialYears().subscribe({
             next: (data: any) => {
                 this.financialYearOptions = Array.isArray(data) ? data : (data?.result || []);
-                // Optional: set default year if needed
-                if (this.financialYearOptions.length > 0) {
+                // Set default year if nothing is selected or if we want to force latest
+                if (this.financialYearOptions.length > 0 && !this.paymentForm.get('financialYear')?.value) {
                     this.paymentForm.patchValue({ financialYear: this.financialYearOptions[this.financialYearOptions.length - 1].years });
                 }
             },
@@ -852,7 +900,6 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
 
     // Education Logic
     educationList: any[] = [];
-    isAddingEducation = false;
     editingEducationId: string | null = null;
 
     educationForm = this.fb.group({
@@ -950,7 +997,7 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
             this.adminService.deleteEducation(id).subscribe({
                 next: () => {
                     alert('Record deleted successfully');
-                    this.loadEducation(this.practitionerId!);
+                    window.location.reload();
                 },
                 error: (err) => {
                     console.error('Delete failed', err);
@@ -1027,7 +1074,8 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
                         courseName: item.subject,
                         certificateNo: item.certificateNo,
                         certificateDate: item.certificateDate,
-                        convertedDate: `${this.months.find(m => m.value === item.monthOfPassing)?.name} ${item.yearOfPassing}`
+                        convertedDate: (item.monthOfPassing || item.yearOfPassing) ? 
+                            `${this.months.find(m => m.value === item.monthOfPassing)?.name || ''} ${item.yearOfPassing || ''}`.trim() : '-'
                     }));
                 } else {
                     this.educationList = [];
@@ -1048,23 +1096,28 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
         this.adminService.getPaymentDetails(practitionerId).subscribe({
             next: (data: any) => {
                 const apiData = Array.isArray(data) ? data : (data?.result || []);
-                this.paymentList = apiData.map((item: any) => ({
-                    ...item,
-                    type: item.type, // "Online" / "Off line"
-                    mode: item.mode,
-                    ledgerDescription: item.ledgerDescription,
-                    feeItemName: item.feeItemName,
-                    receiptNo: item.receiptNo || item.receiptNumber,
-                    receiptDate: item.receiptDate,
-                    transactionNo: item.transactionNo,
-                    transactionDate: item.transactionDate,
-                    bank: item.bank,
-                    amount: item.amount,
-                    issueDate: item.certificateDate,
-                    certificateNo: item.certificateNo,
-                    certificateIssued: item.certificateIssued,
-                    councilRegistrationDate: item.councilRegistrationDate
-                }));
+                this.paymentList = apiData.map((item: any) => {
+                    const rawName = item.ledgerDescription || item.feeItemname || item.type || '';
+                    const displayName = rawName.toLowerCase().includes('certificate') ? rawName : rawName + ' Certificate';
+                    return {
+                        ...item,
+                        displayName: displayName,
+                        type: item.type, // "Online" / "Off line"
+                        mode: item.mode,
+                        ledgerDescription: item.ledgerDescription,
+                        feeItemName: item.feeItemName,
+                        receiptNo: item.receiptNo || item.receiptNumber,
+                        receiptDate: item.receiptDate,
+                        transactionNo: item.transactionNo,
+                        transactionDate: item.transactionDate,
+                        bank: item.bank,
+                        amount: item.amount,
+                        issueDate: item.certificateDate,
+                        certificateNo: item.certificateNo,
+                        certificateIssued: item.certificateIssued,
+                        councilRegistrationDate: item.councilRegistrationDate
+                    };
+                });
                 this.cdr.detectChanges();
             },
             error: (err) => {
@@ -1099,16 +1152,19 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
     toggleAddPayment() {
         this.isAddingPayment = !this.isAddingPayment;
         if (this.isAddingPayment) {
+            // Keep existing values for financialYear, group, and account if already set by loaders
             this.paymentForm.patchValue({
-                financialYear: '2025-2026',
-                group: 'GMC Cash book',
-                account: '417208009 IBK',
                 paymentFor: '',
                 bank: '',
                 ddNo: '',
                 ddDate: '',
                 amount: ''
             });
+
+            // If options are empty (unlikely if loaders worked), trigger them again
+            if (this.financialYearOptions.length === 0) this.loadFinancialYears();
+            if (this.groupOptions.length === 0) this.loadGroups();
+            if (this.accountOptions.length === 0) this.loadAccounts();
         }
     }
 
@@ -1337,6 +1393,15 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
         });
     }
 
+    openBarcodeDetails() {
+        if (!this.practitionerId) {
+            alert('Practitioner ID is missing.');
+            return;
+        }
+        const url = `https://localhost:44377/PractitionerView?pid=${this.practitionerId}`;
+        window.open(url, '_blank');
+    }
+
     generateReceipt(receiptNo: string) {
         if (!receiptNo) {
             alert('Receipt Number is missing.');
@@ -1355,7 +1420,161 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
         });
     }
 
+    printCertificate(rid: string) {
+        if (!rid || !this.practitionerId) {
+            alert('Missing parameters for certificate printing.');
+            return;
+        }
+
+        this.adminService.printCertificate(rid, this.practitionerId).subscribe({
+            next: (blob: any) => {
+                const url = window.URL.createObjectURL(blob);
+                window.open(url, '_blank');
+            },
+            error: (err) => {
+                console.error('Failed to print certificate', err);
+                alert('Failed to generate certificate.');
+            }
+        });
+    }
+
     captureThumb() {
         this.onStartThumbCapture();
+    }
+
+    // Document Management
+    documentList: any[] = [];
+    selectedDocFile: File | null = null;
+    dynamicDocuments: any[] = [];
+    selectedDynamicFiles: { [id: string]: File } = {};
+
+    loadDocuments(pid: string) {
+        this.adminService.getPractitionerDocuments(pid).subscribe({
+            next: (data: any) => {
+                this.documentList = data?.data || [];
+                this.cdr.detectChanges();
+            },
+            error: (err) => {
+                console.error('Failed to load documents', err);
+                this.documentList = [];
+            }
+        });
+    }
+
+    loadCertificates() {
+        this.adminService.getAllCertificates().subscribe({
+            next: (data: any) => {
+                this.certificatesData = Array.isArray(data) ? data : (data?.result || []);
+                this.cdr.detectChanges();
+            },
+            error: (err) => {
+                console.error('Failed to load certificates', err);
+            }
+        });
+    }
+
+    toggleAddDocument() {
+        this.isAddingDocument = !this.isAddingDocument;
+        if (!this.isAddingDocument) {
+            this.documentForm.reset();
+            this.selectedDocFile = null;
+            this.dynamicDocuments = [];
+            this.selectedDynamicFiles = {};
+        }
+    }
+
+    onDocumentFileSelected(event: any) {
+        const file = event.target.files[0];
+        if (file) {
+            this.selectedDocFile = file;
+            this.documentForm.patchValue({ file: file });
+        }
+    }
+
+    onDynamicFileSelected(event: any, docId: string) {
+        const file = event.target.files[0];
+        if (file) {
+            this.selectedDynamicFiles[docId] = file;
+            // If we have dynamic docs, the main 'file' control might not be needed for validation
+            // but we can set it to any value to satisfy Validators.required if needed.
+            if (Object.keys(this.selectedDynamicFiles).length > 0) {
+                this.documentForm.get('file')?.setValue(file as any);
+            }
+        }
+    }
+
+    saveDocument() {
+        if (this.documentForm.invalid || !this.practitionerId) {
+            this.documentForm.markAllAsTouched();
+            return;
+        }
+
+        const { certificateId } = this.documentForm.value;
+        const selectedCert = this.certificatesData.find(c => c.id == certificateId);
+        const docNameBase = selectedCert ? selectedCert.name : 'Unknown';
+
+        // Check if we have dynamic documents to upload
+        if (this.dynamicDocuments.length > 0) {
+            const uploads = this.dynamicDocuments
+                .filter(doc => this.selectedDynamicFiles[doc.id])
+                .map(doc => {
+                    const file = this.selectedDynamicFiles[doc.id];
+                    const docType = doc.docdetailes;
+                    const docName = docNameBase; // Pass selected certificate name as DocumentName
+                    return this.adminService.uploadPractitionerDocument(this.practitionerId!, docType, file, docName);
+                });
+
+            if (uploads.length === 0) {
+                alert('Please select at least one file to upload.');
+                return;
+            }
+
+            forkJoin(uploads).subscribe({
+                next: () => {
+                    alert('All selected documents uploaded successfully');
+                    this.toggleAddDocument();
+                    this.loadDocuments(this.practitionerId!);
+                },
+                error: (err) => {
+                    console.error('One or more uploads failed', err);
+                    alert('Some documents failed to upload. Please check and try again.');
+                }
+            });
+        } else {
+            // Fallback to single file upload
+            if (!this.selectedDocFile) {
+                alert('Please select a file to upload.');
+                return;
+            }
+            const docType = docNameBase;
+            const docName = docNameBase;
+
+            this.adminService.uploadPractitionerDocument(this.practitionerId, docType!, this.selectedDocFile, docName!).subscribe({
+                next: () => {
+                    alert('Document uploaded successfully');
+                    this.toggleAddDocument();
+                    this.loadDocuments(this.practitionerId!);
+                },
+                error: (err) => {
+                    console.error('Upload failed', err);
+                    alert('Failed to upload document');
+                }
+            });
+        }
+    }
+
+    deleteDocument(docId: string) {
+        if (confirm('Are you sure you want to delete this document?')) {
+            this.adminService.deletePractitionerDocument(docId).subscribe({
+                next: () => {
+                    alert('Document deleted successfully');
+                    this.loadDocuments(this.practitionerId!);
+                },
+                error: (err) => {
+                    console.error('Delete failed', err);
+                    alert('Failed to delete document');
+                }
+            });
+        }
     }
 }

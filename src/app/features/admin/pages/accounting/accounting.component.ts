@@ -27,11 +27,6 @@ export class AccountingComponent {
     sidebarItems: SidebarItem[] = [
         { label: 'Cash Book', route: 'cash-book' },
         { label: 'Ledger Report', route: 'ledger-report' },
-        { label: 'Daybook Report', route: 'daybook-report' },
-        { label: 'Cashbook Report', action: 'cashbook-report' },
-        { label: 'Renewal Report', route: 'renewal-report' },
-        { label: 'BulkRemit Report', action: 'bulkremit-report' },
-        { label: 'DD Report', action: 'dd-report' },
-        { label: 'Ledger Total Collection', action: 'ledger-total-collection' }
+        { label: 'Daybook Report', route: 'daybook-report' }
     ];
 }

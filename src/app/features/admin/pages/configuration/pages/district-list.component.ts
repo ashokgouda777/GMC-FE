@@ -19,6 +19,12 @@ import { CountryList } from './country-master.model';
         <div class="header-actions">
             <h2>District List</h2>
             <div class="actions">
+                <select (change)="onStateFilter($event)" class="filter-dropdown">
+                    <option value="">All States</option>
+                    <option *ngFor="let state of allStates" [value]="state.stateId">
+                        {{ state.stateName }}
+                    </option>
+                </select>
                 <input type="text" placeholder="Search Districts..." (input)="onSearch($event)" class="search-box">
                 <button class="btn-primary" (click)="openAddView()">+ Add New District</button>
             </div>
@@ -127,7 +133,8 @@ import { CountryList } from './country-master.model';
 .header-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 16px; }
 .header-actions h2 { margin: 0; font-size: 1.5rem; font-weight: 700; color: var(--text-color); }
 .actions { display: flex; gap: 12px; }
-.search-box { padding: 10px 16px; border: 1px solid rgba(0,0,0,0.1); background: var(--card-bg); color: var(--text-color); border-radius: 8px; width: 300px; font-size: 0.9rem; }
+.filter-dropdown { padding: 10px 16px; border: 1px solid rgba(0,0,0,0.1); background: var(--card-bg); color: var(--text-color); border-radius: 8px; width: 220px; font-size: 0.9rem; }
+.search-box { padding: 10px 16px; border: 1px solid rgba(0,0,0,0.1); background: var(--card-bg); color: var(--text-color); border-radius: 8px; width: 250px; font-size: 0.9rem; }
 .table-container { background: var(--card-bg); border-radius: 12px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); overflow: auto; }
 .data-table { width: 100%; border-collapse: collapse; }
 .data-table th { background: var(--table-header-bg); padding: 16px; text-align: left; font-size: 0.85rem; font-weight: 600; color: var(--table-header-text); text-transform: uppercase; border-bottom: 2px solid rgba(0,0,0,0.05); }
@@ -173,6 +180,9 @@ export class DistrictListComponent implements OnInit {
   showEditView = false;
   isEditing = false;
   selectedDistrict: DistrictList | null = null;
+  
+  private currentSearchQuery = '';
+  private currentStateFilter = '';
 
   districtForm = this.fb.group({
     countryId: ['', Validators.required],
@@ -248,12 +258,27 @@ export class DistrictListComponent implements OnInit {
   }
 
   onSearch(event: any) {
-    const query = (event.target as HTMLInputElement).value.toLowerCase();
-    this.filteredDistricts = this.districts.filter(d =>
-      d.districtName.toLowerCase().includes(query) ||
-      d.stateName.toLowerCase().includes(query) ||
-      d.countryName.toLowerCase().includes(query)
-    );
+    this.currentSearchQuery = (event.target as HTMLInputElement).value.toLowerCase();
+    this.applyFilters();
+  }
+
+  onStateFilter(event: any) {
+    this.currentStateFilter = (event.target as HTMLSelectElement).value;
+    this.applyFilters();
+  }
+
+  applyFilters() {
+    this.filteredDistricts = this.districts.filter(d => {
+      const matchesSearch = !this.currentSearchQuery || 
+        d.districtName.toLowerCase().includes(this.currentSearchQuery) ||
+        d.stateName.toLowerCase().includes(this.currentSearchQuery) ||
+        d.countryName.toLowerCase().includes(this.currentSearchQuery);
+      
+      const matchesState = !this.currentStateFilter || d.stateId === this.currentStateFilter;
+      
+      return matchesSearch && matchesState;
+    });
+    this.cdr.detectChanges();
   }
 
   openAddView() {

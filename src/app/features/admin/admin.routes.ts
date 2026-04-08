@@ -22,6 +22,7 @@ export const ADMIN_ROUTES: Routes = [
             { path: 'country-master', loadComponent: () => import('./pages/configuration/pages/country-master.component').then(m => m.CountryMasterComponent) },
             { path: 'nationality-master', loadComponent: () => import('./pages/configuration/pages/nationality-master.component').then(m => m.NationalityMasterComponent) },
             { path: 'registration-type', loadComponent: () => import('./pages/configuration/pages/registration-type.component').then(m => m.RegistrationTypeComponent) },
+            { path: 'council-master', loadComponent: () => import('./pages/configuration/pages/council-master.component').then(m => m.CouncilMasterComponent) },
             { path: 'signature', loadComponent: () => import('./pages/configuration/pages/signature.component').then(m => m.SignatureComponent) },
         ]
     },

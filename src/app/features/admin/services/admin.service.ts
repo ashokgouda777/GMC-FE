@@ -97,8 +97,9 @@ export class AdminService {
         return this.api.get('MasterData/GetLedger');
     }
 
-    createOrder(amount: number, pid: string, paymentfor: string) {
-        return this.api.post(`Payment/CreateOrder?amount=${amount}&pid=${pid}&paymentfor=${paymentfor}`, {});
+    createOrder(amount: number, pid: string, paymentfor: string, councilId?: string | null) {
+        const url = `Payment/CreateOrder?amount=${amount}&pid=${pid}&paymentfor=${paymentfor}${councilId ? `&councilid=${councilId}` : ''}`;
+        return this.api.post(url, {});
     }
 
     getFinancialYears() {
@@ -168,14 +169,22 @@ export class AdminService {
         return this.api.get(`Address/getaddress?clientId=${clientId}&addressType=${addressType}`);
     }
 
-    getPractitioners(registrationFor?: string) {
-        const url = registrationFor !== undefined ? `Practitioners/list?registartionfor=${registrationFor}` : 'Practitioners/list';
+    getPractitioners(registrationFor?: string, pageNumber: number = 1, pageSize: number = 10) {
+        let url = `Practitioners/list?pageNumber=${pageNumber}&pageSize=${pageSize}`;
+        if (registrationFor !== undefined && registrationFor !== null) {
+            url += `&registartionfor=${registrationFor}`;
+        }
         return this.api.get(url);
     }
 
     getPractitionerById(id: string) {
         return this.api.get(`Practitioners/practitioner/${id}`);
     }
+
+    searchPractitioners(searchText: string) {
+        return this.api.get(`Practitioners/search?searchText=${searchText}`);
+    }
+
     getEducation(practitionerId: string) {
         return this.api.get(`Education/get/${practitionerId}`);
     }
@@ -185,7 +194,7 @@ export class AdminService {
     }
 
     deleteEducation(id: string) {
-        return this.api.delete(`Education/delete/${id}`);
+        return this.api.post(`Education/deleteeducation?educationid=${id}&UpdatedBy=Admin`, {});
     }
 
     createRenewal(data: any, headers?: HttpHeaders) {
@@ -347,5 +356,29 @@ export class AdminService {
             }
         ];
         return of(mockPayments).pipe(delay(300));
+    }
+
+    getPractitionerDocuments(pid: string) {
+        return this.api.get(`Practitioners/getdocuments?pid=${pid}`);
+    }
+
+    uploadPractitionerDocument(pid: string, type: string, file: File, docName?: string) {
+        const formData = new FormData();
+        formData.append('file', file);
+        
+        const url = `Practitioners/uploaddocument?pid=${pid}&DocumentType=${type}${docName ? `&DocumentName=${encodeURIComponent(docName)}` : ''}`;
+        return this.api.post(url, formData);
+    }
+
+    deletePractitionerDocument(docId: string) {
+        return this.api.delete(`Practitioners/deletedocument?docId=${docId}`);
+    }
+
+    getAllCertificates() {
+        return this.api.get('MasterData/GetAllCertificates');
+    }
+
+    getDocumentsForServices(certificateType: string) {
+        return this.api.get(`MasterData/Getdocumentsforservices?certificatetype=${certificateType}`);
     }
 }

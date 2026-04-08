@@ -73,7 +73,7 @@ import { UserLoginComponent } from '../../../user/pages/user-login/user-login.co
                         <div class="login-card-header">
                             <div class="login-header-icon">&#x1F3E5;</div>
                             <div>
-                                <h3>User Portal</h3>
+                                <h3>Practitioner Login</h3>
                                 <p>Sign in to access your dashboard</p>
                             </div>
                         </div>

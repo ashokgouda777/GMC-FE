@@ -30,7 +30,6 @@ export class UserManagementComponent implements OnInit {
     mobile: ['', Validators.required],
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required],
-    userType: ['', Validators.required],
     status: ['Active', Validators.required]
   });
 
@@ -105,7 +104,6 @@ export class UserManagementComponent implements OnInit {
       role: roleId,
       email: user.emailId,
       mobile: user.mobileNumber,
-      userType: user.roleName,
       status: user.active ? 'Active' : 'Inactive',
       password: '',
       confirmPassword: ''
@@ -131,6 +129,9 @@ export class UserManagementComponent implements OnInit {
       }
 
       const formValue = this.userForm.value;
+      const selectedRoleId = Number(formValue.role);
+      const selectedRole = this.roles.find(r => Number(r.role_id) === selectedRoleId);
+      const roleName = selectedRole ? selectedRole.role_desc : '';
 
       const payload = {
         countryId: 0,
@@ -140,8 +141,8 @@ export class UserManagementComponent implements OnInit {
         mobileNumber: formValue.mobile,
         emailId: formValue.email,
         password: formValue.password,
-        roleName: formValue.userType,
-        roleId: Number(formValue.role),
+        roleName: roleName,
+        roleId: selectedRoleId,
         createdBy: "Admin"
       };
 

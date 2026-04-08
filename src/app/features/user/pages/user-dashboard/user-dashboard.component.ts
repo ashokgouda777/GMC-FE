@@ -1,9 +1,10 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, computed } from '@angular/core';
 import { AuthService } from '../../../../core/services/auth.service';
 import { CommonModule } from '@angular/common';
 import { AdminService } from '../../../admin/services/admin.service';
+import { CouncilMasterService } from '../../../admin/pages/configuration/pages/council-master.service';
 import { HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { environment } from '../../../../../environments/environment';
@@ -49,15 +50,10 @@ import { environment } from '../../../../../environments/environment';
                 <h3>My Profile</h3>
                 <p>View and update your professional details</p>
              </div>
-             <div class="card nav-card" (click)="setActiveTab('noc')">
-                <div class="icon">📜</div>
-                <h3>NOC Status</h3>
-                <p>Check your No Objection Certificate status</p>
-             </div>
-             <div class="card nav-card" (click)="setActiveTab('cme')">
-                <div class="icon">📊</div>
-                <h3>CME Points</h3>
-                <p>Track your continuing education progress</p>
+             <div class="card nav-card" (click)="setActiveTab('receipts')">
+                <div class="icon">🧾</div>
+                <h3>My Receipts</h3>
+                <p>View and download your payment receipts</p>
              </div>
           </div>
         </div>
@@ -88,11 +84,9 @@ import { environment } from '../../../../../environments/environment';
                 <div *ngIf="activeProfileSubTab() === 'personal'">
                   <div class="card-header">
                     <h3>Personal Information</h3>
-                    <button class="edit-btn" (click)="toggleEditProfile()">{{ isEditingProfile() ? 'Cancel' : 'Edit' }}</button>
                   </div>
 
-                  <!-- View Mode -->
-                  <div class="details-grid" *ngIf="!isEditingProfile()">
+                  <div class="details-grid">
                     <div class="detail-item" *ngFor="let item of getFilteredPersonalData()">
                        <span class="label">{{ item.label }}:</span>
                        <span class="value" [class.status-badge]="item.label === 'Vote' || item.label === 'Status'" [class.active]="(item.label === 'Vote' || item.label === 'Status') && (item.value === 'Active' || item.value === '1')">
@@ -101,91 +95,6 @@ import { environment } from '../../../../../environments/environment';
                     </div>
                   </div>
 
-                  <!-- Edit Mode -->
-                  <form [formGroup]="personalForm" (ngSubmit)="saveProfile()" *ngIf="isEditingProfile()" class="edit-form-container">
-                    <div class="edit-form-grid">
-                      <div class="form-group">
-                        <label>Title</label>
-                        <select formControlName="title" class="form-control">
-                          <option value="">Select Title</option>
-                          <option *ngFor="let opt of titleOptions()" [value]="opt.titleId">{{ opt.titleName }}</option>
-                        </select>
-                      </div>
-
-                      <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" formControlName="name" class="form-control" placeholder="Full Name">
-                      </div>
-
-                      <div class="form-group">
-                        <label>Gender</label>
-                        <select formControlName="gender" class="form-control">
-                          <option value="">Select Gender</option>
-                          <option *ngFor="let opt of genderOptions()" [value]="opt.genderId">{{ opt.genderName }}</option>
-                        </select>
-                      </div>
-
-                      <div class="form-group">
-                        <label>Blood Group</label>
-                        <select formControlName="bloodGroup" class="form-control">
-                          <option value="">Select Blood Group</option>
-                          <option *ngFor="let opt of bloodGroupOptions()" [value]="opt.bloodGroupCode">{{ opt.bloodGroupDescription }}</option>
-                        </select>
-                      </div>
-
-                      <div class="form-group">
-                        <label>Change of Name (if any)</label>
-                        <input type="text" formControlName="changeOfName" class="form-control">
-                      </div>
-
-                      <div class="form-group">
-                        <label>Father's / Spouse Name</label>
-                        <input type="text" formControlName="fatherName" class="form-control">
-                      </div>
-
-                      <div class="form-group">
-                        <label>Birth Date</label>
-                        <input type="date" formControlName="birthDate" class="form-control">
-                      </div>
-
-                      <div class="form-group">
-                        <label>Birth Place</label>
-                        <input type="text" formControlName="birthPlace" class="form-control">
-                      </div>
-
-                      <div class="form-group">
-                        <label>Nationality</label>
-                        <select formControlName="nationality" class="form-control">
-                          <option value="">Select Nationality</option>
-                          <option *ngFor="let opt of nationalityOptions()" [value]="opt.nationalityId">{{ opt.nationality }}</option>
-                        </select>
-                      </div>
-
-                      <div class="form-group">
-                        <label>Eligibility</label>
-                        <select formControlName="eligibility" class="form-control">
-                          <option value="">Select Eligibility</option>
-                          <option *ngFor="let opt of eligibilityOptions()" [value]="opt.eligibiltyId">{{ opt.eligibilty }}</option>
-                        </select>
-                      </div>
-
-                      <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" formControlName="email" class="form-control">
-                      </div>
-
-                      <div class="form-group">
-                        <label>Mobile</label>
-                        <input type="text" formControlName="mobile" class="form-control">
-                      </div>
-
-                    </div>
-
-                    <div class="form-actions-row">
-                      <button type="button" class="cancel-btn" (click)="toggleEditProfile()">Cancel</button>
-                      <button type="submit" class="save-btn" [disabled]="!personalForm.valid">Save Changes</button>
-                    </div>
-                  </form>
                 </div>
 
 
@@ -193,11 +102,9 @@ import { environment } from '../../../../../environments/environment';
                 <div *ngIf="activeProfileSubTab() === 'contact'">
                   <div class="card-header">
                     <h3>Contact Information</h3>
-                    <button class="edit-btn" (click)="toggleEditContact()">{{ isEditingContact() ? 'Cancel' : 'Edit' }}</button>
                   </div>
                   
-                  <!-- View Mode -->
-                  <div *ngIf="!isEditingContact()">
+                  <div>
                     <div class="address-section" *ngIf="resAddress()">
                       <h4 class="section-title">Residential Address</h4>
                       <div class="details-grid">
@@ -219,314 +126,103 @@ import { environment } from '../../../../../environments/environment';
                     </div>
                   </div>
 
-                  <!-- Edit Mode -->
-                  <form [formGroup]="contactForm" (ngSubmit)="saveContact()" *ngIf="isEditingContact()" class="edit-form-container">
-                    
-                    <!-- Residential Section -->
-                    <div class="address-edit-group">
-                      <h4 class="section-title">Residential Address</h4>
-                      <div class="edit-form-grid">
-                        <div class="form-group">
-                          <label>Address Line 1</label>
-                          <input type="text" formControlName="resAddress1" class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label>Address Line 2</label>
-                          <input type="text" formControlName="resAddress2" class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label>City / Town</label>
-                          <input type="text" formControlName="resCity" class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label>Rural / Urban</label>
-                          <select formControlName="resRuralUrban" class="form-control">
-                            <option value="">Select</option>
-                            <option *ngFor="let opt of ruralUrbanOptions()" [value]="opt.typeId || opt.ruralurbanId || opt.ruralurban">{{ opt.typeName || opt.ruralurban }}</option>
-                            <option value="Rural">Rural</option>
-                            <option value="Urban">Urban</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label>Country</label>
-                          <select formControlName="resCountry" class="form-control">
-                            <option value="">Select Country</option>
-                            <option *ngFor="let opt of countryOptions()" [value]="opt.countryId">{{ opt.countryName }}</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label>State</label>
-                          <select formControlName="resState" class="form-control">
-                            <option value="">Select State</option>
-                            <option *ngFor="let s of resStateOptions()" [value]="s.stateId">{{ s.stateName }}</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label>District</label>
-                          <select formControlName="resDistrict" class="form-control">
-                            <option value="">Select District</option>
-                            <option *ngFor="let d of resDistrictOptions()" [value]="d.districtId">{{ d.districtName }}</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label>Pin Code</label>
-                          <input type="text" formControlName="resPinCode" class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label>Phone 1</label>
-                          <input type="text" formControlName="resPhone1" class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label>Phone 2</label>
-                          <input type="text" formControlName="resPhone2" class="form-control">
-                        </div>
-                      </div>
-                    </div>
 
-                    <!-- Professional Section -->
-                    <div class="address-edit-group" style="margin-top: $spacing-xl;">
-                      <div class="section-header-flex">
-                        <h4 class="section-title">Professional Address</h4>
-                        <label class="checkbox-label">
-                          <input type="checkbox" formControlName="isProSameAsRes">
-                          Same as Residential
-                        </label>
-                      </div>
-                      
-                      <div class="edit-form-grid" [style.opacity]="contactForm.get('isProSameAsRes')?.value ? 0.6 : 1" [style.pointer-events]="contactForm.get('isProSameAsRes')?.value ? 'none' : 'auto'">
-                        <div class="form-group">
-                          <label>Address Line 1</label>
-                          <input type="text" formControlName="profAddress1" class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label>Address Line 2</label>
-                          <input type="text" formControlName="profAddress2" class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label>City / Town</label>
-                          <input type="text" formControlName="profCity" class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label>Rural / Urban</label>
-                          <select formControlName="profRuralUrban" class="form-control">
-                            <option value="">Select</option>
-                            <option *ngFor="let opt of ruralUrbanOptions()" [value]="opt.typeId || opt.ruralurbanId || opt.ruralurban">{{ opt.typeName || opt.ruralurban }}</option>
-                            <option value="Rural">Rural</option>
-                            <option value="Urban">Urban</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label>Country</label>
-                          <select formControlName="profCountry" class="form-control">
-                            <option value="">Select Country</option>
-                            <option *ngFor="let opt of countryOptions()" [value]="opt.countryId">{{ opt.countryName }}</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label>State</label>
-                          <select formControlName="profState" class="form-control">
-                            <option value="">Select State</option>
-                            <option *ngFor="let s of profStateOptions()" [value]="s.stateId">{{ s.stateName }}</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label>District</label>
-                          <select formControlName="profDistrict" class="form-control">
-                            <option value="">Select District</option>
-                            <option *ngFor="let d of profDistrictOptions()" [value]="d.districtId">{{ d.districtName }}</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label>Pin Code</label>
-                          <input type="text" formControlName="profPinCode" class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label>Phone 1</label>
-                          <input type="text" formControlName="profPhone1" class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label>Phone 2</label>
-                          <input type="text" formControlName="profPhone2" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="form-actions-row">
-                      <button type="button" class="cancel-btn" (click)="toggleEditContact()">Cancel</button>
-                      <button type="submit" class="save-btn">Save Addresses</button>
-                    </div>
-                  </form>
-
-                  <div *ngIf="!resAddress() && !profAddress() && !isEditingContact()" class="loading-state">
+                  <div *ngIf="!resAddress() && !profAddress()" class="loading-state">
                     Loading contact information...
                   </div>
                 </div>
 
 
-                <!-- Educational Info Sub-Tab -->
                 <div *ngIf="activeProfileSubTab() === 'educational'">
-                                  <!-- Education Form -->
-                                  <div class="education-form-card" *ngIf="isAddingEducation">
-                                      <div class="form-header">
-                                          <div class="header-content">
-                                              <i class="fas fa-graduation-cap"></i>
-                                              <h2>{{ editingEducationId ? 'Edit' : 'Add' }} Educational Information</h2>
-                                          </div>
-                                          <button class="close-btn" (click)="toggleAddEducation()">
-                                              <i class="fas fa-times"></i>
-                                          </button>
-                                      </div>
+                  <div class="card-header">
+                    <h3>Educational Information</h3>
+                  </div>
 
-                                      <form [formGroup]="educationForm" (ngSubmit)="saveEducation()" class="modern-form">
-                                          <div class="form-grid">
-                                              <!-- Degree -->
-                                              <div class="form-group span-2">
-                                                  <label>Degree <span class="required">*</span></label>
-                                                  <div class="select-wrapper">
-                                                      <select formControlName="degree">
-                                                          <option value="" disabled selected hidden>Select Degree</option>
-                                                          <option *ngFor="let c of courseOptions" [value]="c.courseId">{{ c.courseDescription }}</option>
-                                                      </select>
-                                                  </div>
-                                              </div>
+                  <div class="records-container" *ngIf="educationalInfo().length > 0">
+                    <div class="education-grid-item" *ngFor="let edu of educationalInfo()">
+                      <div class="content-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>{{ edu.educationName || 'Educational Record' }}</h4>
+                      </div>
+                      
+                      <div class="details-grid">
+                        <div class="detail-item">
+                           <span class="label">Degree:</span>
+                           <span class="value">{{ edu.educationName || '-' }}</span>
+                        </div>
+                        <div class="detail-item">
+                           <span class="label">Course Name:</span>
+                           <span class="value">{{ edu.courseName || '-' }}</span>
+                        </div>
+                        <div class="detail-item">
+                           <span class="label">Passing:</span>
+                           <span class="value">{{ edu.convertedDate }}</span>
+                        </div>
+                        <div class="detail-item">
+                           <span class="label">University:</span>
+                           <span class="value">{{ edu.universityName || '-' }}</span>
+                        </div>
+                        <div class="detail-item">
+                           <span class="label">College:</span>
+                           <span class="value">{{ edu.colName || '-' }}</span>
+                        </div>
+                        <div class="detail-item">
+                           <span class="label">Certificate No:</span>
+                           <span class="value">{{ edu.certificateNo || '-' }}</span>
+                        </div>
+                        <div class="detail-item">
+                           <span class="label">Certificate Issued Date:</span>
+                           <span class="value">{{ edu.certificateDate | date:'dd MMM yyyy' }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                                              <!-- Course Name -->
-                                              <div class="form-group">
-                                                  <label>Course Name</label>
-                                                  <input type="text" formControlName="courseName" placeholder="Enter Course Name">
-                                              </div>
+                  <div *ngIf="educationalInfo().length === 0" class="no-records-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <p>No educational records found.</p>
+                  </div>
+                </div>
 
-                                              <!-- Other Subject -->
-                                              <div class="form-group">
-                                                  <label>Other Subject</label>
-                                                  <input type="text" formControlName="otherSubject" placeholder="Enter Other Subject">
-                                              </div>
+                <!-- Documents Sub-Tab -->
+                <div *ngIf="activeProfileSubTab() === 'documents'">
+                  <div class="card-header">
+                    <h3>My Documents</h3>
+                  </div>
 
-                                              <!-- Passing Month & Year -->
-                                              <div class="form-group">
-                                                  <label>Passing Month <span class="required">*</span></label>
-                                                  <div class="select-wrapper">
-                                                      <select formControlName="passMonth">
-                                                          <option value="" disabled selected hidden>Select Month</option>
-                                                          <option *ngFor="let m of months" [value]="m.value">{{ m.name }}</option>
-                                                      </select>
-                                                  </div>
-                                              </div>
+                  <div class="document-groups" *ngIf="documentList().length > 0">
+                    <div class="document-group" *ngFor="let group of documentList()" style="margin-bottom: 25px;">
+                      <div class="group-header" style="background: rgba(0, 119, 182, 0.05); padding: 10px 15px; border-left: 4px solid #0077B6; margin-bottom: 12px; border-radius: 0 8px 8px 0;">
+                        <h4 style="margin: 0; color: #333; font-weight: 700; font-size: 1rem;">{{ group.documentName }}</h4>
+                      </div>
 
-                                              <div class="form-group">
-                                                  <label>Passing Year <span class="required">*</span></label>
-                                                  <div class="select-wrapper">
-                                                      <select formControlName="passYear">
-                                                          <option value="" disabled selected hidden>Select Year</option>
-                                                          <option *ngFor="let y of years" [value]="y">{{ y }}</option>
-                                                      </select>
-                                                  </div>
-                                              </div>
+                      <div class="table-responsive">
+                         <table class="data-table">
+                            <thead>
+                              <tr>
+                                <th>Document Name</th>
+                                <th class="text-right">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let doc of group.documents">
+                                <td>{{ doc.documentType || '-' }}</td>
+                                <td class="text-right">
+                                  <a [href]="doc.documentUrl" target="_blank" style="color: #0077B6; font-weight: 600; text-decoration: none; font-size: 0.9rem;" *ngIf="doc.documentUrl">
+                                    View
+                                  </a>
+                                </td>
+                              </tr>
+                            </tbody>
+                         </table>
+                      </div>
+                    </div>
+                  </div>
 
-                                              <!-- University -->
-                                              <div class="form-group span-2">
-                                                  <label>Name Of The University</label>
-                                                  <div class="select-wrapper">
-                                                      <select formControlName="university" (change)="onUniversityChange()">
-                                                          <option value="" disabled selected hidden>Select University</option>
-                                                          <option *ngFor="let u of universityOptions" [value]="u.universityId">{{ u.universityName }}</option>
-                                                      </select>
-                                                  </div>
-                                              </div>
-
-                                              <!-- College -->
-                                              <div class="form-group span-2">
-                                                  <label>Name Of The College Studied <span class="required">*</span></label>
-                                                  <div class="select-wrapper">
-                                                      <select formControlName="college">
-                                                          <option value="" disabled selected hidden>Select College</option>
-                                                          <option *ngFor="let c of collegeOptions" [value]="c.colid">{{ c.colname }}</option>
-                                                      </select>
-                                                  </div>
-                                              </div>
-
-                                              <div class="form-divider"></div>
-
-                                              <!-- Certificate No -->
-                                              <div class="form-group">
-                                                  <label>Certificate No</label>
-                                                  <input type="text" formControlName="certificateNo" placeholder="Enter Certificate No">
-                                              </div>
-
-                                              <!-- Certificate Date -->
-                                              <div class="form-group">
-                                                  <label>Certificate Date</label>
-                                                  <input type="date" formControlName="certificateDate">
-                                              </div>
-                                          </div>
-
-                                          <div class="form-actions">
-                                              <button type="button" class="btn-secondary" (click)="toggleAddEducation()">Cancel</button>
-                                              <button type="submit" class="btn-primary" [disabled]="educationForm.invalid">
-                                                  <i class="fas fa-save"></i> Save Education
-                                              </button>
-                                          </div>
-                                      </form>
-                                  </div>
-
-                                  <!-- Education List -->
-                                  <div class="education-list-view" *ngIf="!isAddingEducation">
-                                      <div class="list-header">
-                                          <h3>Educational Records</h3>
-                                          <button class="add-btn-premium" (click)="toggleAddEducation()">
-                                              <i class="fas fa-plus-circle"></i> Add New Record
-                                          </button>
-                                      </div>
-
-                                      <div class="records-container">
-                                          <div class="no-records-card" *ngIf="educationalInfo().length === 0">
-                                              <i class="fas fa-graduation-cap"></i>
-                                              <p>No educational records found.</p>
-                                          </div>
-
-                                          <div class="education-premium-card" *ngFor="let edu of educationalInfo()">
-                                              <div class="card-top">
-                                                  <div class="record-icon">
-                                                      <i class="fas fa-certificate"></i>
-                                                  </div>
-                                                  <div class="record-main-info">
-                                                      <h4>{{ edu.educationName || 'Educational Record' }}</h4>
-                                                      <span class="passing-date">
-                                                          <i class="far fa-calendar-alt"></i>
-                                                          Passed: {{ edu.monthOfPassing }} / {{ edu.yearOfPassing }}
-                                                      </span>
-                                                  </div>
-                                                  <div class="card-actions">
-                                                      <button class="action-btn edit" (click)="editEducation(edu)" title="Edit">
-                                                          <i class="fas fa-edit"></i>
-                                                      </button>
-                                                      <button class="action-btn delete" (click)="deleteEducation(edu.educationID)" title="Delete">
-                                                          <i class="fas fa-trash-alt"></i>
-                                                      </button>
-                                                  </div>
-                                              </div>
-
-                                              <div class="card-details">
-                                                  <div class="detail-item">
-                                                      <span class="label">College</span>
-                                                      <span class="value">{{ edu.colName || 'N/A' }}</span>
-                                                  </div>
-                                                  <div class="detail-item">
-                                                      <span class="label">University</span>
-                                                      <span class="value">{{ edu.universityName || 'N/A' }}</span>
-                                                  </div>
-                                                  <div class="detail-item">
-                                                      <span class="label">Certificate No</span>
-                                                      <span class="value">{{ edu.certificateNo || 'N/A' }}</span>
-                                                  </div>
-                                                  <div class="detail-item">
-                                                      <span class="label">Date</span>
-                                                      <span class="value">{{ edu.certificateDate | date:'dd MMM yyyy' }}</span>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
+                  <div *ngIf="documentList().length === 0" class="no-records-card">
+                    <i class="fas fa-file-alt"></i>
+                    <p>No documents found.</p>
+                  </div>
                 </div>
 
                 <!-- Payments Sub-Tab -->
@@ -538,7 +234,7 @@ import { environment } from '../../../../../environments/environment';
                   <div class="payment-form">
                     <div class="form-group">
                       <label for="paymentFor">Payment For</label>
-                      <select id="paymentFor" class="form-control" (change)="onLedgerChange($event)">
+                      <select id="paymentFor" class="form-control" (change)="onLedgerChange($event)" [value]="selectedLedger()?.ledgerID || ''">
                         <option value="">Select Payment Type</option>
                         <option *ngFor="let ledger of ledgers()" [value]="ledger.ledgerID">
                           {{ ledger.ledgerName }}
@@ -551,28 +247,118 @@ import { environment } from '../../../../../environments/environment';
                       <input type="number" id="amount" class="form-control" [value]="paymentAmount()" readonly>
                     </div>
 
+                    <!-- Selected Council Display -->
+                    <div class="form-group selection-group" *ngIf="isNocSelected() && selectedNocCouncilId() && selectedNocCouncilId() !== 'null'" (click)="showCouncilModal.set(true)">
+                      <label>Selected Council <span class="edit-link">(Click to Change)</span></label>
+                      <div class="selection-card">
+                        <div class="selection-icon">🏛️</div>
+                        <div class="selection-details">
+                          <span class="selection-name">{{ selectedCouncilName() }}</span>
+                          <span class="selection-address">{{ selectedCouncilAddress() }}</span>
+                        </div>
+                        <div class="selection-edit">
+                          <i class="fas fa-edit"></i>
+                        </div>
+                      </div>
+                    </div>
+
                     <div class="form-actions">
                       <button 
                         class="pay-btn" 
-                        [disabled]="!selectedLedger() || isProcessingPayment()"
+                        [disabled]="!selectedLedger() || isProcessingPayment() || (isNocSelected() && (!selectedNocCouncilId() || selectedNocCouncilId() === 'null'))"
                         (click)="initiateRazorpayPayment()">
                         {{ isProcessingPayment() ? 'Processing...' : 'Proceed to Pay' }}
                       </button>
                     </div>
 
-                    <div *ngIf="paymentStatus()" [class]="'payment-alert ' + (paymentStatus()?.success ? 'success' : 'error')">
+                     <div *ngIf="paymentStatus()" [class]="'payment-alert ' + (paymentStatus()?.success ? 'success' : 'error')">
                       {{ paymentStatus()?.message }}
                     </div>
                   </div>
+                </div>
 
+                <!-- NOC Council Selection Modal -->
+                <div class="modal-overlay" *ngIf="showCouncilModal()">
+                  <div class="modal-content council-modal">
+                    <div class="modal-header">
+                      <h3>Select Council</h3>
+                      <button class="close-btn" (click)="closeCouncilModal()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <p>For NOC applications, please select the Council you are applying to:</p>
+                      <div class="form-group">
+                        <label for="nocCouncil">Recipient Council<span class="required">*</span></label>
+                        <select id="nocCouncil" class="form-control" (change)="selectedNocCouncilId.set($any($event.target).value)">
+                          <option [value]="null">Select Council</option>
+                          <option *ngFor="let council of councilsList()" [value]="council.councilId" [selected]="selectedNocCouncilId() === council.councilId">
+                            {{ council.councilName }} ({{ council.shortCode }})
+                          </option>
+                        </select>
+                      </div>
+                      <div class="form-group" style="margin-top: 15px;" *ngIf="selectedNocCouncilId() && selectedNocCouncilId() !== 'null'">
+                        <label>Council Address</label>
+                        <textarea 
+                          class="form-control" 
+                          style="background: rgba(0,0,0,0.05); cursor: default; height: 70px; resize: none; font-size: 0.9em;" 
+                          [value]="selectedCouncilAddress()" 
+                          readonly></textarea>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn-secondary" (click)="closeCouncilModal()">Cancel</button>
+                      <button class="btn-primary" (click)="confirmCouncilSelection()" [disabled]="!selectedNocCouncilId() || selectedNocCouncilId() === 'null'">Confirm Selection</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Add Document Modal -->
+                <div class="modal-overlay" *ngIf="isAddingDocument()">
+                  <div class="modal-content" [class.scrollable-modal]="dynamicDocuments().length > 3">
+                    <div class="modal-header">
+                      <h3>Add Document</h3>
+                      <button class="close-btn" (click)="toggleAddDocument()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <form [formGroup]="documentForm" class="modern-form">
+                        <div class="form-group">
+                          <label>Certificate Type <span class="required">*</span></label>
+                          <select formControlName="certificateId" class="form-control">
+                            <option value="">Select Certificate</option>
+                            <option *ngFor="let cert of certificatesData()" [value]="cert.id">{{ cert.name }}</option>
+                          </select>
+                        </div>
+
+                        <!-- Dynamic Requirements List -->
+                        <div class="dynamic-requirements" *ngIf="dynamicDocuments().length > 0" style="margin-top: 20px;">
+                          <h4 style="font-size: 0.9rem; color: #666; margin-bottom: 12px; font-weight: 700; text-transform: uppercase;">Required Documents</h4>
+                          
+                          <div class="requirement-item" *ngFor="let doc of dynamicDocuments()" style="padding: 15px; background: rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.05); border-radius: 12px; margin-bottom: 12px;">
+                            <div style="margin-bottom: 8px; font-weight: 600; color: #333;">{{ doc.docdetailes }}</div>
+                            <input type="file" (change)="onDynamicFileSelected($event, doc.id)" style="width: 100%; font-size: 0.85rem;">
+                            <div *ngIf="selectedDynamicFiles()[doc.id]" style="margin-top: 5px; color: #0077B6; font-size: 0.8rem; font-weight: 600;">
+                               Selected: {{ selectedDynamicFiles()[doc.id].name }}
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Default File Input (Only if no dynamic documents) -->
+                        <div class="form-group" *ngIf="dynamicDocuments().length === 0" style="margin-top: 15px;">
+                          <label>File <span class="required">*</span></label>
+                          <input type="file" (change)="onDocumentFileSelected($event)" class="form-control">
+                          <div class="file-preview" *ngIf="selectedDocFile">
+                             Selected: {{ selectedDocFile.name }}
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn-secondary" (click)="toggleAddDocument()">Cancel</button>
+                      <button class="btn-primary" [disabled]="documentForm.get('certificateId')?.invalid" (click)="saveDocument()">Upload Documents</button>
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Other Sub-Tabs Placeholders -->
-                <div *ngIf="['documents'].includes(activeProfileSubTab())" class="sub-placeholder">
-                   <div class="placeholder-icon">ℹ️</div>
-                   <h4>{{ activeProfileSubTabData()?.label }}</h4>
-                   <p>Information for this section is currently being migrated.</p>
-                </div>
              </div>
           </div>
         </div>
@@ -590,7 +376,7 @@ import { environment } from '../../../../../environments/environment';
                   </div>
                   <div class="sub-actions">
                     <button class="text-action-btn" (click)="generateReceipt(receipt.receiptNo || receipt.receiptNumber)">Receipt</button>
-                    <button class="text-action-btn" (click)="printCertificate(receipt)">{{ receipt.ledgerDescription || receipt.feeItemname }} Certificate</button>
+                    <button class="text-action-btn" (click)="printCertificate(receipt)">{{ receipt.displayName }}</button>
                   </div>
                 </div>
                 <div class="action-links">
@@ -655,14 +441,7 @@ import { environment } from '../../../../../environments/environment';
           </div>
         </div>
 
-        <!-- Other Tabs Placeholders -->
-        <div *ngIf="['noc', 'cme', 'complaints'].includes(activeTab())" class="placeholder-content">
-          <div class="card">
-            <div class="icon-large">{{ activeTabData()?.icon }}</div>
-            <h2>{{ activeTabData()?.label }}</h2>
-            <p>This section is currently under development. Please check back later.</p>
-          </div>
-        </div>
+
       </main>
     </div>
   `,
@@ -674,6 +453,73 @@ import { environment } from '../../../../../environments/environment';
         max-width: 1200px;
         margin: 0 auto;
         padding: $spacing-md;
+    }
+
+    .selection-group {
+      margin-top: 15px;
+      cursor: pointer;
+      
+      label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        
+        .edit-link {
+          font-size: 0.85em;
+          color: #0077B6;
+          text-decoration: underline;
+          opacity: 0.8;
+          &:hover { opacity: 1; }
+        }
+      }
+    }
+
+    .selection-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(0, 119, 182, 0.05);
+      border: 1px dashed #0077B6;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        background: rgba(0, 119, 182, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      }
+      
+      .selection-icon {
+        font-size: 1.5em;
+      }
+      
+      .selection-details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        
+        .selection-name {
+          font-weight: 600;
+          color: #333;
+        }
+        
+        .selection-address {
+          font-size: 0.85em;
+          color: #666;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+      }
+      
+      .selection-edit {
+        color: #0077B6;
+        opacity: 0.6;
+      }
     }
 
     .dashboard-header {
@@ -1797,6 +1643,94 @@ import { environment } from '../../../../../environments/environment';
     }
 
     .required { color: $error-color; margin-left: 2px; }
+
+    // Council Modal Styles
+    .council-modal {
+        max-width: 500px !important;
+        
+        .modal-body {
+            p { margin-bottom: $spacing-md; color: $text-secondary; font-size: 0.95rem; line-height: 1.5; }
+        }
+        
+        .form-group {
+            margin-bottom: $spacing-sm;
+            label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.85rem; }
+            .form-control {
+                width: 100%;
+                padding: 12px;
+                border: 2px solid rgba($border-color, 0.5);
+                border-radius: 10px;
+                &:focus { border-color: $primary-color; outline: none; }
+            }
+        }
+    }
+
+    .modal-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+        display: flex; align-items: center; justify-content: center; z-index: 1000;
+        animation: fadeIn 0.2s ease-out;
+    }
+
+    .modal-content {
+        background: white; border-radius: 20px; width: 90%; max-width: 600px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.2); animation: slideInUp 0.3s ease-out;
+        
+        .modal-header {
+            padding: $spacing-lg $spacing-xl; border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex; justify-content: space-between; align-items: center;
+            h3 { color: $primary-color; margin: 0; }
+            .close-btn { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: $text-secondary; }
+        }
+
+        .modal-body { padding: $spacing-xl; }
+
+        .modal-footer {
+            padding: $spacing-lg $spacing-xl; border-top: 1px solid rgba(0,0,0,0.05);
+            display: flex; justify-content: flex-end; gap: $spacing-md;
+            
+            button {
+                padding: 10px 24px; border-radius: 10px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+                &.btn-secondary { background: #eee; border: none; color: $text-secondary; &:hover { background: #ddd; } }
+                &.btn-primary { background: $primary-color; border: none; color: white; &:hover { background: $primary-dark; } &:disabled { opacity: 0.5; } }
+            }
+        }
+
+        .add-btn {
+          display: flex; align-items: center; gap: 8px;
+          padding: 8px 20px; background: linear-gradient(135deg, $primary-color, $primary-dark);
+          color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer;
+          transition: all 0.2s; box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
+          &:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 119, 182, 0.3); }
+          .icon { font-size: 1.2rem; }
+        }
+
+        .documents-list {
+          margin-top: $spacing-md;
+          .data-table {
+            width: 100%; border-collapse: separate; border-spacing: 0;
+            th { text-align: left; padding: 12px; border-bottom: 2px solid rgba(0,0,0,0.05); color: $text-secondary; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+            td { padding: 14px 12px; border-bottom: 1px solid rgba(0,0,0,0.03); vertical-align: middle; color: $text-color; font-weight: 500; }
+            .badge { background: rgba(0, 119, 182, 0.1); color: $primary-color; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; }
+            .action-btns { display: flex; gap: 12px; justify-content: flex-end; align-items: center; }
+            .view-btn-sm { text-decoration: none; color: $primary-color; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 6px; 
+              &:hover { color: $primary-dark; text-decoration: underline; }
+            }
+            .delete-btn-sm { background: none; border: none; color: $error-color; cursor: pointer; padding: 6px; border-radius: 8px; 
+              transition: all 0.2s; &:hover { background: rgba($error-color, 0.1); transform: scale(1.1); }
+            }
+          }
+        }
+
+        .scrollable-modal {
+          max-height: 90vh;
+          overflow-y: auto;
+          scrollbar-width: thin;
+          &::-webkit-scrollbar { width: 6px; }
+          &::-webkit-scrollbar-track { background: transparent; }
+          &::-webkit-scrollbar-thumb { background: rgba(0, 119, 182, 0.2); border-radius: 10px; }
+        }
+    }
   `]
 
 })
@@ -1821,10 +1755,15 @@ export class UserDashboardComponent implements OnInit {
   paymentAmount = signal<number>(0);
   isProcessingPayment = signal<boolean>(false);
   paymentStatus = signal<{ success: boolean; message: string } | null>(null);
+  
+  // Document Management
+  documentList = signal<any[]>([]);
+  isAddingDocument = signal<boolean>(false);
+  certificatesData = signal<any[]>([]);
+  selectedDocFile: File | null = null;
+  dynamicDocuments = signal<any[]>([]);
+  selectedDynamicFiles = signal<{ [id: string]: File }>({});
 
-  // Education Properties
-  isAddingEducation = false;
-  editingEducationId: string | null = null;
   years: number[] = [];
   months = [
     { name: 'January', value: '01' }, { name: 'February', value: '02' }, { name: 'March', value: '03' },
@@ -1845,74 +1784,14 @@ export class UserDashboardComponent implements OnInit {
     passYear: ['', Validators.required],
     university: [''],
     college: ['', Validators.required],
-
-
-
     certificateNo: [''],
     certificateDate: ['']
   });
 
-  // Profile Edit State
-  isEditingProfile = signal<boolean>(false);
-  isEditingContact = signal<boolean>(false);
-  
-  // Master Data Signals
-  titleOptions = signal<any[]>([]);
-  genderOptions = signal<any[]>([]);
-  bloodGroupOptions = signal<any[]>([]);
-  nationalityOptions = signal<any[]>([]);
-  eligibilityOptions = signal<any[]>([]);
-
-  // Address Master Data Signals
-  countryOptions = signal<any[]>([]);
-  ruralUrbanOptions = signal<any[]>([]);
-  resStateOptions = signal<any[]>([]);
-  resDistrictOptions = signal<any[]>([]);
-  profStateOptions = signal<any[]>([]);
-  profDistrictOptions = signal<any[]>([]);
-
-  personalForm: FormGroup = this.fb.group({
-    title: ['', Validators.required],
-    name: ['', Validators.required],
-    gender: ['', Validators.required],
-    bloodGroup: ['', Validators.required],
-    changeOfName: [''],
-    fatherName: ['', Validators.required],
-    birthDate: ['', Validators.required],
-    birthPlace: ['', Validators.required],
-    nationality: ['', Validators.required],
-    eligibility: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    mobile: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]]
+  documentForm: FormGroup = this.fb.group({
+    certificateId: ['', Validators.required],
+    file: [null, Validators.required]
   });
-
-  contactForm: FormGroup = this.fb.group({
-    // Residential Address
-    resAddress1: [''],
-    resAddress2: [''],
-    resCity: [''],
-    resRuralUrban: [''],
-    resCountry: [''],
-    resState: [''],
-    resDistrict: [''],
-    resPinCode: [''],
-    resPhone1: [''],
-    resPhone2: [''],
-
-    // Professional Address
-    isProSameAsRes: [false],
-    profAddress1: [''],
-    profAddress2: [''],
-    profCity: [''],
-    profRuralUrban: [''],
-    profCountry: [''],
-    profState: [''],
-    profDistrict: [''],
-    profPinCode: [''],
-    profPhone1: [''],
-    profPhone2: ['']
-  });
-
 
 
 
@@ -1920,9 +1799,6 @@ export class UserDashboardComponent implements OnInit {
   tabs = [
     { id: 'welcome', label: 'Welcome', icon: '👋' },
     { id: 'profile', label: 'My Profile', icon: '👤' },
-    { id: 'noc', label: 'NOC', icon: '📜' },
-    { id: 'cme', label: 'CME Points', icon: '📊' },
-    { id: 'complaints', label: 'Complaints', icon: '💬' },
     { id: 'receipts', label: 'Receipts', icon: '🧾' }
   ];
 
@@ -1934,15 +1810,95 @@ export class UserDashboardComponent implements OnInit {
     { id: 'payments', label: 'Payments' }
   ];
 
+  councilService = inject(CouncilMasterService);
+  showCouncilModal = signal<boolean>(false);
+  councilsList = signal<any[]>([]);
+  selectedNocCouncilId = signal<string | null>(null);
+  isNocSelected = signal<boolean>(false);
+
+  selectedCouncilAddress = computed(() => {
+    const id = this.selectedNocCouncilId();
+    if (!id || id === 'null') return '';
+    const council = this.councilsList().find(c => c.councilId === id);
+    if (!council) return '';
+    
+    return [
+      council.address,
+      council.address2,
+      council.city,
+      council.zipCode
+    ].filter(p => !!p).join(', ');
+  });
+
+  selectedCouncilName = computed(() => {
+    const id = this.selectedNocCouncilId();
+    if (!id || id === 'null') return '';
+    const council = this.councilsList().find(c => c.councilId === id);
+    return council ? council.councilName : '';
+  });
+
   activeTabData = () => this.tabs.find(t => t.id === this.activeTab());
   activeProfileSubTabData = () => this.profileTabs.find(t => t.id === this.activeProfileSubTab());
+
+  setProfileSubTab(id: string) {
+    this.activeProfileSubTab.set(id);
+    const pid = this.practitionerData()?.practitionerID;
+    if (id === 'documents' && pid) {
+      this.loadDocuments(pid);
+      this.loadCertificates();
+    }
+  }
 
   onLedgerChange(event: any) {
     const ledgerId = event.target.value;
     const ledger = this.ledgers().find(l => l.ledgerID === ledgerId);
     this.selectedLedger.set(ledger);
+    
     if (ledger) {
       this.paymentAmount.set(ledger.feeAmount);
+      
+      // NOC Council Selection Trigger
+      const ledgerName = (ledger.ledgerName || '').toUpperCase();
+      const isNoc = ledgerName.includes('NOC') || ledgerName.includes('NO OBJECTION CERTIFICATE');
+      this.isNocSelected.set(isNoc);
+      
+      if (isNoc) {
+        this.showCouncilModal.set(true);
+      } else {
+        this.selectedNocCouncilId.set(null);
+      }
+    } else {
+      this.selectedNocCouncilId.set(null);
+    }
+  }
+
+  loadCouncils() {
+    this.councilService.getAll().subscribe({
+      next: (data: any) => {
+        const list = Array.isArray(data) ? data : (data?.result || []);
+        this.councilsList.set(list);
+      },
+      error: (err: any) => console.error('Failed to load councils', err)
+    });
+  }
+
+  confirmCouncilSelection() {
+    if (this.selectedNocCouncilId() && this.selectedNocCouncilId() !== 'null') {
+      this.showCouncilModal.set(false);
+    } else {
+      alert('Please select a council to proceed.');
+    }
+  }
+
+  closeCouncilModal() {
+    this.showCouncilModal.set(false);
+    
+    // Reset payment selection if cancelled without a council for NOC
+    const councilId = this.selectedNocCouncilId();
+    if (this.isNocSelected() && (!councilId || councilId === 'null')) {
+      this.selectedLedger.set(null);
+      this.paymentAmount.set(0);
+      this.isNocSelected.set(false);
     }
   }
 
@@ -1960,8 +1916,145 @@ export class UserDashboardComponent implements OnInit {
     });
   }
 
+  // Document Management Methods
+  loadDocuments(pid: string) {
+    this.adminService.getPractitionerDocuments(pid).subscribe({
+      next: (data: any) => {
+        // Handle new API response structure: { data: [ { documentName, documents: [] } ] }
+        this.documentList.set(data?.data || []);
+      },
+      error: (err: any) => {
+        console.error('Failed to load documents', err);
+        this.documentList.set([]);
+      }
+    });
+  }
+
+  loadCertificates() {
+    this.adminService.getAllCertificates().subscribe({
+      next: (data: any) => {
+        const list = Array.isArray(data) ? data : (data?.result || []);
+        this.certificatesData.set(list);
+      },
+      error: (err: any) => {
+        console.error('Failed to load certificates', err);
+      }
+    });
+  }
+
+  toggleAddDocument() {
+    this.isAddingDocument.update(v => !v);
+    if (!this.isAddingDocument()) {
+      this.documentForm.reset();
+      this.selectedDocFile = null;
+      this.dynamicDocuments.set([]);
+      this.selectedDynamicFiles.set({});
+    }
+  }
+
+  onDocumentFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedDocFile = file;
+      this.documentForm.patchValue({ file: file });
+    }
+  }
+
+  onDynamicFileSelected(event: any, docId: string) {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedDynamicFiles.update(files => ({
+        ...files,
+        [docId]: file
+      }));
+    }
+  }
+
+  saveDocument() {
+    const pid = this.practitionerData()?.practitionerID;
+    if (!pid) return;
+
+    const { certificateId } = this.documentForm.value;
+    const selectedCert = this.certificatesData().find(c => c.id == certificateId);
+    const docNameBase = selectedCert ? selectedCert.name : 'Unknown';
+
+    // Check if we have dynamic documents to upload
+    const dynamicDocs = this.dynamicDocuments();
+    if (dynamicDocs.length > 0) {
+      const selectedFiles = this.selectedDynamicFiles();
+      const uploads = dynamicDocs
+        .filter(doc => selectedFiles[doc.id])
+        .map(doc => {
+          const file = selectedFiles[doc.id];
+          const docType = doc.docdetailes;
+          const docName = docNameBase; // DocumentName as certificate name
+          return this.adminService.uploadPractitionerDocument(pid, docType, file, docName);
+        });
+
+      if (uploads.length === 0) {
+        alert('Please select at least one document to upload');
+        return;
+      }
+
+      forkJoin(uploads).subscribe({
+        next: () => {
+          alert('Documents uploaded successfully');
+          this.toggleAddDocument();
+          this.loadDocuments(pid);
+        },
+        error: (err: any) => {
+          console.error('Bulk upload failed', err);
+          alert('Failed to upload some documents. Please try again.');
+        }
+      });
+    } else {
+      // Fallback to single file upload (though UI will hide this if dynamicDocs exist)
+      if (this.documentForm.invalid || !this.selectedDocFile) {
+        this.documentForm.markAllAsTouched();
+        return;
+      }
+
+      const docName = docNameBase;
+      const docType = docName;
+
+      this.adminService.uploadPractitionerDocument(pid, docType!, this.selectedDocFile, docName!).subscribe({
+        next: () => {
+          alert('Document uploaded successfully');
+          this.toggleAddDocument();
+          this.loadDocuments(pid);
+        },
+        error: (err: any) => {
+          console.error('Upload failed', err);
+          alert('Failed to upload document');
+        }
+      });
+    }
+  }
+
+  deleteDocument(docId: string) {
+    const pid = this.practitionerData()?.practitionerID;
+    if (confirm('Are you sure you want to delete this document?')) {
+      this.adminService.deletePractitionerDocument(docId).subscribe({
+        next: () => {
+          alert('Document deleted successfully');
+          if (pid) this.loadDocuments(pid);
+        },
+        error: (err: any) => {
+          console.error('Delete failed', err);
+          alert('Failed to delete document');
+        }
+      });
+    }
+  }
+
   async initiateRazorpayPayment() {
     if (!this.selectedLedger() || this.paymentAmount() <= 0) return;
+
+    // Strict NOC Council Enforcement
+    if (this.isNocSelected() && (!this.selectedNocCouncilId() || this.selectedNocCouncilId() === 'null')) {
+      this.showCouncilModal.set(true);
+      return;
+    }
 
     this.isProcessingPayment.set(true);
     this.paymentStatus.set(null);
@@ -1971,8 +2064,9 @@ export class UserDashboardComponent implements OnInit {
 
       const practitionerId = this.practitionerData()?.practitionerID || this.practitionerData()?.practitionerId || '';
       const ledgerId = this.selectedLedger().ledgerID;
+      const councilId = this.isNocSelected() ? this.selectedNocCouncilId() : null;
 
-      this.adminService.createOrder(this.paymentAmount(), practitionerId, ledgerId).subscribe({
+      this.adminService.createOrder(this.paymentAmount(), practitionerId, ledgerId, councilId).subscribe({
         next: (orderRes: any) => {
           const orderId = orderRes?.orderId || orderRes?.result?.orderId || orderRes?.id || orderRes;
 
@@ -2171,7 +2265,14 @@ export class UserDashboardComponent implements OnInit {
       this.adminService.getPaymentDetails(userId).subscribe({
         next: (data: any) => {
           const records = Array.isArray(data) ? data : (data?.result || []);
-          this.receiptsList.set(records);
+          this.receiptsList.set(records.map((item: any) => {
+            const rawName = item.ledgerDescription || item.feeItemname || item.type || '';
+            const displayName = rawName.toLowerCase().includes('certificate') ? rawName : rawName + ' Certificate';
+            return {
+              ...item,
+              displayName: displayName
+            };
+          }));
         },
         error: (err) => {
           console.error('Error fetching payment details:', err);
@@ -2181,420 +2282,20 @@ export class UserDashboardComponent implements OnInit {
   }
 
 
-  setProfileSubTab(subTabId: string) {
-    this.activeProfileSubTab.set(subTabId);
-  }
 
 
 
 
-  loadAddressMasterData(): Observable<any[]> {
-    const countries$ = this.adminService.getCountries().pipe(
-      map((data: any) => {
-        const list = Array.isArray(data) ? data : ((data as any)?.result || []);
-        this.countryOptions.set(list);
-        return list;
-      })
-    );
-    
-    this.adminService.getRuralUrbanTypes().subscribe((data: any) => 
-      this.ruralUrbanOptions.set(Array.isArray(data) ? data : ((data as any)?.result || []))
-    );
-
-    return countries$;
-  }
-
-  private prefetchAddressCascades(res: any, prof: any) {
-    // Wait for countries to be loaded if not already
-    if (this.countryOptions().length === 0) {
-      this.loadAddressMasterData().subscribe(() => this.prefetchAddressCascades(res, prof));
-      return;
-    }
-
-    if (res?.country) {
-      const countryId = this.findId(this.countryOptions(), 'countryId', 'countryName', res.country);
-      if (countryId) {
-        this.adminService.getStates(countryId).subscribe(states => {
-          const stateList = Array.isArray(states) ? states : ((states as any)?.result || []);
-          this.resStateOptions.set(stateList);
-          const stateId = this.findId(stateList, 'stateId', 'stateName', res.state);
-          if (stateId) {
-            this.adminService.getDistricts(stateId).subscribe(districts => {
-              this.resDistrictOptions.set(Array.isArray(districts) ? districts : ((districts as any)?.result || []));
-            });
-          }
-        });
-      }
-    }
-
-    if (prof?.country) {
-      const countryId = this.findId(this.countryOptions(), 'countryId', 'countryName', prof.country);
-      if (countryId) {
-        this.adminService.getStates(countryId).subscribe(states => {
-          const stateList = Array.isArray(states) ? states : ((states as any)?.result || []);
-          this.profStateOptions.set(stateList);
-          const stateId = this.findId(stateList, 'stateId', 'stateName', prof.state);
-          if (stateId) {
-            this.adminService.getDistricts(stateId).subscribe(districts => {
-              this.profDistrictOptions.set(Array.isArray(districts) ? districts : ((districts as any)?.result || []));
-            });
-          }
-        });
-      }
-    }
-  }
 
   setupAddressListeners() {
-    // Residential Country -> State
-    this.contactForm.get('resCountry')?.valueChanges.subscribe(countryId => {
-      this.resStateOptions.set([]);
-      this.resDistrictOptions.set([]);
-      if (countryId) {
-        this.adminService.getStates(countryId).subscribe((data: any) => {
-          this.resStateOptions.set(Array.isArray(data) ? data : (data?.result || []));
-        });
-      }
-    });
-
-    // Residential State -> District
-    this.contactForm.get('resState')?.valueChanges.subscribe(stateId => {
-      this.resDistrictOptions.set([]);
-      if (stateId) {
-        this.adminService.getDistricts(stateId).subscribe((data: any) => {
-          this.resDistrictOptions.set(Array.isArray(data) ? data : (data?.result || []));
-        });
-      }
-    });
-
-    // Professional Country -> State
-    this.contactForm.get('profCountry')?.valueChanges.subscribe(countryId => {
-      this.profStateOptions.set([]);
-      this.profDistrictOptions.set([]);
-      if (countryId) {
-        this.adminService.getStates(countryId).subscribe((data: any) => {
-          this.profStateOptions.set(Array.isArray(data) ? data : (data?.result || []));
-        });
-      }
-    });
-
-    // Professional State -> District
-    this.contactForm.get('profState')?.valueChanges.subscribe(stateId => {
-      this.profDistrictOptions.set([]);
-      if (stateId) {
-        this.adminService.getDistricts(stateId).subscribe((data: any) => {
-          this.profDistrictOptions.set(Array.isArray(data) ? data : (data?.result || []));
-        });
-      }
-    });
-
-    // "Same as Residential" Logic
-    this.contactForm.get('isProSameAsRes')?.valueChanges.subscribe(checked => {
-      if (checked) {
-        const val = this.contactForm.value;
-        this.contactForm.patchValue({
-          profAddress1: val.resAddress1,
-          profAddress2: val.resAddress2,
-          profCity: val.resCity,
-          profRuralUrban: val.resRuralUrban,
-          profCountry: val.resCountry,
-          profState: val.resState,
-          profDistrict: val.resDistrict,
-          profPinCode: val.resPinCode,
-          profPhone1: val.resPhone1,
-          profPhone2: val.resPhone2
-        });
-      }
-    });
-  }
-
-  private findId(options: any[], idKey: string, nameKey: string, value: any): any {
-    if (!value) return '';
-    const found = options.find(o => o[idKey] == value || o[nameKey] == value);
-    return found ? found[idKey] : value;
-  }
-
-  toggleEditContact() {
-    this.isEditingContact.set(!this.isEditingContact());
-    if (this.isEditingContact()) {
-      this.populateContactForm();
-    }
-  }
-
-  populateContactForm() {
-    const res = this.resAddress()?.result || this.resAddress();
-    const prof = this.profAddress()?.result || this.profAddress();
-
-    if (res) {
-      const countryId = this.findId(this.countryOptions(), 'countryId', 'countryName', res.country);
-      const ruralUrbanId = this.findId(this.ruralUrbanOptions(), 'typeId', 'typeName', res.placeType) ||
-                          this.findId(this.ruralUrbanOptions(), 'ruralurbanId', 'ruralurban', res.placeType) ||
-                          res.placeType;
-
-      this.contactForm.patchValue({
-        resAddress1: res.address1,
-        resAddress2: res.address2,
-        resCity: res.city,
-        resRuralUrban: ruralUrbanId,
-        resCountry: countryId,
-        resPinCode: res.zip,
-        resPhone1: res.phone1,
-        resPhone2: res.phone2
-      }, { emitEvent: false });
-
-      // Cascading for Residential
-      if (countryId) {
-        // If already loaded in ngOnInit, use that, otherwise fetch
-        const existingStates = this.resStateOptions();
-        if (existingStates.length > 0) {
-          const stateId = this.findId(existingStates, 'stateId', 'stateName', res.state);
-          this.contactForm.patchValue({ resState: stateId }, { emitEvent: false });
-          
-          if (stateId) {
-            const existingDistricts = this.resDistrictOptions();
-            if (existingDistricts.length > 0) {
-              const districtId = this.findId(existingDistricts, 'districtId', 'districtName', res.district);
-              this.contactForm.patchValue({ resDistrict: districtId }, { emitEvent: false });
-            } else {
-              this.adminService.getDistricts(stateId).subscribe((districts: any) => {
-                const list = Array.isArray(districts) ? districts : ((districts as any)?.result || []);
-                this.resDistrictOptions.set(list);
-                const districtId = this.findId(list, 'districtId', 'districtName', res.district);
-                this.contactForm.patchValue({ resDistrict: districtId }, { emitEvent: false });
-              });
-            }
-          }
-        } else {
-          this.adminService.getStates(countryId).subscribe((states: any) => {
-            const stateList = Array.isArray(states) ? states : ((states as any)?.result || []);
-            this.resStateOptions.set(stateList);
-            const stateId = this.findId(stateList, 'stateId', 'stateName', res.state);
-            this.contactForm.patchValue({ resState: stateId }, { emitEvent: false });
-            
-            if (stateId) {
-              this.adminService.getDistricts(stateId).subscribe((districts: any) => {
-                const distList = Array.isArray(districts) ? districts : ((districts as any)?.result || []);
-                this.resDistrictOptions.set(distList);
-                const districtId = this.findId(distList, 'districtId', 'districtName', res.district);
-                this.contactForm.patchValue({ resDistrict: districtId }, { emitEvent: false });
-              });
-            }
-          });
-        }
-      }
-    }
-
-    if (prof) {
-      const countryId = this.findId(this.countryOptions(), 'countryId', 'countryName', prof.country);
-      const ruralUrbanId = this.findId(this.ruralUrbanOptions(), 'typeId', 'typeName', prof.placeType) ||
-                          this.findId(this.ruralUrbanOptions(), 'ruralurbanId', 'ruralurban', prof.placeType) ||
-                          prof.placeType;
-
-      this.contactForm.patchValue({
-        profAddress1: prof.address1,
-        profAddress2: prof.address2,
-        profCity: prof.city,
-        profRuralUrban: ruralUrbanId,
-        profCountry: countryId,
-        profPinCode: prof.zip,
-        profPhone1: prof.phone1,
-        profPhone2: prof.phone2
-      }, { emitEvent: false });
-
-      // Cascading for Professional
-      if (countryId) {
-        const existingStates = this.profStateOptions();
-        if (existingStates.length > 0) {
-          const stateId = this.findId(existingStates, 'stateId', 'stateName', prof.state);
-          this.contactForm.patchValue({ profState: stateId }, { emitEvent: false });
-
-          if (stateId) {
-            const existingDistricts = this.profDistrictOptions();
-            if (existingDistricts.length > 0) {
-              const districtId = this.findId(existingDistricts, 'districtId', 'districtName', prof.district);
-              this.contactForm.patchValue({ profDistrict: districtId }, { emitEvent: false });
-            } else {
-              this.adminService.getDistricts(stateId).subscribe((districts: any) => {
-                const list = Array.isArray(districts) ? districts : ((districts as any)?.result || []);
-                this.profDistrictOptions.set(list);
-                const districtId = this.findId(list, 'districtId', 'districtName', prof.district);
-                this.contactForm.patchValue({ profDistrict: districtId }, { emitEvent: false });
-              });
-            }
-          }
-        } else {
-          this.adminService.getStates(countryId).subscribe((states: any) => {
-            const stateList = Array.isArray(states) ? states : ((states as any)?.result || []);
-            this.profStateOptions.set(stateList);
-            const stateId = this.findId(stateList, 'stateId', 'stateName', prof.state);
-            this.contactForm.patchValue({ profState: stateId }, { emitEvent: false });
-
-            if (stateId) {
-              this.adminService.getDistricts(stateId).subscribe((districts: any) => {
-                const distList = Array.isArray(districts) ? districts : ((districts as any)?.result || []);
-                this.profDistrictOptions.set(distList);
-                const districtId = this.findId(distList, 'districtId', 'districtName', prof.district);
-                this.contactForm.patchValue({ profDistrict: districtId }, { emitEvent: false });
-              });
-            }
-          });
-        }
-      }
-    }
-  }
-
-  saveContact() {
-    const userId = this.auth.currentUser()?.id;
-    if (!userId) return;
-
-    const val = this.contactForm.value;
-
-    const resPayload = {
-      clientID: userId,
-      addressType: "R",
-      address1: val.resAddress1,
-      address2: val.resAddress2,
-      city: val.resCity,
-      district: String(val.resDistrict || ""),
-      state: String(val.resState || ""),
-      zip: val.resPinCode,
-      country: String(val.resCountry || ""),
-      phone1: val.resPhone1,
-      phone2: val.resPhone2,
-      placeType: val.resRuralUrban,
-      createdBy: "User"
-    };
-
-    const profPayload = {
-      clientID: userId,
-      addressType: "P",
-      address1: val.profAddress1 || val.resAddress1,
-      address2: val.profAddress2 || val.resAddress2,
-      city: val.profCity,
-      district: String(val.profDistrict || ""),
-      state: String(val.profState || ""),
-      zip: val.profPinCode,
-      country: String(val.profCountry || ""),
-      phone1: val.profPhone1,
-      phone2: val.profPhone2,
-      placeType: val.profRuralUrban,
-      createdBy: "User"
-    };
-
-    this.adminService.saveAddress(resPayload).subscribe({
-      next: () => {
-        this.adminService.saveAddress(profPayload).subscribe({
-          next: () => {
-            alert('Contact Information Updated Successfully!');
-            this.isEditingContact.set(false);
-            this.ngOnInit(); // Reload data
-          },
-          error: () => alert('Failed to save Professional Address.')
-        });
-      },
-      error: () => alert('Failed to save Residential Address.')
-    });
-  }
-
-  loadMasterData() {
-    this.adminService.getTitles().subscribe((data: any) => this.titleOptions.set(Array.isArray(data) ? data : (data?.result || [])));
-    this.adminService.getGenders().subscribe((data: any) => this.genderOptions.set(Array.isArray(data) ? data : (data?.result || [])));
-    this.adminService.getBloodGroups().subscribe((data: any) => this.bloodGroupOptions.set(Array.isArray(data) ? data : (data?.result || [])));
-    this.adminService.getNationalities().subscribe((data: any) => this.nationalityOptions.set(Array.isArray(data) ? data : (data?.result || [])));
-    this.adminService.getEligibility().subscribe((data: any) => this.eligibilityOptions.set(Array.isArray(data) ? data : (data?.result || [])));
-  }
-
-  toggleEditProfile() {
-    this.isEditingProfile.set(!this.isEditingProfile());
-    if (this.isEditingProfile()) {
-      this.populatePersonalForm();
-    }
-  }
-
-  populatePersonalForm() {
-    let user = this.practitionerData();
-    if (!user) return;
-    if (user.result) user = user.result;
-
-    const titleId = this.findId(this.titleOptions(), 'titleId', 'titleName', user.title);
-    const genderId = this.findId(this.genderOptions(), 'genderId', 'genderName', user.gender);
-    const bloodGroupId = this.findId(this.bloodGroupOptions(), 'bloodGroupCode', 'bloodGroupDescription', user.bloodGroup);
-    const nationalityId = this.findId(this.nationalityOptions(), 'nationalityId', 'nationality', user.nationality);
-    const eligibilityId = this.findId(this.eligibilityOptions(), 'eligibiltyId', 'eligibilty', user.vote);
-
-    this.personalForm.patchValue({
-        title: titleId,
-        name: user.name,
-        gender: genderId,
-        bloodGroup: bloodGroupId,
-        changeOfName: user.changeOfName,
-        fatherName: user.spouseName,
-        birthDate: user.birthDate ? user.birthDate.split('T')[0] : '',
-        birthPlace: user.birthPlace,
-        nationality: nationalityId,
-        eligibility: eligibilityId,
-        email: user.emailID,
-        mobile: user.mobileNumber
-    });
-  }
-
-  saveProfile() {
-    if (!this.personalForm.valid) {
-      this.personalForm.markAllAsTouched();
-      return;
-    }
-
-    const formValue = this.personalForm.value;
-    const userId = this.auth.currentUser()?.id;
-    if (!userId) return;
-
-    const payload = {
-        councilId: "1",
-        title: String(this.titleOptions().find(t => t.titleId == formValue.title)?.titleName || formValue.title || ""),
-        name: formValue.name,
-        changeOfName: formValue.changeOfName || "",
-        spouseName: formValue.fatherName,
-        birthDate: new Date(formValue.birthDate).toISOString(),
-        birthPlace: formValue.birthPlace,
-        gender: String(formValue.gender || ""),
-        nationality: String(formValue.nationality || ""),
-        vote: String(formValue.eligibility || ""),
-        emailID: formValue.email,
-        mobileNumber: formValue.mobile,
-        bloodGroup: String(formValue.bloodGroup || ""),
-        createdBy: "User",
-        status: "1"
-    };
-
-    this.adminService.updatePractitioner(userId, payload).subscribe({
-        next: () => {
-            alert('Profile Updated Successfully!');
-            this.isEditingProfile.set(false);
-            this.ngOnInit(); // Reload data
-        },
-        error: (err) => {
-            console.error('Update Failed:', err);
-            alert('Failed to update profile.');
-        }
-    });
+    // Methods related to editing addresses have been removed as the profile is now read-only.
   }
 
   ngOnInit() {
     const userId = this.auth.currentUser()?.id;
     if (userId) {
-      this.loadMasterData();
-      this.loadAddressMasterData().subscribe();
-      this.loadEducationMasterData();
-      this.setupAddressListeners();
+      this.loadCouncils();
       
-      // Populate years for education form
-      const currentYear = new Date().getFullYear();
-      for (let i = currentYear; i >= 1950; i--) {
-        // Assuming 'years' is a property of the component, e.g., `years: number[] = [];`
-        // If not, it needs to be declared.
-        // For this edit, I'm assuming it's declared or will be.
-        (this as any).years.push(i); 
-      }
-
       this.adminService.getPractitionerById(userId).subscribe({
         next: (data) => {
           this.practitionerData.set(data);
@@ -2607,21 +2308,15 @@ export class UserDashboardComponent implements OnInit {
         }
       });
 
-      // Fetch Addresses and Pre-fetch Dropdowns
+      // Fetch Addresses
       this.adminService.getAddress(userId, 'R').subscribe(data => {
         const res = (data as any)?.result || data;
         this.resAddress.set(res);
-        if (this.profAddress()) {
-           this.prefetchAddressCascades(this.resAddress(), this.profAddress());
-        }
       });
 
       this.adminService.getAddress(userId, 'P').subscribe(data => {
         const prof = (data as any)?.result || data;
         this.profAddress.set(prof);
-        if (this.resAddress()) {
-           this.prefetchAddressCascades(this.resAddress(), this.profAddress());
-        }
       });
 
       // Fetch Education
@@ -2631,6 +2326,28 @@ export class UserDashboardComponent implements OnInit {
       this.adminService.getPaymentLedgers().subscribe((data: any) => {
         const list = Array.isArray(data) ? data : (data?.result || []);
         this.ledgers.set(list);
+      });
+
+      // Listen for certificate selection to fetch dynamic documents
+      this.documentForm.get('certificateId')?.valueChanges.subscribe(certId => {
+        if (certId) {
+          const selectedCert = this.certificatesData().find(c => c.id == certId);
+          if (selectedCert && selectedCert.typeid) {
+            this.adminService.getDocumentsForServices(selectedCert.typeid).subscribe({
+              next: (docs: any) => {
+                this.dynamicDocuments.set(docs || []);
+                this.selectedDynamicFiles.set({});
+              },
+              error: (err: any) => {
+                console.error('Failed to fetch dynamic documents', err);
+                this.dynamicDocuments.set([]);
+              }
+            });
+          }
+        } else {
+          this.dynamicDocuments.set([]);
+          this.selectedDynamicFiles.set({});
+        }
       });
     } else {
       this.error.set('User identifier not found in session.');
@@ -2642,133 +2359,16 @@ export class UserDashboardComponent implements OnInit {
     this.adminService.getEducation(userId).subscribe((data: any) => {
       const records = Array.isArray(data) ? data : (data?.result || []);
       // Map data for display consistency if needed
-      this.educationalInfo.set(records.map((edu: any) => ({
-        ...edu,
-        convertedDate: `${edu.monthOfPassing}/${edu.yearOfPassing}`
-      })));
+      this.educationalInfo.set(records.map((edu: any) => {
+        const monthObj = this.months.find(m => m.value === edu.monthOfPassing || m.value === String(edu.monthOfPassing).padStart(2, '0'));
+        const monthName = monthObj ? monthObj.name : edu.monthOfPassing;
+        return {
+          ...edu,
+          convertedDate: `${monthName} ${edu.yearOfPassing}`
+        };
+      }));
     });
   }
 
-  loadEducationMasterData() {
-    this.adminService.getCourses().subscribe({
-      next: (data: any) => {
-        this.courseOptions = Array.isArray(data) ? data : (data?.result || []);
-      },
-      error: (err) => console.error('Failed to load courses', err)
-    });
-
-    this.adminService.getUniversities().subscribe({
-      next: (data: any) => {
-        this.universityOptions = Array.isArray(data) ? data : (data?.result || []);
-      },
-      error: (err) => console.error('Failed to load universities', err)
-    });
-  }
-
-  onUniversityChange() {
-    const universityId = this.educationForm.get('university')?.value;
-    if (!universityId) {
-      this.collegeOptions = [];
-      return;
-    }
-
-    this.adminService.getColleges(universityId).subscribe({
-      next: (data: any) => {
-        this.collegeOptions = Array.isArray(data) ? data : (data?.result || []);
-      },
-      error: (err) => console.error('Failed to load colleges', err)
-    });
-  }
-
-  toggleAddEducation() {
-    this.isAddingEducation = !this.isAddingEducation;
-    this.editingEducationId = null;
-    this.educationForm.reset();
-    this.collegeOptions = [];
-  }
-
-  editEducation(edu: any) {
-    this.isAddingEducation = true;
-    this.editingEducationId = edu.educationID;
-
-    this.educationForm.patchValue({
-      degree: edu.subCode,
-      courseName: edu.subject,
-      otherSubject: edu.otherSubject,
-      passMonth: edu.monthOfPassing,
-      passYear: edu.yearOfPassing,
-      university: edu.universityId,
-
-      certificateNo: edu.certificateNo,
-      certificateDate: edu.certificateDate ? new Date(edu.certificateDate).toISOString().split('T')[0] : ''
-    });
-
-    if (edu.universityId) {
-      this.adminService.getColleges(edu.universityId).subscribe({
-        next: (data: any) => {
-          this.collegeOptions = Array.isArray(data) ? data : (data?.result || []);
-          this.educationForm.patchValue({ college: edu.collegeID });
-        },
-        error: (err) => console.error('Failed to load colleges for edit', err)
-      });
-    }
-  }
-
-  deleteEducation(id: string) {
-    if (confirm('Are you sure you want to delete this educational record?')) {
-      this.adminService.deleteEducation(id).subscribe({
-        next: () => {
-          alert('Record deleted successfully');
-          this.loadEducation(this.auth.currentUser()?.id!);
-        },
-        error: (err) => {
-          console.error('Delete failed', err);
-          alert('Failed to delete record');
-        }
-      });
-    }
-  }
-
-  saveEducation() {
-    if (this.educationForm.invalid) {
-      this.educationForm.markAllAsTouched();
-      return;
-    }
-
-    const formVal = this.educationForm.value;
-    const userId = this.auth.currentUser()?.id;
-
-    const selectedCourse = this.courseOptions.find(c => c.courseId === formVal.degree);
-    const educationName = selectedCourse ? selectedCourse.courseDescription : '';
-
-    const payload = {
-      educationID: this.editingEducationId || "",
-      practitionerID: userId,
-      educationName: educationName,
-      yearOfPassing: formVal.passYear,
-      collegeID: formVal.college,
-      universityId: formVal.university,
-      subject: formVal.courseName,
-      monthOfPassing: formVal.passMonth,
-      subCode: formVal.degree,
-      createdBy: 'User',
-
-      certificateNo: formVal.certificateNo,
-      certificateDate: formVal.certificateDate ? new Date(formVal.certificateDate).toISOString() : null
-
-    };
-
-    this.adminService.saveEducation(payload).subscribe({
-      next: () => {
-        alert(`Educational information ${this.editingEducationId ? 'updated' : 'saved'} successfully!`);
-        this.toggleAddEducation();
-        this.loadEducation(userId!);
-      },
-      error: (err) => {
-        console.error('Save failed', err);
-        alert('Failed to save educational information.');
-      }
-    });
-  }
 }
 

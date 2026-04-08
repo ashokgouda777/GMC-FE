@@ -44,9 +44,6 @@ import { CommonModule } from '@angular/common';
             <span class="divider"></span>
             
             <a routerLink="/admin/accounting" routerLinkActive="active">Accounting</a>
-            <span class="divider"></span>
-            
-            <a routerLink="/admin/reports" routerLinkActive="active">Reports</a>
         </nav>
     </header>
   `,
