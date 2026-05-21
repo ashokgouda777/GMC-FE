@@ -1,7 +1,7 @@
 {
     "/api": {
-        "target": "https://localhost:7146",
-        "secure": false,
+        "target": "https://gmc-backend-2.onrender.com",
+        "secure": true,
         "changeOrigin": true
     }
 }

@@ -1,5 +1,5 @@
-@import '../../../../../styles/variables';
-@import '../../../../../styles/mixins';
+@use 'variables';
+@use 'mixins';
 
 /* ============================================
    GLOBAL / THEME OVERRIDE
@@ -26,7 +26,7 @@
 
 .landing-content {
     padding-top: 70px;
-    font-family: $font-family;
+    font-family: variables.$font-family;
 }
 
 .container {
@@ -68,7 +68,7 @@
 .section-title {
     font-size: 2.6rem;
     font-weight: 800;
-    color: $text-color;
+    color: variables.$text-color;
     margin: 0 0 16px;
     line-height: 1.15;
 }
@@ -329,7 +329,7 @@
             margin: 0 0 2px;
             font-size: 1.1rem;
             font-weight: 700;
-            color: $text-color;
+            color: variables.$text-color;
         }
         p {
             margin: 0;
@@ -398,7 +398,7 @@
     .label-line {
         flex: 1;
         height: 1px;
-        background: linear-gradient(to right, transparent, $border-color, transparent);
+        background: linear-gradient(to right, transparent, variables.$border-color, transparent);
     }
 
     .label-text {
@@ -463,7 +463,7 @@
     h4 {
         font-size: 1rem;
         font-weight: 700;
-        color: $text-color;
+        color: variables.$text-color;
         margin: 0 0 8px;
     }
 
@@ -600,7 +600,7 @@
     .form-card-title {
         font-size: 1.3rem;
         font-weight: 800;
-        color: $text-color;
+        color: variables.$text-color;
         margin: 0 0 28px;
     }
 }
@@ -620,7 +620,7 @@
         display: block;
         font-size: 0.85rem;
         font-weight: 600;
-        color: $text-color;
+        color: variables.$text-color;
         margin-bottom: 8px;
 
         .req { color: #e53e3e; }
@@ -644,9 +644,9 @@
         padding: 13px 16px 13px 44px;
         border: 1.5px solid #E0E5F2;
         border-radius: 12px;
-        font-family: $font-family;
+        font-family: variables.$font-family;
         font-size: 0.9rem;
-        color: $text-color;
+        color: variables.$text-color;
         background: #FAFBFF;
         transition: border-color 0.2s, box-shadow 0.2s;
         box-sizing: border-box;
@@ -667,9 +667,9 @@ textarea {
     padding: 13px 16px;
     border: 1.5px solid #E0E5F2;
     border-radius: 12px;
-    font-family: $font-family;
+    font-family: variables.$font-family;
     font-size: 0.9rem;
-    color: $text-color;
+    color: variables.$text-color;
     background: #FAFBFF;
     resize: vertical;
     transition: border-color 0.2s, box-shadow 0.2s;
@@ -696,7 +696,7 @@ textarea {
     color: #fff;
     border: none;
     border-radius: 14px;
-    font-family: $font-family;
+    font-family: variables.$font-family;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;

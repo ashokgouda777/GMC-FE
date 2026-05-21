@@ -1398,7 +1398,8 @@ export class PractitionerProfileComponent implements OnInit, OnDestroy {
             alert('Practitioner ID is missing.');
             return;
         }
-        const url = `https://localhost:44377/PractitionerView?pid=${this.practitionerId}`;
+        const baseUrl = environment.apiUrl.replace('/api', '');
+        const url = `${baseUrl}/PractitionerView?pid=${this.practitionerId}`;
         window.open(url, '_blank');
     }
 

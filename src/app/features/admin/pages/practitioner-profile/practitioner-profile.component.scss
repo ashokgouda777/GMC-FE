@@ -1,6 +1,7 @@
-@import 'variables';
-@import 'sidebar-layout';
-@import 'mixins';
+@use "sass:color";
+@use 'variables';
+@use 'sidebar-layout';
+@use 'mixins';
 
 // Variables for this specific layout
 $tab-bg-start: color-mix(in srgb, var(--primary-color, #b2ebf2) 10%, white);
@@ -25,7 +26,7 @@ $label-width: 300px;
 }
 
 .header {
-    background: $white;
+    background: variables.$white;
     padding: 15px 20px;
     border-bottom: 2px solid #ddd;
     margin-bottom: 0;
@@ -103,7 +104,7 @@ $label-width: 300px;
 
 // Modern Info Card
 .info-card {
-    background: $white;
+    background: variables.$white;
     border-radius: 12px; // More rounded
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04); // Very subtle, clean shadow
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -1004,7 +1005,7 @@ $label-width: 300px;
                     letter-spacing: 0.2px;
 
                     &.primary {
-                        background: linear-gradient(135deg, var(--primary-color) 0%, darken(#0277bd, 10%) 100%);
+                        background: linear-gradient(135deg, var(--primary-color) 0%, color.adjust(#0277bd, $lightness: -10%) 100%);
                         color: #fff;
                         border: none;
                         box-shadow: 0 3px 8px rgba(var(--primary-color-rgb), 0.25);
@@ -1213,21 +1214,21 @@ $label-width: 300px;
 
 // Receipt Card Styles (Synced from User Dashboard)
 .receipt-card {
-    @include card-base;
+    @include mixins.card-base;
     padding: 0;
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    margin-bottom: $spacing-lg;
+    margin-bottom: variables.$spacing-lg;
 
     .receipt-header {
-        padding: $spacing-md $spacing-lg;
-        background: rgba($bg-color, 0.3);
+        padding: variables.$spacing-md variables.$spacing-lg;
+        background: rgba(variables.$bg-color, 0.3);
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
-        gap: $spacing-md;
+        gap: variables.$spacing-md;
 
         .type-badge {
             display: flex;
@@ -1247,14 +1248,14 @@ $label-width: 300px;
                 }
 
                 .mode {
-                    color: $text-secondary;
+                    color: variables.$text-secondary;
                     font-size: 0.9rem;
                 }
             }
 
             .sub-actions {
                 display: flex;
-                gap: $spacing-md;
+                gap: variables.$spacing-md;
                 margin-top: 4px;
 
                 .text-action-btn {
@@ -1268,7 +1269,7 @@ $label-width: 300px;
                     text-decoration: underline;
 
                     &:hover {
-                        color: darken(#800080, 10%);
+                        color: color.adjust(#800080, $lightness: -10%);
                     }
                 }
             }
@@ -1276,7 +1277,7 @@ $label-width: 300px;
 
         .action-links {
             display: flex;
-            gap: $spacing-md;
+            gap: variables.$spacing-md;
             flex-wrap: wrap;
 
             .action-link {
@@ -1299,20 +1300,20 @@ $label-width: 300px;
     }
 
     .receipt-body {
-        padding: $spacing-lg;
+        padding: variables.$spacing-lg;
         display: grid;
         grid-template-columns: 1fr 1fr 1.2fr;
-        gap: $spacing-xl;
+        gap: variables.$spacing-xl;
 
         @media (max-width: 768px) {
             grid-template-columns: 1fr;
-            gap: $spacing-md;
+            gap: variables.$spacing-md;
         }
 
         .details-column {
             display: flex;
             flex-direction: column;
-            gap: $spacing-md;
+            gap: variables.$spacing-md;
         }
 
         .detail-group {
@@ -1322,14 +1323,14 @@ $label-width: 300px;
 
             .label {
                 font-size: 0.75rem;
-                color: $text-secondary;
+                color: variables.$text-secondary;
                 font-weight: 700;
                 letter-spacing: 0.5px;
             }
 
             .value {
                 font-size: 1rem;
-                color: $text-color;
+                color: variables.$text-color;
                 font-weight: 600;
 
                 &.highlight-orange {

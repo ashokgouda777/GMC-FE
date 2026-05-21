@@ -1,4 +1,4 @@
-@import 'variables';
+@use 'variables';
 
 @mixin flex-center {
     display: flex;
@@ -18,7 +18,7 @@
 }
 
 @mixin glass-effect {
-    background: $glass-bg;
+    background: variables.$glass-bg;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -27,44 +27,44 @@
 @mixin card-base {
     background: var(--card-bg, #ffffff);
     border-radius: 20px;
-    box-shadow: $shadow-sm;
+    box-shadow: variables.$shadow-sm;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 @mixin card-hover {
     &:hover {
         transform: translateY(-5px);
-        box-shadow: $shadow-lg;
+        box-shadow: variables.$shadow-lg;
     }
 }
 
 @mixin modern-input {
     width: 100%;
-    padding: $spacing-sm;
+    padding: variables.$spacing-sm;
     border: 1px solid #E0E5F2;
     border-radius: 16px;
-    background: $white;
-    color: $text-color;
-    font-family: $font-family;
+    background: variables.$white;
+    color: variables.$text-color;
+    font-family: variables.$font-family;
     font-size: 0.95rem;
     transition: all 0.3s;
 
     &::placeholder {
-        color: $text-secondary;
+        color: variables.$text-secondary;
     }
 
     &:focus {
         outline: none;
-        border-color: $primary-color; // var(...) works here
+        border-color: variables.$primary-color; // var(...) works here
         box-shadow: 0 0 0 2px var(--primary-color); // Solid shadow as rgba(var, opacity) fails with hex
     }
 }
 
 @mixin button-base {
-    padding: $spacing-sm $spacing-md;
+    padding: variables.$spacing-sm variables.$spacing-md;
     border-radius: 12px;
     font-weight: 600;
-    font-family: $font-family;
+    font-family: variables.$font-family;
     cursor: pointer;
     border: none;
     transition: all 0.3s ease;
@@ -89,7 +89,7 @@
 @mixin button-1 {
     @include button-base;
     background: var(--button-color, #0077B6); // Dynamic Button Color
-    color: $white;
+    color: variables.$white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); // Neutral shadow
 
     &:hover:not(:disabled) {
@@ -103,7 +103,7 @@
 @mixin button-2 {
     @include button-base;
     background: var(--secondary-color, #9C27B0); // Dynamic Secondary
-    color: $white;
+    color: variables.$white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
     &:hover:not(:disabled) {
@@ -117,13 +117,13 @@
 @mixin button-3 {
     @include button-base;
     background: transparent;
-    border: 2px solid $primary-light;
-    color: $primary-color;
+    border: 2px solid variables.$primary-light;
+    color: variables.$primary-color;
     box-shadow: none;
 
     &:hover:not(:disabled) {
-        background: rgba($primary-color, 0.05);
-        border-color: $primary-color;
+        background: rgba(variables.$primary-color, 0.05);
+        border-color: variables.$primary-color;
     }
 }
 

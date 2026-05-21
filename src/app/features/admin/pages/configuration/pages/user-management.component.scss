@@ -1,4 +1,4 @@
-    @import 'variables';
+    @use 'variables';
 
     .page-container {
         padding: 0;
@@ -8,11 +8,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: $spacing-md;
+        margin-bottom: variables.$spacing-md;
 
         h2 {
             margin: 0;
-            color: $text-color;
+            color: variables.$text-color;
         }
 
         .actions {
@@ -21,7 +21,7 @@
 
             .search-box {
                 padding: 8px 12px;
-                border: 1px solid $border-color;
+                border: 1px solid variables.$border-color;
                 border-radius: 6px;
                 width: 250px;
             }
@@ -34,23 +34,23 @@
                 font-weight: 500;
 
                 &.btn-primary {
-                    background: $primary-color;
-                    color: $white;
+                    background: variables.$primary-color;
+                    color: variables.$white;
                 }
 
                 &.btn-secondary {
-                    background: $bg-color;
-                    color: $text-color;
-                    border: 1px solid $border-color;
+                    background: variables.$bg-color;
+                    color: variables.$text-color;
+                    border: 1px solid variables.$border-color;
                 }
             }
         }
     }
 
     .table-container {
-        background: $white;
+        background: variables.$white;
         border-radius: 8px;
-        box-shadow: $shadow-sm;
+        box-shadow: variables.$shadow-sm;
         overflow: hidden;
 
         .data-table {
@@ -61,12 +61,12 @@
             td {
                 padding: 12px 16px;
                 text-align: left;
-                border-bottom: 1px solid $bg-color;
+                border-bottom: 1px solid variables.$bg-color;
             }
 
             th {
-                background: rgba($primary-color, 0.05);
-                color: $primary-color;
+                background: rgba(variables.$primary-color, 0.05);
+                color: variables.$primary-color;
                 font-weight: 600;
             }
 
@@ -82,8 +82,8 @@
                 color: #666;
 
                 &.active {
-                    background: rgba($success-color, 0.1);
-                    color: $success-color;
+                    background: rgba(variables.$success-color, 0.1);
+                    color: variables.$success-color;
                 }
             }
 
@@ -91,7 +91,7 @@
                 background: none;
                 border: none;
                 cursor: pointer;
-                color: $primary-color;
+                color: variables.$primary-color;
                 font-weight: 600;
 
                 &:hover {
@@ -101,36 +101,36 @@
 
             .no-data {
                 text-align: center;
-                color: $text-secondary;
+                color: variables.$text-secondary;
                 padding: 20px;
             }
         }
     }
 
     .form-container {
-        background: $white;
-        padding: $spacing-lg;
+        background: variables.$white;
+        padding: variables.$spacing-lg;
         border-radius: 8px;
-        box-shadow: $shadow-sm;
+        box-shadow: variables.$shadow-sm;
 
         .form-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: $spacing-lg;
-            border-bottom: 1px solid $border-color;
+            margin-bottom: variables.$spacing-lg;
+            border-bottom: 1px solid variables.$border-color;
             padding-bottom: 10px;
 
             h3 {
                 margin: 0;
                 font-size: 1.2rem;
-                color: $primary-color;
+                color: variables.$primary-color;
             }
 
             .btn-text {
                 background: none;
                 border: none;
-                color: $text-secondary;
+                color: variables.$text-secondary;
                 cursor: pointer;
                 text-decoration: underline;
                 font-weight: 500;
@@ -141,8 +141,8 @@
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: $spacing-md;
-            margin-bottom: $spacing-lg;
+            gap: variables.$spacing-md;
+            margin-bottom: variables.$spacing-lg;
         }
 
         .form-group {
@@ -153,18 +153,18 @@
             label {
                 font-size: 0.9rem;
                 font-weight: 500;
-                color: $text-color;
+                color: variables.$text-color;
             }
 
             input,
             select {
                 padding: 10px;
-                border: 1px solid $border-color;
+                border: 1px solid variables.$border-color;
                 border-radius: 6px;
 
                 &:focus {
                     outline: none;
-                    border-color: $primary-color;
+                    border-color: variables.$primary-color;
                 }
             }
         }
@@ -182,13 +182,13 @@
                 font-weight: 600;
 
                 &.btn-cancel {
-                    background: $bg-color;
-                    color: $text-color;
+                    background: variables.$bg-color;
+                    color: variables.$text-color;
                 }
 
                 &.btn-submit {
-                    background: $primary-color;
-                    color: $white;
+                    background: variables.$primary-color;
+                    color: variables.$white;
 
                     &:disabled {
                         opacity: 0.6;

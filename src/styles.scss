@@ -1,13 +1,13 @@
-@import 'styles/variables';
-@import 'styles/mixins';
+@use 'styles/variables';
+@use 'styles/mixins';
 
 html,
 body {
     height: 100%;
     margin: 0;
-    font-family: $font-family;
-    background-color: $bg-color;
-    color: $text-color;
+    font-family: variables.$font-family;
+    background-color: variables.$bg-color;
+    color: variables.$text-color;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -33,7 +33,7 @@ h4,
 h5,
 h6 {
     margin-top: 0;
-    color: $text-color;
+    color: variables.$text-color;
     font-weight: 700;
 }
 
@@ -48,12 +48,12 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: $text-secondary;
+    background: variables.$text-secondary;
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: $primary-color;
+    background: variables.$primary-color;
 }
 
 // Global Table Styles for Dynamic Theming
@@ -69,13 +69,13 @@ table {
             font-weight: 600;
             padding: 12px 16px;
             text-align: left;
-            border-bottom: 2px solid $border-color;
+            border-bottom: 2px solid variables.$border-color;
         }
     }
 
     tbody {
         tr {
-            border-bottom: 1px solid $border-color;
+            border-bottom: 1px solid variables.$border-color;
             transition: background 0.2s;
             background-color: var(--table-body-bg, #FFFFFF);
 

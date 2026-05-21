@@ -1,16 +1,16 @@
-    @import 'variables';
-    @import 'mixins';
-    @import 'sidebar-layout';
+@use 'variables';
+@use 'mixins';
+@use 'sidebar-layout';
 
     // .page-layout and .standard-sidebar are imported from sidebar-layout
 
 
     .content-area {
         flex: 1;
-        background: $white;
+        background: variables.$white;
         border-radius: 12px;
         padding: 16px; // Reduced from 32px to 16px to save horizontal space
-        box-shadow: $shadow-sm;
+        box-shadow: variables.$shadow-sm;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -19,19 +19,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: $spacing-md;
+            margin-bottom: variables.$spacing-md;
 
             h1 {
                 margin: 0;
-                color: $text-color;
+                color: variables.$text-color;
                 font-size: 1.5rem;
                 border: none;
                 padding: 0;
             }
 
             .btn-primary {
-                background: $primary-color;
-                color: $white;
+                background: variables.$primary-color;
+                color: variables.$white;
                 border: none;
                 padding: 8px 16px;
                 border-radius: 6px;
@@ -49,9 +49,9 @@
         }
 
         .table-container {
-            background: $white;
+            background: variables.$white;
             border-radius: 8px;
-            box-shadow: $shadow-sm;
+            box-shadow: variables.$shadow-sm;
             overflow-x: auto;
             overflow-y: auto;
             flex: 1;
@@ -67,7 +67,7 @@
                 td {
                     padding: 10px 4px; // Very compact horizontal padding
                     text-align: left;
-                    border-bottom: 1px solid $bg-color;
+                    border-bottom: 1px solid variables.$bg-color;
                     font-size: 0.85rem; // Smaller font
                 }
 
@@ -132,18 +132,18 @@
                             transition: background 0.2s;
 
                             &.edit {
-                                color: $primary-color;
+                                color: variables.$primary-color;
 
                                 &:hover {
-                                    background: rgba($primary-color, 0.1);
+                                    background: rgba(variables.$primary-color, 0.1);
                                 }
                             }
 
                             &.delete {
-                                color: $error-color;
+                                color: variables.$error-color;
 
                                 &:hover {
-                                    background: rgba($error-color, 0.1);
+                                    background: rgba(variables.$error-color, 0.1);
                                 }
                             }
                         }
@@ -217,20 +217,20 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                margin-bottom: $spacing-lg;
-                border-bottom: 1px solid $border-color;
+                margin-bottom: variables.$spacing-lg;
+                border-bottom: 1px solid variables.$border-color;
                 padding-bottom: 10px;
 
                 h2 {
                     margin: 0;
                     font-size: 1.2rem;
-                    color: $primary-color;
+                    color: variables.$primary-color;
                 }
 
                 .btn-text {
                     background: none;
                     border: none;
-                    color: $text-secondary;
+                    color: variables.$text-secondary;
                     cursor: pointer;
                     text-decoration: underline;
                 }
@@ -239,7 +239,7 @@
             .form-grid {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                gap: $spacing-lg;
+                gap: variables.$spacing-lg;
 
                 @media (max-width: 1024px) {
                     grid-template-columns: repeat(2, 1fr);
@@ -258,10 +258,10 @@
                 label {
                     font-size: 0.9rem;
                     font-weight: 500;
-                    color: $text-color;
+                    color: variables.$text-color;
 
                     .required {
-                        color: $error-color;
+                        color: variables.$error-color;
                         margin-left: 2px;
                     }
                 }
@@ -269,18 +269,18 @@
                 input,
                 select {
                     padding: 10px;
-                    border: 1px solid $border-color;
+                    border: 1px solid variables.$border-color;
                     border-radius: 6px;
                     font-size: 0.95rem;
 
                     &:focus {
                         outline: none;
-                        border-color: $primary-color;
+                        border-color: variables.$primary-color;
                     }
                 }
 
                 .error {
-                    color: $error-color;
+                    color: variables.$error-color;
                     font-size: 0.8rem;
                 }
 
@@ -309,9 +309,9 @@
                 display: flex;
                 justify-content: flex-end;
                 gap: 15px;
-                margin-top: $spacing-xl;
-                padding-top: $spacing-md;
-                border-top: 1px solid $border-color;
+                margin-top: variables.$spacing-xl;
+                padding-top: variables.$spacing-md;
+                border-top: 1px solid variables.$border-color;
 
                 button {
                     padding: 10px 30px;
@@ -321,13 +321,13 @@
                     font-weight: 600;
 
                     &.btn-cancel {
-                        background: $bg-color;
-                        color: $text-color;
+                        background: variables.$bg-color;
+                        color: variables.$text-color;
                     }
 
                     &.btn-submit {
-                        background: $primary-color;
-                        color: $white;
+                        background: variables.$primary-color;
+                        color: variables.$white;
 
                         &:disabled {
                             opacity: 0.6;
@@ -354,11 +354,11 @@
         backdrop-filter: blur(4px);
 
         .modal-content.approval-modal {
-            background: $white;
+            background: variables.$white;
             width: 90%;
             max-width: 450px;
             border-radius: 12px;
-            box-shadow: $shadow-lg;
+            box-shadow: variables.$shadow-lg;
             overflow: hidden;
             animation: modalFadeIn 0.3s ease;
 
@@ -368,11 +368,11 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                color: $white;
+                color: variables.$white;
 
                 h3 { margin: 0; font-size: 1.1rem; }
                 .close-btn { 
-                    background: none; border: none; color: $white; 
+                    background: none; border: none; color: variables.$white; 
                     font-size: 1.5rem; cursor: pointer; opacity: 0.8;
                     &:hover { opacity: 1; }
                 }
@@ -386,22 +386,22 @@
 
                 .info-group {
                     label { 
-                        font-size: 0.8rem; color: $text-secondary; 
+                        font-size: 0.8rem; color: variables.$text-secondary; 
                         text-transform: uppercase; letter-spacing: 0.5px;
                         margin-bottom: 4px; display: block;
                     }
                     .value { 
-                        font-size: 1.05rem; font-weight: 600; color: $text-color; 
+                        font-size: 1.05rem; font-weight: 600; color: variables.$text-color; 
                     }
                 }
 
                 .instruction {
                     margin-top: 8px;
                     padding: 12px;
-                    background: rgba($primary-color, 0.05);
-                    border-left: 4px solid $primary-color;
+                    background: rgba(variables.$primary-color, 0.05);
+                    border-left: 4px solid variables.$primary-color;
                     font-size: 0.9rem;
-                    color: $text-color;
+                    color: variables.$text-color;
                     display: flex;
                     align-items: center;
                     gap: 10px;
@@ -413,7 +413,7 @@
 
             .modal-footer {
                 padding: 16px 24px;
-                background: $bg-color;
+                background: variables.$bg-color;
                 display: flex;
                 justify-content: flex-end;
                 gap: 12px;
@@ -427,15 +427,15 @@
                     transition: all 0.2s;
 
                     &.btn-confirm {
-                        background: $primary-color;
-                        color: $white;
+                        background: variables.$primary-color;
+                        color: variables.$white;
                         &:hover { filter: brightness(1.1); }
                     }
 
                     &.btn-secondary {
-                        background: $white;
-                        color: $text-secondary;
-                        border: 1px solid $border-color;
+                        background: variables.$white;
+                        color: variables.$text-secondary;
+                        border: 1px solid variables.$border-color;
                         &:hover { background: #f8f9fa; }
                     }
                 }
